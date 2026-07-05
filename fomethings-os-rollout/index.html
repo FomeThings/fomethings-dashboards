@@ -10,7 +10,7 @@ h1{font-size:clamp(22px,4vw,30px);font-weight:700;letter-spacing:-.02em;margin:0
 .meta{display:flex;flex-wrap:wrap;gap:6px 16px;color:var(--mut);font-size:13.5px;margin-bottom:24px}.meta b{color:var(--fg)}
 .tnum{font-variant-numeric:tabular-nums}
 .track{height:9px;background:var(--surf2);border:1px solid var(--bd);border-radius:999px;overflow:hidden}
-.track>i{display:block;height:100%;width:40%;background:linear-gradient(90deg,var(--a),var(--a2))}
+.track>i{display:block;height:100%;width:100%;background:linear-gradient(90deg,var(--a),var(--a2))}
 .cap{display:flex;justify-content:space-between;margin:8px 0 26px;font-size:12.5px;color:var(--mut)}
 .cards{display:grid;grid-template-columns:1fr 1fr;gap:13px;margin-bottom:13px}@media(max-width:560px){.cards{grid-template-columns:1fr}}
 .card,.strip{background:var(--surf);border:1px solid var(--bd);border-radius:13px;padding:14px 16px;box-shadow:0 1px 2px rgba(15,23,42,.05),0 8px 22px rgba(15,23,42,.04)}
@@ -29,12 +29,12 @@ h1{font-size:clamp(22px,4vw,30px);font-weight:700;letter-spacing:-.02em;margin:0
 </style></head><body><div class="wrap">
 <p class="eyebrow">FomeThings · Umbrella Mission Control</p>
 <h1>FomeThings OS — rollout</h1>
-<div class="meta"><span>Fase actual: <b>F2 → F3</b></span><span class="tnum">Actualizado 2026-07-04T15:45</span></div>
+<div class="meta"><span>Fase actual: <b>ADD completo</b></span><span class="tnum">Actualizado 2026-07-05T01:00</span></div>
 <div class="track"><i></i></div>
-<div class="cap"><span>2/7 fases · 6/15 pasos</span><span class="tnum">40%</span></div>
+<div class="cap"><span>7/7 fases · 7/7 pasos</span><span class="tnum">100%</span></div>
 <div class="cards">
-  <div class="card"><h3>Foco actual</h3><p>F2 entregada (+ sub-fases en UMC); en review del usuario</p></div>
-  <div class="card"><h3>Próxima acción</h3><p>F3 — inspeccionar el Notion actual (inspect-before-delete) y construir el esquema FomeThings</p></div>
+  <div class="card"><h3>Foco actual</h3><p>ADD F0-F6 completo + OS construido en vivo (repo, template, Notion, UMC, dashboards)</p></div>
+  <div class="card"><h3>Próxima acción</h3><p>Roadmap Fase A — aplicar el OS a AuraWallet (adelgazar CLAUDE.md, ADRs, portar hooks)</p></div>
 </div>
 <div class="strip"><h3>Bloqueos</h3><span class="ok">✓ Ninguno</span></div>
 <div class="sec">Fases</div>
@@ -42,92 +42,37 @@ h1{font-size:clamp(22px,4vw,30px);font-weight:700;letter-spacing:-.02em;margin:0
         <div class="row">
           <div class="name">F0 · Fundamentos</div>
           <div class="st"><span class="chip" style="color:#16a34a;background:#16a34a1a;border-color:#16a34a66"><i style="background:#16a34a"></i>done</span></div>
-          <div class="ho">Two-plane + single-home aprobado. Spec 00 = registro canónico. <code>3eadaf9</code></div>
+          <div class="ho">Two-plane + single-home + 3 leyes. Spec 00 canónico. <code>3eadaf9</code></div>
         </div>
         <div class="row">
           <div class="name">F1 · Contexto IA + Claude Code</div>
-          <div class="st"><span class="chip" style="color:#16a34a;background:#16a34a1a;border-color:#16a34a66"><i style="background:#16a34a"></i>done</span><span class="count">3/3</span></div>
-          <div class="ho">UMC = patrón oficial de supervivencia a compactación. <code>aa95872</code></div>
-        </div>
-        <div class="row step">
-          <div class="name">Deep research (22 claims oficiales)</div>
           <div class="st"><span class="chip" style="color:#16a34a;background:#16a34a1a;border-color:#16a34a66"><i style="background:#16a34a"></i>done</span></div>
-          <div class="ho"></div>
-        </div>
-        <div class="row step">
-          <div class="name">Sección 01 del ADD</div>
-          <div class="st"><span class="chip" style="color:#16a34a;background:#16a34a1a;border-color:#16a34a66"><i style="background:#16a34a"></i>done</span></div>
-          <div class="ho"></div>
-        </div>
-        <div class="row step">
-          <div class="name">Carry-forward locked (§11)</div>
-          <div class="st"><span class="chip" style="color:#16a34a;background:#16a34a1a;border-color:#16a34a66"><i style="background:#16a34a"></i>done</span></div>
-          <div class="ho"></div>
+          <div class="ho">22 claims oficiales. UMC = patrón oficial de compactación. <code>aa95872</code></div>
         </div>
         <div class="row">
           <div class="name">F2 · Golden Template</div>
-          <div class="st"><span class="chip" style="color:#2563eb;background:#2563eb1a;border-color:#2563eb66"><i style="background:#2563eb"></i>active</span><span class="count">2/4</span></div>
-          <div class="ho">Sección 02 + 22 archivos clonables verificados. <code>cf5e5d7</code></div>
-        </div>
-        <div class="row step">
-          <div class="name">Sección 02 (spec + §8 + §2)</div>
           <div class="st"><span class="chip" style="color:#16a34a;background:#16a34a1a;border-color:#16a34a66"><i style="background:#16a34a"></i>done</span></div>
-          <div class="ho"></div>
-        </div>
-        <div class="row step">
-          <div class="name">Scaffold 22 archivos (verificados)</div>
-          <div class="st"><span class="chip" style="color:#16a34a;background:#16a34a1a;border-color:#16a34a66"><i style="background:#16a34a"></i>done</span></div>
-          <div class="ho"></div>
-        </div>
-        <div class="row step">
-          <div class="name">Sub-fases anidadas en UMC</div>
-          <div class="st"><span class="chip" style="color:#2563eb;background:#2563eb1a;border-color:#2563eb66"><i style="background:#2563eb"></i>active</span></div>
-          <div class="ho"></div>
-        </div>
-        <div class="row step">
-          <div class="name">Review del usuario</div>
-          <div class="st"><span class="chip" style="color:#94a3b8;background:#94a3b81a;border-color:#94a3b866"><i style="background:#94a3b8"></i>planned</span></div>
-          <div class="ho"></div>
+          <div class="ho">22 archivos clonables verificados + UMC nested + portfolio. <code>cf5e5d7</code></div>
         </div>
         <div class="row">
           <div class="name">F3 · Notion FomeThings</div>
-          <div class="st"><span class="chip" style="color:#94a3b8;background:#94a3b81a;border-color:#94a3b866"><i style="background:#94a3b8"></i>planned</span><span class="count">0/4</span></div>
-          <div class="ho">Bases + relaciones + dashboards + limpieza + embed UMC. </div>
-        </div>
-        <div class="row step">
-          <div class="name">Inspeccionar Notion actual (read-only)</div>
-          <div class="st"><span class="chip" style="color:#94a3b8;background:#94a3b81a;border-color:#94a3b866"><i style="background:#94a3b8"></i>planned</span></div>
-          <div class="ho"></div>
-        </div>
-        <div class="row step">
-          <div class="name">Construir esquema FomeThings</div>
-          <div class="st"><span class="chip" style="color:#94a3b8;background:#94a3b81a;border-color:#94a3b866"><i style="background:#94a3b8"></i>planned</span></div>
-          <div class="ho"></div>
-        </div>
-        <div class="row step">
-          <div class="name">Limpieza (inspect-before-delete)</div>
-          <div class="st"><span class="chip" style="color:#94a3b8;background:#94a3b81a;border-color:#94a3b866"><i style="background:#94a3b8"></i>planned</span></div>
-          <div class="ho"></div>
-        </div>
-        <div class="row step">
-          <div class="name">Embed UMC + hosting</div>
-          <div class="st"><span class="chip" style="color:#94a3b8;background:#94a3b81a;border-color:#94a3b866"><i style="background:#94a3b8"></i>planned</span></div>
-          <div class="ho"></div>
+          <div class="st"><span class="chip" style="color:#16a34a;background:#16a34a1a;border-color:#16a34a66"><i style="background:#16a34a"></i>done</span></div>
+          <div class="ho">7 DBs + vistas foco/globales + dogfood + dashboards Pages. <code>f698aca</code></div>
         </div>
         <div class="row">
           <div class="name">F4 · Conocimiento + Obsidian</div>
-          <div class="st"><span class="chip" style="color:#94a3b8;background:#94a3b81a;border-color:#94a3b866"><i style="background:#94a3b8"></i>planned</span></div>
-          <div class="ho">PARA/Zettelkasten/Evergreen + cuestionamiento de Obsidian. </div>
+          <div class="st"><span class="chip" style="color:#16a34a;background:#16a34a1a;border-color:#16a34a66"><i style="background:#16a34a"></i>done</span></div>
+          <div class="ho">Frameworks ya encarnados; Obsidian diferido con gatillo. <code>7e1783c</code></div>
         </div>
         <div class="row">
-          <div class="name">F5 · Automatización + scope</div>
-          <div class="st"><span class="chip" style="color:#94a3b8;background:#94a3b81a;border-color:#94a3b866"><i style="background:#94a3b8"></i>planned</span></div>
-          <div class="ho">MCP/hooks/commands/scripts + tabla User vs Project scope. </div>
+          <div class="name">F5 · Automatización + herramientas</div>
+          <div class="st"><span class="chip" style="color:#16a34a;background:#16a34a1a;border-color:#16a34a66"><i style="background:#16a34a"></i>done</span></div>
+          <div class="ho">Ley de scope 4 capas + auditoría MCP (5 redundancias, dart arreglado). <code>7ae782e</code></div>
         </div>
         <div class="row">
           <div class="name">F6 · Roadmap + ensamblaje</div>
-          <div class="st"><span class="chip" style="color:#94a3b8;background:#94a3b81a;border-color:#94a3b866"><i style="background:#94a3b8"></i>planned</span></div>
-          <div class="ho">Roadmap por fases + ensamblaje final del ADD. </div>
+          <div class="st"><span class="chip" style="color:#16a34a;background:#16a34a1a;border-color:#16a34a66"><i style="background:#16a34a"></i>done</span></div>
+          <div class="ho">Roadmap A-D + README maestro + Artifact web capstone. <code>851acd2</code></div>
         </div></div>
 <p class="foot">Generado desde STATE.yaml por render_umbrella.py — no editar a mano.</p>
 </div></body></html>
