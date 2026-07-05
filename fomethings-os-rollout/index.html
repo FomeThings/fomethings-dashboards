@@ -1,0 +1,133 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>FomeThings OS — rollout — UMC</title><style>
+:root{--bg:#f6f8fb;--surf:#fff;--surf2:#f1f5f9;--bd:#e2e8f0;--fg:#0f172a;--mut:#64748b;--fnt:#94a3b8;--a:#3b82f6;--a2:#22c55e}
+@media(prefers-color-scheme:dark){:root{--bg:#0a0e17;--surf:#111826;--surf2:#0e1420;--bd:#1e293b;--fg:#e6edf6;--mut:#93a2b8;--fnt:#64748b;--a:#60a5fa;--a2:#4ade80}}
+*{box-sizing:border-box}body{margin:0;font:15px/1.55 system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:var(--bg);color:var(--fg);padding:36px 18px;-webkit-font-smoothing:antialiased}
+.wrap{max-width:760px;margin:0 auto}
+.eyebrow{font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--a);margin:0 0 8px}
+h1{font-size:clamp(22px,4vw,30px);font-weight:700;letter-spacing:-.02em;margin:0 0 10px;text-wrap:balance}
+.meta{display:flex;flex-wrap:wrap;gap:6px 16px;color:var(--mut);font-size:13.5px;margin-bottom:24px}.meta b{color:var(--fg)}
+.tnum{font-variant-numeric:tabular-nums}
+.track{height:9px;background:var(--surf2);border:1px solid var(--bd);border-radius:999px;overflow:hidden}
+.track>i{display:block;height:100%;width:40%;background:linear-gradient(90deg,var(--a),var(--a2))}
+.cap{display:flex;justify-content:space-between;margin:8px 0 26px;font-size:12.5px;color:var(--mut)}
+.cards{display:grid;grid-template-columns:1fr 1fr;gap:13px;margin-bottom:13px}@media(max-width:560px){.cards{grid-template-columns:1fr}}
+.card,.strip{background:var(--surf);border:1px solid var(--bd);border-radius:13px;padding:14px 16px;box-shadow:0 1px 2px rgba(15,23,42,.05),0 8px 22px rgba(15,23,42,.04)}
+.card h3,.strip h3,.sec{font-size:10.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--fnt);margin:0 0 6px}
+.card p{margin:0}.strip{display:flex;align-items:center;gap:12px;margin-bottom:26px}.strip h3{margin:0}.ok{color:var(--a2);font-weight:600}
+.sec{margin:0 0 10px}
+.phases{background:var(--surf);border:1px solid var(--bd);border-radius:13px;overflow:hidden;box-shadow:0 1px 2px rgba(15,23,42,.05),0 8px 22px rgba(15,23,42,.04)}
+.row{display:grid;grid-template-columns:172px 120px 1fr;gap:12px;align-items:center;padding:12px 16px;border-top:1px solid var(--bd)}
+.row:first-child{border-top:0}.row .name{font-weight:600;font-size:14px}.row .ho{color:var(--mut);font-size:13px}
+.row.step{background:var(--surf2)}.row.step .name{font-weight:500;color:var(--mut);font-size:13px;padding-left:16px;position:relative}
+.row.step .name::before{content:"";position:absolute;left:2px;top:50%;width:8px;height:1px;background:var(--fnt)}
+.chip{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:600;padding:3px 10px;border-radius:999px;border:1px solid;text-transform:capitalize}
+.chip i{width:6px;height:6px;border-radius:50%}.count{margin-left:7px;color:var(--fnt);font-size:12px;font-variant-numeric:tabular-nums}
+.ho code{font-family:ui-monospace,Menlo,monospace;font-size:11.5px;background:var(--surf2);padding:1px 6px;border-radius:5px;color:var(--fnt)}
+.foot{margin-top:18px;font-size:12px;color:var(--fnt);text-align:center}
+</style></head><body><div class="wrap">
+<p class="eyebrow">FomeThings · Umbrella Mission Control</p>
+<h1>FomeThings OS — rollout</h1>
+<div class="meta"><span>Fase actual: <b>F2 → F3</b></span><span class="tnum">Actualizado 2026-07-04T15:45</span></div>
+<div class="track"><i></i></div>
+<div class="cap"><span>2/7 fases · 6/15 pasos</span><span class="tnum">40%</span></div>
+<div class="cards">
+  <div class="card"><h3>Foco actual</h3><p>F2 entregada (+ sub-fases en UMC); en review del usuario</p></div>
+  <div class="card"><h3>Próxima acción</h3><p>F3 — inspeccionar el Notion actual (inspect-before-delete) y construir el esquema FomeThings</p></div>
+</div>
+<div class="strip"><h3>Bloqueos</h3><span class="ok">✓ Ninguno</span></div>
+<div class="sec">Fases</div>
+<div class="phases">
+        <div class="row">
+          <div class="name">F0 · Fundamentos</div>
+          <div class="st"><span class="chip" style="color:#16a34a;background:#16a34a1a;border-color:#16a34a66"><i style="background:#16a34a"></i>done</span></div>
+          <div class="ho">Two-plane + single-home aprobado. Spec 00 = registro canónico. <code>3eadaf9</code></div>
+        </div>
+        <div class="row">
+          <div class="name">F1 · Contexto IA + Claude Code</div>
+          <div class="st"><span class="chip" style="color:#16a34a;background:#16a34a1a;border-color:#16a34a66"><i style="background:#16a34a"></i>done</span><span class="count">3/3</span></div>
+          <div class="ho">UMC = patrón oficial de supervivencia a compactación. <code>aa95872</code></div>
+        </div>
+        <div class="row step">
+          <div class="name">Deep research (22 claims oficiales)</div>
+          <div class="st"><span class="chip" style="color:#16a34a;background:#16a34a1a;border-color:#16a34a66"><i style="background:#16a34a"></i>done</span></div>
+          <div class="ho"></div>
+        </div>
+        <div class="row step">
+          <div class="name">Sección 01 del ADD</div>
+          <div class="st"><span class="chip" style="color:#16a34a;background:#16a34a1a;border-color:#16a34a66"><i style="background:#16a34a"></i>done</span></div>
+          <div class="ho"></div>
+        </div>
+        <div class="row step">
+          <div class="name">Carry-forward locked (§11)</div>
+          <div class="st"><span class="chip" style="color:#16a34a;background:#16a34a1a;border-color:#16a34a66"><i style="background:#16a34a"></i>done</span></div>
+          <div class="ho"></div>
+        </div>
+        <div class="row">
+          <div class="name">F2 · Golden Template</div>
+          <div class="st"><span class="chip" style="color:#2563eb;background:#2563eb1a;border-color:#2563eb66"><i style="background:#2563eb"></i>active</span><span class="count">2/4</span></div>
+          <div class="ho">Sección 02 + 22 archivos clonables verificados. <code>cf5e5d7</code></div>
+        </div>
+        <div class="row step">
+          <div class="name">Sección 02 (spec + §8 + §2)</div>
+          <div class="st"><span class="chip" style="color:#16a34a;background:#16a34a1a;border-color:#16a34a66"><i style="background:#16a34a"></i>done</span></div>
+          <div class="ho"></div>
+        </div>
+        <div class="row step">
+          <div class="name">Scaffold 22 archivos (verificados)</div>
+          <div class="st"><span class="chip" style="color:#16a34a;background:#16a34a1a;border-color:#16a34a66"><i style="background:#16a34a"></i>done</span></div>
+          <div class="ho"></div>
+        </div>
+        <div class="row step">
+          <div class="name">Sub-fases anidadas en UMC</div>
+          <div class="st"><span class="chip" style="color:#2563eb;background:#2563eb1a;border-color:#2563eb66"><i style="background:#2563eb"></i>active</span></div>
+          <div class="ho"></div>
+        </div>
+        <div class="row step">
+          <div class="name">Review del usuario</div>
+          <div class="st"><span class="chip" style="color:#94a3b8;background:#94a3b81a;border-color:#94a3b866"><i style="background:#94a3b8"></i>planned</span></div>
+          <div class="ho"></div>
+        </div>
+        <div class="row">
+          <div class="name">F3 · Notion FomeThings</div>
+          <div class="st"><span class="chip" style="color:#94a3b8;background:#94a3b81a;border-color:#94a3b866"><i style="background:#94a3b8"></i>planned</span><span class="count">0/4</span></div>
+          <div class="ho">Bases + relaciones + dashboards + limpieza + embed UMC. </div>
+        </div>
+        <div class="row step">
+          <div class="name">Inspeccionar Notion actual (read-only)</div>
+          <div class="st"><span class="chip" style="color:#94a3b8;background:#94a3b81a;border-color:#94a3b866"><i style="background:#94a3b8"></i>planned</span></div>
+          <div class="ho"></div>
+        </div>
+        <div class="row step">
+          <div class="name">Construir esquema FomeThings</div>
+          <div class="st"><span class="chip" style="color:#94a3b8;background:#94a3b81a;border-color:#94a3b866"><i style="background:#94a3b8"></i>planned</span></div>
+          <div class="ho"></div>
+        </div>
+        <div class="row step">
+          <div class="name">Limpieza (inspect-before-delete)</div>
+          <div class="st"><span class="chip" style="color:#94a3b8;background:#94a3b81a;border-color:#94a3b866"><i style="background:#94a3b8"></i>planned</span></div>
+          <div class="ho"></div>
+        </div>
+        <div class="row step">
+          <div class="name">Embed UMC + hosting</div>
+          <div class="st"><span class="chip" style="color:#94a3b8;background:#94a3b81a;border-color:#94a3b866"><i style="background:#94a3b8"></i>planned</span></div>
+          <div class="ho"></div>
+        </div>
+        <div class="row">
+          <div class="name">F4 · Conocimiento + Obsidian</div>
+          <div class="st"><span class="chip" style="color:#94a3b8;background:#94a3b81a;border-color:#94a3b866"><i style="background:#94a3b8"></i>planned</span></div>
+          <div class="ho">PARA/Zettelkasten/Evergreen + cuestionamiento de Obsidian. </div>
+        </div>
+        <div class="row">
+          <div class="name">F5 · Automatización + scope</div>
+          <div class="st"><span class="chip" style="color:#94a3b8;background:#94a3b81a;border-color:#94a3b866"><i style="background:#94a3b8"></i>planned</span></div>
+          <div class="ho">MCP/hooks/commands/scripts + tabla User vs Project scope. </div>
+        </div>
+        <div class="row">
+          <div class="name">F6 · Roadmap + ensamblaje</div>
+          <div class="st"><span class="chip" style="color:#94a3b8;background:#94a3b81a;border-color:#94a3b866"><i style="background:#94a3b8"></i>planned</span></div>
+          <div class="ho">Roadmap por fases + ensamblaje final del ADD. </div>
+        </div></div>
+<p class="foot">Generado desde STATE.yaml por render_umbrella.py — no editar a mano.</p>
+</div></body></html>
