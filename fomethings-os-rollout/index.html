@@ -10,7 +10,7 @@ h1{font-size:clamp(22px,4vw,30px);font-weight:700;letter-spacing:-.02em;margin:0
 .meta{display:flex;flex-wrap:wrap;gap:6px 16px;color:var(--mut);font-size:13.5px;margin-bottom:24px}.meta b{color:var(--fg)}
 .tnum{font-variant-numeric:tabular-nums}
 .track{height:9px;background:var(--surf2);border:1px solid var(--bd);border-radius:999px;overflow:hidden}
-.track>i{display:block;height:100%;width:100%;background:linear-gradient(90deg,var(--a),var(--a2))}
+.track>i{display:block;height:100%;width:92%;background:linear-gradient(90deg,var(--a),var(--a2))}
 .cap{display:flex;justify-content:space-between;margin:8px 0 26px;font-size:12.5px;color:var(--mut)}
 .cards{display:grid;grid-template-columns:1fr 1fr;gap:13px;margin-bottom:13px}@media(max-width:560px){.cards{grid-template-columns:1fr}}
 .card,.strip{background:var(--surf);border:1px solid var(--bd);border-radius:13px;padding:14px 16px;box-shadow:0 1px 2px rgba(15,23,42,.05),0 8px 22px rgba(15,23,42,.04)}
@@ -26,17 +26,19 @@ h1{font-size:clamp(22px,4vw,30px);font-weight:700;letter-spacing:-.02em;margin:0
 .chip i{width:6px;height:6px;border-radius:50%}.count{margin-left:7px;color:var(--fnt);font-size:12px;font-variant-numeric:tabular-nums}
 .ho code{font-family:ui-monospace,Menlo,monospace;font-size:11.5px;background:var(--surf2);padding:1px 6px;border-radius:5px;color:var(--fnt)}
 .foot{margin-top:18px;font-size:12px;color:var(--fnt);text-align:center}
+.back{display:inline-block;color:var(--mut);text-decoration:none;font-size:13px;font-weight:500;margin-bottom:16px}.back:hover{color:var(--a)}
 </style></head><body><div class="wrap">
+<a class="back" href="../">← Todos los dashboards</a>
 <p class="eyebrow">FomeThings · Umbrella Mission Control</p>
 <h1>FomeThings OS — rollout</h1>
-<div class="meta"><span>Fase actual: <b>ADD completo</b></span><span class="tnum">Actualizado 2026-07-05T01:00</span></div>
+<div class="meta"><span>Fase actual: <b>Rollout A/B/C done</b></span><span class="tnum">Actualizado 2026-07-06T06:00</span></div>
 <div class="track"><i></i></div>
-<div class="cap"><span>7/7 fases · 7/7 pasos</span><span class="tnum">100%</span></div>
+<div class="cap"><span>11/12 fases · 11/12 pasos</span><span class="tnum">92%</span></div>
 <div class="cards">
-  <div class="card"><h3>Foco actual</h3><p>ADD F0-F6 completo + OS construido en vivo (repo, template, Notion, UMC, dashboards)</p></div>
-  <div class="card"><h3>Próxima acción</h3><p>Roadmap Fase A — aplicar el OS a AuraWallet (adelgazar CLAUDE.md, ADRs, portar hooks)</p></div>
+  <div class="card"><h3>Foco actual</h3><p>OS convergido: contrato v1.3.0 en los 5 proyectos (audit + sync --check verdes) + Notion two-plane activo (workspace FomeThings, Sub-items, umbrella real &#x27;Modernización AuraWallet&#x27; con 9 fases). Solo resta Fase D (diferida por diseño).</p></div>
+  <div class="card"><h3>Próxima acción</h3><p>Fase D (cuando amerite): Obsidian con gatillo, templates Notion, cron/agentes, packs por stack, /new-project. + validación 2a-máquina cuando llegue el Mac nuevo.</p></div>
 </div>
-<div class="strip"><h3>Bloqueos</h3><span class="ok">✓ Ninguno</span></div>
+<div class="strip"><h3>Bloqueos</h3><ul><li>Fase D es refinamiento diferido por diseño, no bloquea nada.</li><li>Validación 2a-máquina (symlink de memoria, machine-doctor) + iOS/TestFlight DIFERIDOS: Mac murió 2026-07-04.</li></ul></div>
 <div class="sec">Fases</div>
 <div class="phases">
         <div class="row">
@@ -73,6 +75,31 @@ h1{font-size:clamp(22px,4vw,30px);font-weight:700;letter-spacing:-.02em;margin:0
           <div class="name">F6 · Roadmap + ensamblaje</div>
           <div class="st"><span class="chip" style="color:#16a34a;background:#16a34a1a;border-color:#16a34a66"><i style="background:#16a34a"></i>done</span></div>
           <div class="ho">Roadmap A-D + README maestro + Artifact web capstone. <code>851acd2</code></div>
+        </div>
+        <div class="row">
+          <div class="name">F7 · Enforcement + Sync</div>
+          <div class="st"><span class="chip" style="color:#16a34a;background:#16a34a1a;border-color:#16a34a66"><i style="background:#16a34a"></i>done</span></div>
+          <div class="ho">fomethings_audit.py (CI+pre-push) + fomethings_sync.py (paridad managed) + manifiesto managed/owned + guard split + markers de versión. </div>
+        </div>
+        <div class="row">
+          <div class="name">Rollout A · Aplicar a AuraWallet</div>
+          <div class="st"><span class="chip" style="color:#16a34a;background:#16a34a1a;border-color:#16a34a66"><i style="background:#16a34a"></i>done</span></div>
+          <div class="ho">CLAUDE.md adelgazado + docs/adr + hooks portables + memoria-&gt;claude-memory + plan modernización-&gt;umbrella UMC. </div>
+        </div>
+        <div class="row">
+          <div class="name">Rollout B · Notion UI (Benjamin)</div>
+          <div class="st"><span class="chip" style="color:#16a34a;background:#16a34a1a;border-color:#16a34a66"><i style="background:#16a34a"></i>done</span></div>
+          <div class="ho">Workspace renombrado-&gt;FomeThings + Sub-items toggle + embed dashboard (Benjamin). Artefacto de test ya en trash. Umbrella real sembrado vía API: Initiative &#x27;Modernización AuraWallet&#x27; + 9 fases (S/0/1/2/3/4/5/6/7) como sub-items (relación Sub-item/Parent item 1), estados espejando STATE.yaml, Mission Control apunta al git. Task &#x27;Fase B&#x27; en In Review. </div>
+        </div>
+        <div class="row">
+          <div class="name">Rollout C · Convergencia de proyectos</div>
+          <div class="st"><span class="chip" style="color:#16a34a;background:#16a34a1a;border-color:#16a34a66"><i style="background:#16a34a"></i>done</span></div>
+          <div class="ho">Contrato v1.2.0-&gt;v1.3.0 en los 5 (Diaria 67c297f, Mekka 0a9e783, aurawallet-web 5bebe24, ce-salon 636f5ed). workflow.md stack-agnostic. sync --check: todos up-to-date, cero drift. Ceppa saltado (idea). </div>
+        </div>
+        <div class="row">
+          <div class="name">Rollout D · Diferido por diseño</div>
+          <div class="st"><span class="chip" style="color:#94a3b8;background:#94a3b81a;border-color:#94a3b866"><i style="background:#94a3b8"></i>planned</span></div>
+          <div class="ho">Obsidian (con gatillo), templates de Notion, cron/agentes. + deferidos por Mac muerto: /new-project symlink-setup 2a-máquina, machine-doctor symlink-verify, packs por stack (Flutter/Web). </div>
         </div></div>
 <p class="foot">Generado desde STATE.yaml por render_umbrella.py — no editar a mano.</p>
 </div></body></html>
