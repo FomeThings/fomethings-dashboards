@@ -18,8 +18,8 @@ umbrellas:
     state: ../fomethings-os/docs/plans/migracion-doppler/STATE.yaml
   - slug: verseo-mvp
     title: Verseo — MVP (F0→F4)
-    project: DiarIA
-    state: ../Diaria/docs/plans/verseo-mvp/STATE.yaml
+    project: Verseo
+    state: ../Verseo/docs/plans/verseo-mvp/STATE.yaml
   - slug: mekka-mvp
     title: Mekka — MVP
     project: Mekka
