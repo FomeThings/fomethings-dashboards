@@ -31,14 +31,14 @@ h1{font-size:clamp(22px,4vw,30px);font-weight:700;letter-spacing:-.02em;margin:0
 <a class="back" href="../">← Todos los dashboards</a>
 <p class="eyebrow">FomeThings · Umbrella Mission Control</p>
 <h1>Migración de secrets → Doppler</h1>
-<div class="meta"><span>Fase actual: <b>4 — Rollout (core tooling migrado; build-path de release pendiente)</b></span><span class="tnum">Actualizado 2026-07-06T22:30</span></div>
+<div class="meta"><span>Fase actual: <b>4 — Rollout (core + prep aditivo 4b/4c; decomiso release-gated)</b></span><span class="tnum">Actualizado 2026-07-06T23:15</span></div>
 <div class="track"><i></i></div>
 <div class="cap"><span>5/8 fases · 5/8 pasos</span><span class="tnum">62%</span></div>
 <div class="cards">
-  <div class="card"><h3>Foco actual</h3><p>CORE TOOLING migrado y VERIFICADO: machine-doctor lee de Doppler (keystore re-materializa byte-identico sha256 dff89007…, los 6 tokens MCP caen en settings.json — resuelve el gap NOTION recurrente —, ambos MCP servers notion registran, --quick exit 0). notion_trash.py repuntado a Doppler (token resuelve, len 50). CI resulto MOOT (ningun workflow usa bws). Descubierto: el footprint bws es MAYOR que lo trackeado (ver phase 4).</p></div>
-  <div class="card"><h3>Próxima acción</h3><p>Decidir profundidad del build-path AuraWallet: crear scripts/doppler-dart-define.sh (mirror aditivo de bws-dart-define, inyecta ONESIGNAL desde aurawallet/prd) + adoptar `doppler run -- fastlane` — VALIDAR en un build Android real antes de sacar bws. Luego docs/ADRs + Mekka stub. Decomiso total gated a ese build (iOS gated al Mac).</p></div>
+  <div class="card"><h3>Foco actual</h3><p>CORE TOOLING migrado+verificado (machine-doctor: keystore byte-identico dff89007…, 6 tokens MCP, servers notion, --quick exit 0; notion_trash.py→Doppler). PREP ADITIVO hecho (Benjamin eligio &#x27;prep aditivo 4b+4c&#x27;, cero riesgo, no borra bws): AuraWallet PR #231 (scripts/doppler-dart-define.sh + deployment.md), ce-salon doppler.yaml commiteado (main), Mekka PR #23 (stub→doppler + CLAUDE.md). ADRs 0007/0009 dejados como registro historico (migracion queda en el umbrella + docs vivos).</p></div>
+  <div class="card"><h3>Próxima acción</h3><p>Cuando quieras: mergear PR #231 (Aura) + PR #23 (Mekka). Fase 5 (decomiso bws) gated a un build Android real que valide la inyeccion --dart-define desde Doppler; iOS gated al Mac.</p></div>
 </div>
-<div class="strip"><h3>Bloqueos</h3><ul><li>Decomiso total de bws gated a un build Android real (valida inyeccion --dart-define desde Doppler) + regreso del Mac (lado iOS/fastlane no testeable ahora)</li></ul></div>
+<div class="strip"><h3>Bloqueos</h3><ul><li>Fase 5 (decomiso bws) gated a un build Android real (valida doppler-dart-define) + regreso del Mac (iOS/fastlane no testeable ahora)</li></ul></div>
 <div class="sec">Fases</div>
 <div class="phases">
         <div class="row">
@@ -68,13 +68,13 @@ h1{font-size:clamp(22px,4vw,30px);font-weight:700;letter-spacing:-.02em;margin:0
         </div>
         <div class="row">
           <div class="name">4b · Rollout — build-path AuraWallet (release-critical)</div>
-          <div class="st"><span class="chip" style="color:#94a3b8;background:#94a3b81a;border-color:#94a3b866"><i style="background:#94a3b8"></i>planned</span></div>
-          <div class="ho">PENDIENTE + gated a build real: scripts/bws-dart-define.sh (inyecta ONESIGNAL --dart-define) → crear scripts/doppler-dart-define.sh (aditivo, no borra bws); adoptar `doppler run -p aurawallet -c prd -- fastlane ios ship` (Fastfile ya lee ENV[ONESIGNAL_APP_ID_PRODUCTION]). scripts/bootstrap-machine.sh = redundante con machine-doctor (retirar en decomiso). remote-ios-ship.sh + docs/multi-machine/* = Mac-diferido. Validar en build Android antes de sacar bws. </div>
+          <div class="st"><span class="chip" style="color:#2563eb;background:#2563eb1a;border-color:#2563eb66"><i style="background:#2563eb"></i>active</span></div>
+          <div class="ho">PREP ADITIVO hecho — PR #231: scripts/doppler-dart-define.sh (mirror de bws-dart-define, lee ONESIGNAL de aurawallet/prd, resolucion CLI robusta) + deployment.md documenta `doppler run -p aurawallet -c prd -- fastlane ios ship` (Fastfile ya lee ENV[ONESIGNAL_APP_ID_PRODUCTION]). Verificado: bash -n OK, ONESIGNAL resuelve (len 36). NO borra bws. PENDIENTE: merge + VALIDAR en build Android real. scripts/bootstrap-machine.sh = redundante con machine-doctor (retirar en decomiso). remote-ios-ship.sh + docs/multi-machine/* = Mac-diferido. </div>
         </div>
         <div class="row">
           <div class="name">4c · Rollout — Mekka + docs/ADRs</div>
-          <div class="st"><span class="chip" style="color:#94a3b8;background:#94a3b81a;border-color:#94a3b866"><i style="background:#94a3b8"></i>planned</span></div>
-          <div class="ho">Mekka scripts/bws-materialize.sh = STUB inerte (sin consumidor; migrar cuando Mekka tenga signing real — el pending &#x27;crear proyecto Mekka en bws&#x27; pasa a Doppler). CLAUDE.md L50/L75 + ADR-0007 (Mekka) + ADR-0009 (ce-salon) = historicos → nota de supersede, no editar el ADR. secrets-inventory.md + mac-restore-prompt.md = actualizar en decomiso. ce-salon: doppler.yaml commiteado (determinismo cross-machine) opcional. </div>
+          <div class="st"><span class="chip" style="color:#2563eb;background:#2563eb1a;border-color:#2563eb66"><i style="background:#2563eb"></i>active</span></div>
+          <div class="ho">PREP hecho: Mekka PR #23 (rename bws-materialize.sh→doppler-materialize.sh + body a Doppler proyecto mekka + CLAUDE.md L50/L75). Stub inerte (sin consumidor; secrets reales cuando Mekka tenga signing). ce-salon doppler.yaml commiteado en main (pin ce-salon/prd, `doppler setup --no-interactive` determinista). ADR-0007 (Mekka) + ADR-0009 (ce-salon) = dejados como REGISTRO HISTORICO a proposito (la migracion queda en el umbrella + docs vivos; no se reescribe el porque-de-entonces). secrets-inventory.md + mac-restore-prompt.md = actualizar en decomiso. </div>
         </div>
         <div class="row">
           <div class="name">5 · Decomisar bws</div>
