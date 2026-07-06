@@ -1,0 +1,14 @@
+# FomeThings — registro de umbrellas publicadas en este dashboard.
+# Cada entrada apunta al STATE.yaml canónico (en el repo del proyecto, sibling de éste bajo
+# ~/projects). `render_index.py` lo lee para generar el índice con estado + progreso reales.
+# Publicar un umbrella nuevo = (1) render_umbrella.py <state> -> <slug>/index.html
+#                              (2) agregarlo acá  (3) python3 render_index.py  (4) commit/push.
+umbrellas:
+  - slug: fomethings-os-rollout
+    title: FomeThings OS — rollout
+    project: FomeThings OS
+    state: ../fomethings-os/docs/plans/fomethings-os-rollout/STATE.yaml
+  - slug: modernizacion-aurawallet
+    title: Modernización AuraWallet
+    project: AuraWallet
+    state: ../aurawallet/docs/plans/modernizacion-aurawallet/STATE.yaml

@@ -1,15 +1,49 @@
 <!doctype html><html lang="es"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>FomeThings — Dashboards</title><style>
-:root{--bg:#f6f8fb;--surf:#fff;--bd:#e2e8f0;--fg:#0f172a;--mut:#64748b;--a:#3b82f6}
-@media(prefers-color-scheme:dark){:root{--bg:#0a0e17;--surf:#111826;--bd:#1e293b;--fg:#e6edf6;--mut:#93a2b8;--a:#60a5fa}}
-*{box-sizing:border-box}body{margin:0;font:15px/1.55 system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:var(--bg);color:var(--fg);padding:40px 20px}
-.wrap{max-width:640px;margin:0 auto}h1{font-size:24px;margin:0 0 4px}.sub{color:var(--mut);margin:0 0 24px;font-size:14px}
-a.card{display:block;background:var(--surf);border:1px solid var(--bd);border-radius:12px;padding:16px 18px;text-decoration:none;color:inherit;margin-bottom:12px}
-a.card:hover{border-color:var(--a)}a.card b{color:var(--a)}
+:root{--bg:#f6f8fb;--surf:#fff;--surf2:#f1f5f9;--bd:#e2e8f0;--fg:#0f172a;--mut:#64748b;--fnt:#94a3b8;--a:#3b82f6;--a2:#22c55e}
+@media(prefers-color-scheme:dark){:root{--bg:#0a0e17;--surf:#111826;--surf2:#0e1420;--bd:#1e293b;--fg:#e6edf6;--mut:#93a2b8;--fnt:#64748b;--a:#60a5fa;--a2:#4ade80}}
+*{box-sizing:border-box}body{margin:0;font:15px/1.55 system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:var(--bg);color:var(--fg);padding:40px 18px;-webkit-font-smoothing:antialiased}
+.wrap{max-width:680px;margin:0 auto}
+.eyebrow{font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--a);margin:0 0 8px}
+h1{font-size:clamp(22px,4vw,28px);font-weight:700;letter-spacing:-.02em;margin:0 0 6px}
+.sub{color:var(--mut);margin:0 0 28px;font-size:14px}
+.grp{font-size:10.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--fnt);margin:26px 0 10px}
+section:first-of-type .grp{margin-top:0}
+.tnum{font-variant-numeric:tabular-nums}
+a.card{display:block;background:var(--surf);border:1px solid var(--bd);border-radius:13px;padding:15px 17px;text-decoration:none;color:inherit;margin-bottom:12px;box-shadow:0 1px 2px rgba(15,23,42,.05),0 8px 22px rgba(15,23,42,.04);transition:border-color .15s}
+a.card:hover{border-color:var(--a)}
+.top{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:11px}
+.top h3{margin:0;font-size:16px;font-weight:650;letter-spacing:-.01em}
+.chip{display:inline-flex;align-items:center;gap:6px;font-size:11.5px;font-weight:600;padding:3px 9px;border-radius:999px;border:1px solid;white-space:nowrap}
+.chip i{width:6px;height:6px;border-radius:50%}
+.track{height:7px;background:var(--surf2);border:1px solid var(--bd);border-radius:999px;overflow:hidden}
+.track>i{display:block;height:100%;background:linear-gradient(90deg,var(--a),var(--a2))}
+.cap{display:flex;justify-content:space-between;gap:12px;margin:8px 0 2px;font-size:12.5px;color:var(--mut)}.cap b{color:var(--fg)}
+.upd{font-size:11.5px;color:var(--fnt)}
+.foot{margin-top:26px;font-size:12px;color:var(--fnt);text-align:center}
 </style></head><body><div class="wrap">
-<h1>FomeThings — Umbrella Dashboards</h1>
-<p class="sub">Mission control de iniciativas multi-fase. Se embeben en las páginas umbrella de Notion.</p>
-<a class="card" href="./fomethings-os-rollout/"><b>FomeThings OS — rollout →</b><br>El sistema operativo trans-proyecto (F0–F6).</a>
-<a class="card" href="./modernizacion-aurawallet/"><b>Modernización AuraWallet →</b><br>Backend hardening + design system + rediseño de marca (fases S–7).</a>
+<p class="eyebrow">FomeThings · Umbrella Mission Control</p>
+<h1>Umbrella Dashboards</h1>
+<p class="sub">Iniciativas multi-fase, agrupadas por proyecto. Estado y progreso derivados del STATE.yaml de cada umbrella (se embeben en sus páginas de Notion).</p>
+<section><p class="grp">FomeThings OS</p>
+  <a class="card" href="./fomethings-os-rollout/">
+    <div class="top">
+      <h3>FomeThings OS — rollout</h3>
+      <span class="chip" style="color:#2563eb;background:#2563eb1a;border-color:#2563eb66"><i style="background:#2563eb"></i>Activa</span>
+    </div>
+    <div class="track"><i style="width:92%"></i></div>
+    <div class="cap"><span class="tnum">11/12 fases · 92%</span><span>Fase: <b>Rollout A/B/C done</b></span></div>
+    <div class="upd tnum">Actualizado 2026-07-06T06:00</div>
+  </a></section><section><p class="grp">AuraWallet</p>
+  <a class="card" href="./modernizacion-aurawallet/">
+    <div class="top">
+      <h3>Modernización AuraWallet</h3>
+      <span class="chip" style="color:#2563eb;background:#2563eb1a;border-color:#2563eb66"><i style="background:#2563eb"></i>Activa</span>
+    </div>
+    <div class="track"><i style="width:67%"></i></div>
+    <div class="cap"><span class="tnum">6/9 fases · 67%</span><span>Fase: <b>F5</b></span></div>
+    <div class="upd tnum">Actualizado 2026-07-05T00:00</div>
+  </a></section>
+<p class="foot">Generado desde umbrellas.yaml + los STATE.yaml por render_index.py — no editar a mano.</p>
 </div></body></html>
