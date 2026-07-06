@@ -31,12 +31,12 @@ h1{font-size:clamp(22px,4vw,30px);font-weight:700;letter-spacing:-.02em;margin:0
 <a class="back" href="../">← Todos los dashboards</a>
 <p class="eyebrow">FomeThings · Umbrella Mission Control</p>
 <h1>Migración de secrets → Doppler</h1>
-<div class="meta"><span>Fase actual: <b>5 — Decomiso bws (Android DESBLOQUEADO por build real; iOS = validacion futura, no bloqueo)</b></span><span class="tnum">Actualizado 2026-07-07T00:30</span></div>
+<div class="meta"><span>Fase actual: <b>5 — Decomiso bws (cleanup HECHO; liberar el plan = accion de Benjamin)</b></span><span class="tnum">Actualizado 2026-07-07T01:15</span></div>
 <div class="track"><i></i></div>
 <div class="cap"><span>7/8 fases · 7/8 pasos</span><span class="tnum">88%</span></div>
 <div class="cards">
-  <div class="card"><h3>Foco actual</h3><p>BUILD ANDROID VALIDADO: `scripts/doppler-dart-define.sh production -- build appbundle` en worktree sobre main → app-production-release.aab (75.9MB) FIRMADO (META-INF/AURAWALL.RSA, keystore dff89007 de Doppler) + ONESIGNAL inyectado desde Doppler via --dart-define. Prueba end-to-end del path Doppler. PRs #231 (Aura) + #23 (Mekka) MERGEADOS. Symlink de memoria arreglado (aurawallet→claude-memory). Core tooling + prep aditivo ya estaban hechos.</p></div>
-  <div class="card"><h3>Próxima acción</h3><p>Fase 5 decomiso bws: quitar dev:bws (ce-salon) + scripts/bws-import-env.sh, scripts/bws-dart-define.sh + bootstrap-machine.sh (Aura, superados), seed BWS_ACCESS_TOKEN de ~/.zshrc.local + comentarios dot_zshenv/dot_zshrc + hook sessionstart, bws del catalogo machine.json. Luego liberar el plan bws (3 proyectos). iOS: validar `doppler run -- fastlane` cuando vuelva el Mac (certs ya en Doppler via machine-doctor; NO bloquea el decomiso).</p></div>
+  <div class="card"><h3>Foco actual</h3><p>CLEANUP DE DECOMISO HECHO (Benjamin: &#x27;cleanup ahora, liberar despues&#x27;). bws inerte (token comentado en ~/.zshrc.local) + proyectos vivos como red de seguridad. Todo lo demas de la migracion (core tooling, build-path Android validado, prep aditivo) ya estaba cerrado. machine-doctor --quick sigue exit 0.</p></div>
+  <div class="card"><h3>Próxima acción</h3><p>Mergear PR #233 (Aura). Benjamin libera el plan bws (borra los 3 proyectos via web vault) cuando este 100% tranquilo con Doppler. iOS: validar `doppler run -- fastlane` al volver el Mac. Opcional: Mekka AI_VERIFICATION.md + docs multi-machine restantes (historicos).</p></div>
 </div>
 <div class="strip"><h3>Bloqueos</h3><span class="ok">✓ Ninguno</span></div>
 <div class="sec">Fases</div>
@@ -78,8 +78,8 @@ h1{font-size:clamp(22px,4vw,30px);font-weight:700;letter-spacing:-.02em;margin:0
         </div>
         <div class="row">
           <div class="name">5 · Decomisar bws</div>
-          <div class="st"><span class="chip" style="color:#94a3b8;background:#94a3b81a;border-color:#94a3b866"><i style="background:#94a3b8"></i>planned</span></div>
-          <div class="ho">Solo tras 4b verde (build real valida Doppler). Bajar: dev:bws (ce-salon), bws-import-env.sh, bws-dart-define.sh, bootstrap-machine.sh, seed BWS_ACCESS_TOKEN de ~/.zshrc.local + comentarios en dot_zshenv/dot_zshrc + hook sessionstart, quitar bws de machine.json tools. Liberar plan free (3 proyectos). </div>
+          <div class="st"><span class="chip" style="color:#2563eb;background:#2563eb1a;border-color:#2563eb66"><i style="background:#2563eb"></i>active</span></div>
+          <div class="ho">CLEANUP HECHO. chezmoi: bws fuera de machine.json (tools+catalog), comentarios dotfiles refrescados, seed BWS_ACCESS_TOKEN COMENTADO/inerte en ~/.zshrc.local (untracked; preservado para liberar el plan). ce-salon (commit directo): dev:bws + scripts/bws-import-env.sh borrados. AuraWallet PR #233: rm bws-dart-define.sh + bootstrap-machine.sh, remote-ios-ship.sh -&gt; `doppler run -p aurawallet -c prd`, banner Doppler en secrets-inventory.md. machine-doctor --quick exit 0. FALTA (no bloquea): mergear PR #233; Benjamin libera el plan bws (3 proyectos via web vault) cuando quiera; iOS valida doppler-run-fastlane al volver el Mac; opcional Mekka AI_VERIFICATION.md + resto docs multi-machine (historicos). <code>#233</code></div>
         </div></div>
 <p class="foot">Generado desde STATE.yaml por render_umbrella.py — no editar a mano.</p>
 </div></body></html>
