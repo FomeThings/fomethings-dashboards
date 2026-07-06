@@ -12,3 +12,7 @@ umbrellas:
     title: Modernización AuraWallet
     project: AuraWallet
     state: ../aurawallet/docs/plans/modernizacion-aurawallet/STATE.yaml
+  - slug: migracion-doppler
+    title: Migración de secrets → Doppler
+    project: FomeThings OS
+    state: ../fomethings-os/docs/plans/migracion-doppler/STATE.yaml
