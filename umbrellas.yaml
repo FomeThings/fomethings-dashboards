@@ -20,3 +20,7 @@ umbrellas:
     title: Verseo — MVP (F0→F4)
     project: DiarIA
     state: ../Diaria/docs/plans/verseo-mvp/STATE.yaml
+  - slug: mekka-mvp
+    title: Mekka — MVP
+    project: Mekka
+    state: ../Mekka/docs/plans/mekka-mvp/STATE.yaml
