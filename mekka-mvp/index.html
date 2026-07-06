@@ -10,7 +10,7 @@ h1{font-size:clamp(22px,4vw,30px);font-weight:700;letter-spacing:-.02em;margin:0
 .meta{display:flex;flex-wrap:wrap;gap:6px 16px;color:var(--mut);font-size:13.5px;margin-bottom:24px}.meta b{color:var(--fg)}
 .tnum{font-variant-numeric:tabular-nums}
 .track{height:9px;background:var(--surf2);border:1px solid var(--bd);border-radius:999px;overflow:hidden}
-.track>i{display:block;height:100%;width:76%;background:linear-gradient(90deg,var(--a),var(--a2))}
+.track>i{display:block;height:100%;width:82%;background:linear-gradient(90deg,var(--a),var(--a2))}
 .cap{display:flex;justify-content:space-between;margin:8px 0 26px;font-size:12.5px;color:var(--mut)}
 .cards{display:grid;grid-template-columns:1fr 1fr;gap:13px;margin-bottom:13px}@media(max-width:560px){.cards{grid-template-columns:1fr}}
 .card,.strip{background:var(--surf);border:1px solid var(--bd);border-radius:13px;padding:14px 16px;box-shadow:0 1px 2px rgba(15,23,42,.05),0 8px 22px rgba(15,23,42,.04)}
@@ -31,12 +31,12 @@ h1{font-size:clamp(22px,4vw,30px);font-weight:700;letter-spacing:-.02em;margin:0
 <a class="back" href="../">← Todos los dashboards</a>
 <p class="eyebrow">FomeThings · Umbrella Mission Control</p>
 <h1>Mekka — MVP</h1>
-<div class="meta"><span>Fase actual: <b>F3</b></span><span class="tnum">Actualizado 2026-07-04T12:00</span></div>
+<div class="meta"><span>Fase actual: <b>F4</b></span><span class="tnum">Actualizado 2026-07-06T15:30</span></div>
 <div class="track"><i></i></div>
-<div class="cap"><span>2/6 fases · 13/17 pasos</span><span class="tnum">76%</span></div>
+<div class="cap"><span>3/6 fases · 14/17 pasos</span><span class="tnum">82%</span></div>
 <div class="cards">
-  <div class="card"><h3>Foco actual</h3><p>Design system completo (Plan 15); repo alineado al contrato FomeThings OS (ADRs + STATE.yaml).</p></div>
-  <div class="card"><h3>Próxima acción</h3><p>Arrancar F3: brainstorm de integración de la app (go_router StatefulShellRoute + wiring Supabase/Riverpod).</p></div>
+  <div class="card"><h3>Foco actual</h3><p>F3 completo en feat/16-app-integration (9 tasks TDD, gate verde, cobertura 88%). App integrada viva: 4-tab shell + auth anónima + sync background. Ver ADR 0013.</p></div>
+  <div class="card"><h3>Próxima acción</h3><p>Mergear PR de F3 tras CI verde; luego F4: brainstorm de pantallas de features (contenido real + vehicle picker).</p></div>
 </div>
 <div class="strip"><h3>Bloqueos</h3><span class="ok">✓ Ninguno</span></div>
 <div class="sec">Fases</div>
@@ -118,8 +118,8 @@ h1{font-size:clamp(22px,4vw,30px);font-weight:700;letter-spacing:-.02em;margin:0
         </div>
         <div class="row">
           <div class="name">F3 · Integración de la app</div>
-          <div class="st"><span class="chip" style="color:#94a3b8;background:#94a3b81a;border-color:#94a3b866"><i style="background:#94a3b8"></i>planned</span></div>
-          <div class="ho">go_router StatefulShellRoute (4 ramas Hoy·Viajes·Expediente·Perfil), init Supabase por flavor, providers Riverpod/DI, sync en background, cache IA, cursor de pull. </div>
+          <div class="st"><span class="chip" style="color:#16a34a;background:#16a34a1a;border-color:#16a34a66"><i style="background:#16a34a"></i>done</span></div>
+          <div class="ho">App integrada viva en feat/16-app-integration: go_router StatefulShellRoute (4 ramas Hoy·Viajes·Expediente·Perfil) + MekkaShell, init Supabase por flavor (degradado con fakes), DI bootstrap-resuelto + overrides, AuthController anónimo reactivo, SyncController (push/pull guarded por sesión) + cursor en shared_preferences, connectivity_plus real. Corte &quot;esqueleto + sync vivo&quot;: cache IA, vehicle picker, contenido real de pantallas y aiDiagnosticProvider diferidos a F4 (registrado). 9 tasks TDD, gate verde, cobertura 88%. Ver ADR 0013 + docs/specs/2026-07-06-mekka-f3-app-integration-design.md (I1–I18). <code>#24</code></div>
         </div>
         <div class="row">
           <div class="name">F4 · Pantallas de features</div>
