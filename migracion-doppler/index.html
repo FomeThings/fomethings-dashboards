@@ -10,7 +10,7 @@ h1{font-size:clamp(22px,4vw,30px);font-weight:700;letter-spacing:-.02em;margin:0
 .meta{display:flex;flex-wrap:wrap;gap:6px 16px;color:var(--mut);font-size:13.5px;margin-bottom:24px}.meta b{color:var(--fg)}
 .tnum{font-variant-numeric:tabular-nums}
 .track{height:9px;background:var(--surf2);border:1px solid var(--bd);border-radius:999px;overflow:hidden}
-.track>i{display:block;height:100%;width:67%;background:linear-gradient(90deg,var(--a),var(--a2))}
+.track>i{display:block;height:100%;width:62%;background:linear-gradient(90deg,var(--a),var(--a2))}
 .cap{display:flex;justify-content:space-between;margin:8px 0 26px;font-size:12.5px;color:var(--mut)}
 .cards{display:grid;grid-template-columns:1fr 1fr;gap:13px;margin-bottom:13px}@media(max-width:560px){.cards{grid-template-columns:1fr}}
 .card,.strip{background:var(--surf);border:1px solid var(--bd);border-radius:13px;padding:14px 16px;box-shadow:0 1px 2px rgba(15,23,42,.05),0 8px 22px rgba(15,23,42,.04)}
@@ -31,14 +31,14 @@ h1{font-size:clamp(22px,4vw,30px);font-weight:700;letter-spacing:-.02em;margin:0
 <a class="back" href="../">← Todos los dashboards</a>
 <p class="eyebrow">FomeThings · Umbrella Mission Control</p>
 <h1>Migración de secrets → Doppler</h1>
-<div class="meta"><span>Fase actual: <b>4 — Rollout</b></span><span class="tnum">Actualizado 2026-07-06T21:30</span></div>
+<div class="meta"><span>Fase actual: <b>4 — Rollout (core tooling migrado; build-path de release pendiente)</b></span><span class="tnum">Actualizado 2026-07-06T22:30</span></div>
 <div class="track"><i></i></div>
-<div class="cap"><span>4/6 fases · 4/6 pasos</span><span class="tnum">67%</span></div>
+<div class="cap"><span>5/8 fases · 5/8 pasos</span><span class="tnum">62%</span></div>
 <div class="cards">
-  <div class="card"><h3>Foco actual</h3><p>Piloto ce-salon VALIDADO (pnpm dev:doppler levanta, 10/10 secrets inyectados, Benjamin confirmó). Estructura + import + piloto OK. Falta rollout del resto + decomisar bws.</p></div>
-  <div class="card"><h3>Próxima acción</h3><p>Rollout: Mekka (bws-materialize + signing, delicado), AuraWallet (fastlane), CI (DOPPLER_TOKEN service token en GH Actions), machine-doctor (tooling de shared al env de máquina), notion_trash.py del /umbrella. Después decomisar bws.</p></div>
+  <div class="card"><h3>Foco actual</h3><p>CORE TOOLING migrado y VERIFICADO: machine-doctor lee de Doppler (keystore re-materializa byte-identico sha256 dff89007…, los 6 tokens MCP caen en settings.json — resuelve el gap NOTION recurrente —, ambos MCP servers notion registran, --quick exit 0). notion_trash.py repuntado a Doppler (token resuelve, len 50). CI resulto MOOT (ningun workflow usa bws). Descubierto: el footprint bws es MAYOR que lo trackeado (ver phase 4).</p></div>
+  <div class="card"><h3>Próxima acción</h3><p>Decidir profundidad del build-path AuraWallet: crear scripts/doppler-dart-define.sh (mirror aditivo de bws-dart-define, inyecta ONESIGNAL desde aurawallet/prd) + adoptar `doppler run -- fastlane` — VALIDAR en un build Android real antes de sacar bws. Luego docs/ADRs + Mekka stub. Decomiso total gated a ese build (iOS gated al Mac).</p></div>
 </div>
-<div class="strip"><h3>Bloqueos</h3><span class="ok">✓ Ninguno</span></div>
+<div class="strip"><h3>Bloqueos</h3><ul><li>Decomiso total de bws gated a un build Android real (valida inyeccion --dart-define desde Doppler) + regreso del Mac (lado iOS/fastlane no testeable ahora)</li></ul></div>
 <div class="sec">Fases</div>
 <div class="phases">
         <div class="row">
@@ -62,14 +62,24 @@ h1{font-size:clamp(22px,4vw,30px);font-weight:700;letter-spacing:-.02em;margin:0
           <div class="ho">doppler setup (ce-salon/prd) + script dev:doppler + doppler run inyecta 10/10. Benjamin VALIDÓ que `pnpm dev:doppler` levanta. GEMINI resultó NO usado por ce-salon (era solo de Mekka, vía Edge Function) → sin problema cross-project. dev:bws se deja como fallback hasta decomisar. </div>
         </div>
         <div class="row">
-          <div class="name">4 · Rollout resto</div>
-          <div class="st"><span class="chip" style="color:#2563eb;background:#2563eb1a;border-color:#2563eb66"><i style="background:#2563eb"></i>active</span></div>
-          <div class="ho">Mekka (scripts/bws-materialize.sh + signing keys — delicado), AuraWallet (fastlane/CI leen del bws AuraWallet), CI GitHub Actions (DOPPLER_TOKEN service token por proyecto), machine-doctor bootstrap (materializar los 8 tooling de shared al env de máquina, reemplaza BWS_ACCESS_TOKEN), notion_trash.py del /umbrella (lee NOTION_AURA_MCP_TOKEN → ahora en shared). </div>
+          <div class="name">4 · Rollout — core tooling (machine-doctor + notion_trash)</div>
+          <div class="st"><span class="chip" style="color:#16a34a;background:#16a34a1a;border-color:#16a34a66"><i style="background:#16a34a"></i>done</span></div>
+          <div class="ho">machine-doctor migrado a Doppler (source bws→Doppler, tag doppler_project por grupo: shared=tooling, aurawallet=keystore/certs; seed BWS_ACCESS_TOKEN→doppler auth; resolucion CLI robusta bare/mise-exec). VERIFICADO: keystore byte-identico (dff89007…), 6 tokens MCP en settings.json (resuelve gap NOTION), servers notion registran, --quick exit 0. notion_trash.py get_token()→Doppler (shared/prd), token resuelve. Commit chezmoi + fomethings-os. CI = MOOT (0 workflows usan bws). </div>
+        </div>
+        <div class="row">
+          <div class="name">4b · Rollout — build-path AuraWallet (release-critical)</div>
+          <div class="st"><span class="chip" style="color:#94a3b8;background:#94a3b81a;border-color:#94a3b866"><i style="background:#94a3b8"></i>planned</span></div>
+          <div class="ho">PENDIENTE + gated a build real: scripts/bws-dart-define.sh (inyecta ONESIGNAL --dart-define) → crear scripts/doppler-dart-define.sh (aditivo, no borra bws); adoptar `doppler run -p aurawallet -c prd -- fastlane ios ship` (Fastfile ya lee ENV[ONESIGNAL_APP_ID_PRODUCTION]). scripts/bootstrap-machine.sh = redundante con machine-doctor (retirar en decomiso). remote-ios-ship.sh + docs/multi-machine/* = Mac-diferido. Validar en build Android antes de sacar bws. </div>
+        </div>
+        <div class="row">
+          <div class="name">4c · Rollout — Mekka + docs/ADRs</div>
+          <div class="st"><span class="chip" style="color:#94a3b8;background:#94a3b81a;border-color:#94a3b866"><i style="background:#94a3b8"></i>planned</span></div>
+          <div class="ho">Mekka scripts/bws-materialize.sh = STUB inerte (sin consumidor; migrar cuando Mekka tenga signing real — el pending &#x27;crear proyecto Mekka en bws&#x27; pasa a Doppler). CLAUDE.md L50/L75 + ADR-0007 (Mekka) + ADR-0009 (ce-salon) = historicos → nota de supersede, no editar el ADR. secrets-inventory.md + mac-restore-prompt.md = actualizar en decomiso. ce-salon: doppler.yaml commiteado (determinismo cross-machine) opcional. </div>
         </div>
         <div class="row">
           <div class="name">5 · Decomisar bws</div>
           <div class="st"><span class="chip" style="color:#94a3b8;background:#94a3b81a;border-color:#94a3b866"><i style="background:#94a3b8"></i>planned</span></div>
-          <div class="ho">Cuando todo verde: bajar bws de scripts/CI/bootstrap, liberar el plan free (3 proyectos). </div>
+          <div class="ho">Solo tras 4b verde (build real valida Doppler). Bajar: dev:bws (ce-salon), bws-import-env.sh, bws-dart-define.sh, bootstrap-machine.sh, seed BWS_ACCESS_TOKEN de ~/.zshrc.local + comentarios en dot_zshenv/dot_zshrc + hook sessionstart, quitar bws de machine.json tools. Liberar plan free (3 proyectos). </div>
         </div></div>
 <p class="foot">Generado desde STATE.yaml por render_umbrella.py — no editar a mano.</p>
 </div></body></html>
