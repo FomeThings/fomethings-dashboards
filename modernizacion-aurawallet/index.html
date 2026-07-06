@@ -1,0 +1,88 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Modernización AuraWallet — UMC</title><style>
+:root{--bg:#f6f8fb;--surf:#fff;--surf2:#f1f5f9;--bd:#e2e8f0;--fg:#0f172a;--mut:#64748b;--fnt:#94a3b8;--a:#3b82f6;--a2:#22c55e}
+@media(prefers-color-scheme:dark){:root{--bg:#0a0e17;--surf:#111826;--surf2:#0e1420;--bd:#1e293b;--fg:#e6edf6;--mut:#93a2b8;--fnt:#64748b;--a:#60a5fa;--a2:#4ade80}}
+*{box-sizing:border-box}body{margin:0;font:15px/1.55 system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:var(--bg);color:var(--fg);padding:36px 18px;-webkit-font-smoothing:antialiased}
+.wrap{max-width:760px;margin:0 auto}
+.eyebrow{font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--a);margin:0 0 8px}
+h1{font-size:clamp(22px,4vw,30px);font-weight:700;letter-spacing:-.02em;margin:0 0 10px;text-wrap:balance}
+.meta{display:flex;flex-wrap:wrap;gap:6px 16px;color:var(--mut);font-size:13.5px;margin-bottom:24px}.meta b{color:var(--fg)}
+.tnum{font-variant-numeric:tabular-nums}
+.track{height:9px;background:var(--surf2);border:1px solid var(--bd);border-radius:999px;overflow:hidden}
+.track>i{display:block;height:100%;width:67%;background:linear-gradient(90deg,var(--a),var(--a2))}
+.cap{display:flex;justify-content:space-between;margin:8px 0 26px;font-size:12.5px;color:var(--mut)}
+.cards{display:grid;grid-template-columns:1fr 1fr;gap:13px;margin-bottom:13px}@media(max-width:560px){.cards{grid-template-columns:1fr}}
+.card,.strip{background:var(--surf);border:1px solid var(--bd);border-radius:13px;padding:14px 16px;box-shadow:0 1px 2px rgba(15,23,42,.05),0 8px 22px rgba(15,23,42,.04)}
+.card h3,.strip h3,.sec{font-size:10.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--fnt);margin:0 0 6px}
+.card p{margin:0}.strip{display:flex;align-items:center;gap:12px;margin-bottom:26px}.strip h3{margin:0}.ok{color:var(--a2);font-weight:600}
+.sec{margin:0 0 10px}
+.phases{background:var(--surf);border:1px solid var(--bd);border-radius:13px;overflow:hidden;box-shadow:0 1px 2px rgba(15,23,42,.05),0 8px 22px rgba(15,23,42,.04)}
+.row{display:grid;grid-template-columns:172px 120px 1fr;gap:12px;align-items:center;padding:12px 16px;border-top:1px solid var(--bd)}
+.row:first-child{border-top:0}.row .name{font-weight:600;font-size:14px}.row .ho{color:var(--mut);font-size:13px}
+.row.step{background:var(--surf2)}.row.step .name{font-weight:500;color:var(--mut);font-size:13px;padding-left:16px;position:relative}
+.row.step .name::before{content:"";position:absolute;left:2px;top:50%;width:8px;height:1px;background:var(--fnt)}
+.chip{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:600;padding:3px 10px;border-radius:999px;border:1px solid;text-transform:capitalize}
+.chip i{width:6px;height:6px;border-radius:50%}.count{margin-left:7px;color:var(--fnt);font-size:12px;font-variant-numeric:tabular-nums}
+.ho code{font-family:ui-monospace,Menlo,monospace;font-size:11.5px;background:var(--surf2);padding:1px 6px;border-radius:5px;color:var(--fnt)}
+.foot{margin-top:18px;font-size:12px;color:var(--fnt);text-align:center}
+</style></head><body><div class="wrap">
+<p class="eyebrow">FomeThings · Umbrella Mission Control</p>
+<h1>Modernización AuraWallet</h1>
+<div class="meta"><span>Fase actual: <b>F5</b></span><span class="tnum">Actualizado 2026-07-05T00:00</span></div>
+<div class="track"><i></i></div>
+<div class="cap"><span>6/9 fases · 6/9 pasos</span><span class="tnum">67%</span></div>
+<div class="cards">
+  <div class="card"><h3>Foco actual</h3><p>FASE 5 — tipografía de marca + rediseño Aura (F5A/F5B mergeados; falta onboarding, Rajdhani in-app, rediseño por pantalla)</p></div>
+  <div class="card"><h3>Próxima acción</h3><p>Decidir dirección de onboarding (artifact c131ac70) + bundlear Rajdhani in-app (rol wordmark/amountHero)</p></div>
+</div>
+<div class="strip"><h3>Bloqueos</h3><span class="ok">✓ Ninguno</span></div>
+<div class="sec">Fases</div>
+<div class="phases">
+        <div class="row">
+          <div class="name">S — Seguridad (backend)</div>
+          <div class="st"><span class="chip" style="color:#16a34a;background:#16a34a1a;border-color:#16a34a66"><i style="background:#16a34a"></i>done</span></div>
+          <div class="ho">Bypass anon en guards != auth.uid() remediado (REVOKE anon+PUBLIC en 84 RPCs). still_vulnerable=0. <code>MCP migrations (secfix_c1b, notification_settings)</code></div>
+        </div>
+        <div class="row">
+          <div class="name">0 — Backend quick wins</div>
+          <div class="st"><span class="chip" style="color:#16a34a;background:#16a34a1a;border-color:#16a34a66"><i style="background:#16a34a"></i>done</span></div>
+          <div class="ho">FK indexes en transactions, valid_timezones cache, RLS initplan (24-&gt;0), crons vacíos off. <code>MCP migrations</code></div>
+        </div>
+        <div class="row">
+          <div class="name">1 — Higiene + validación (backend)</div>
+          <div class="st"><span class="chip" style="color:#16a34a;background:#16a34a1a;border-color:#16a34a66"><i style="background:#16a34a"></i>done</span></div>
+          <div class="ho">60 get_* STABLE, deny policies internas, 9 CHECKs de longitud. Backend 100% cerrado (2026-07-03). <code>MCP migrations</code></div>
+        </div>
+        <div class="row">
+          <div class="name">2 — Fundación visual (color)</div>
+          <div class="st"><span class="chip" style="color:#16a34a;background:#16a34a1a;border-color:#16a34a66"><i style="background:#16a34a"></i>done</span></div>
+          <div class="ho">C2 WCAG + C3a/b/c migración colorScheme-&gt;tokens + ColorScheme M3 reparado + ratchet de stock. Fundación de color completa. <code>#216 #217 #218 #219 #220</code></div>
+        </div>
+        <div class="row">
+          <div class="name">3 — Escape hatches del design system</div>
+          <div class="st"><span class="chip" style="color:#16a34a;background:#16a34a1a;border-color:#16a34a66"><i style="background:#16a34a"></i>done</span></div>
+          <div class="ho">Roles tipográficos (F3A/B), sheets+paleta privada (F3C), cards-&gt;DetailCard (F3D). Ratchet 2.717-&gt;2.277. <code>#221 #222 #223 #224</code></div>
+        </div>
+        <div class="row">
+          <div class="name">4 — Layout</div>
+          <div class="st"><span class="chip" style="color:#16a34a;background:#16a34a1a;border-color:#16a34a66"><i style="background:#16a34a"></i>done</span></div>
+          <div class="ho">Fixes adaptativos (F4A), Transactions-&gt;PageScaffold (F4B), unificación Finance+Trends (F4C). F4D/I6 movido a F5. <code>#225 #226 #227</code></div>
+        </div>
+        <div class="row">
+          <div class="name">5 — Tipografía de marca + rediseño Aura</div>
+          <div class="st"><span class="chip" style="color:#2563eb;background:#2563eb1a;border-color:#2563eb66"><i style="background:#2563eb"></i>active</span></div>
+          <div class="ho">F5A recolor logo 258° + assets, F5B lockups Rajdhani. PENDIENTE: onboarding dir, Rajdhani in-app, CardHeader, I6 densidad Dashboard, rediseño Aura por pantalla. <code>#228 #229</code></div>
+        </div>
+        <div class="row">
+          <div class="name">6 — Reactividad + perf frontend</div>
+          <div class="st"><span class="chip" style="color:#94a3b8;background:#94a3b81a;border-color:#94a3b866"><i style="background:#94a3b8"></i>planned</span></div>
+          <div class="ho">C4 fan-out de red (~23-38 RPCs), I3 jank paginación, R2 SingletonLifecycleMixin, AssetLogo cache. </div>
+        </div>
+        <div class="row">
+          <div class="name">7 — Deuda estructural + tests</div>
+          <div class="st"><span class="chip" style="color:#94a3b8;background:#94a3b81a;border-color:#94a3b866"><i style="background:#94a3b8"></i>planned</span></div>
+          <div class="ho">subscription 0 tests (gatekeeper paywall), partir accounts_list.dart (1851 líneas), dartz-&gt;fpdart, majors de deps. </div>
+        </div></div>
+<p class="foot">Generado desde STATE.yaml por render_umbrella.py — no editar a mano.</p>
+</div></body></html>
