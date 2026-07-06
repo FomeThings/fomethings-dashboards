@@ -10,7 +10,7 @@ h1{font-size:clamp(22px,4vw,30px);font-weight:700;letter-spacing:-.02em;margin:0
 .meta{display:flex;flex-wrap:wrap;gap:6px 16px;color:var(--mut);font-size:13.5px;margin-bottom:24px}.meta b{color:var(--fg)}
 .tnum{font-variant-numeric:tabular-nums}
 .track{height:9px;background:var(--surf2);border:1px solid var(--bd);border-radius:999px;overflow:hidden}
-.track>i{display:block;height:100%;width:0%;background:linear-gradient(90deg,var(--a),var(--a2))}
+.track>i{display:block;height:100%;width:50%;background:linear-gradient(90deg,var(--a),var(--a2))}
 .cap{display:flex;justify-content:space-between;margin:8px 0 26px;font-size:12.5px;color:var(--mut)}
 .cards{display:grid;grid-template-columns:1fr 1fr;gap:13px;margin-bottom:13px}@media(max-width:560px){.cards{grid-template-columns:1fr}}
 .card,.strip{background:var(--surf);border:1px solid var(--bd);border-radius:13px;padding:14px 16px;box-shadow:0 1px 2px rgba(15,23,42,.05),0 8px 22px rgba(15,23,42,.04)}
@@ -31,45 +31,45 @@ h1{font-size:clamp(22px,4vw,30px);font-weight:700;letter-spacing:-.02em;margin:0
 <a class="back" href="../">← Todos los dashboards</a>
 <p class="eyebrow">FomeThings · Umbrella Mission Control</p>
 <h1>Migración de secrets → Doppler</h1>
-<div class="meta"><span>Fase actual: <b>0 — Setup</b></span><span class="tnum">Actualizado 2026-07-06T19:30</span></div>
+<div class="meta"><span>Fase actual: <b>3 — Piloto</b></span><span class="tnum">Actualizado 2026-07-06T20:30</span></div>
 <div class="track"><i></i></div>
-<div class="cap"><span>0/6 fases · 0/6 pasos</span><span class="tnum">0%</span></div>
+<div class="cap"><span>3/6 fases · 3/6 pasos</span><span class="tnum">50%</span></div>
 <div class="cards">
-  <div class="card"><h3>Foco actual</h3><p>Bitwarden SM free topó en 3 proyectos (29 secrets embutidos); Doppler free no capea proyectos. Migrar todo, cablear igual en todos los proyectos, decomisar bws.</p></div>
-  <div class="card"><h3>Próxima acción</h3><p>Benjamin: `doppler login` (interactivo). Luego: modelar projects×configs + importar los 29 secrets.</p></div>
+  <div class="card"><h3>Foco actual</h3><p>29 secrets migrados a Doppler (shared 10, aurawallet 9, ce-salon 10). Estructura + import completos. Próximo: piloto ce-salon (rewire dev:bws → doppler run).</p></div>
+  <div class="card"><h3>Próxima acción</h3><p>Piloto ce-salon: `doppler run -- next dev`. Resolver consumo de GEMINI (vive en shared, ce-salon lo usa en runtime → verificar refs cross-project de Doppler free, si no duplicar a ce-salon+mekka). Benjamin prueba.</p></div>
 </div>
-<div class="strip"><h3>Bloqueos</h3><ul><li>doppler login es interactivo (browser) — paso de Benjamin antes de poder crear projects/importar.</li></ul></div>
+<div class="strip"><h3>Bloqueos</h3><span class="ok">✓ Ninguno</span></div>
 <div class="sec">Fases</div>
 <div class="phases">
         <div class="row">
           <div class="name">0 · Setup (CLI + login)</div>
-          <div class="st"><span class="chip" style="color:#2563eb;background:#2563eb1a;border-color:#2563eb66"><i style="background:#2563eb"></i>active</span></div>
-          <div class="ho">Doppler CLI 3.76.0 instalado vía mise (global). Falta `doppler login` (paso interactivo de Benjamin). Cuenta ya creada. </div>
+          <div class="st"><span class="chip" style="color:#16a34a;background:#16a34a1a;border-color:#16a34a66"><i style="background:#16a34a"></i>done</span></div>
+          <div class="ho">Doppler CLI 3.76.0 vía mise (global) + doppler login OK. </div>
         </div>
         <div class="row">
           <div class="name">1 · Modelar estructura</div>
-          <div class="st"><span class="chip" style="color:#94a3b8;background:#94a3b81a;border-color:#94a3b866"><i style="background:#94a3b8"></i>planned</span></div>
-          <div class="ho">Un proyecto Doppler por app × config dev/stg/prod + un proyecto `fomethings-tooling` para tokens de dev (Notion/RevenueCat/Supabase/GitHub/Postman MCP). </div>
+          <div class="st"><span class="chip" style="color:#16a34a;background:#16a34a1a;border-color:#16a34a66"><i style="background:#16a34a"></i>done</span></div>
+          <div class="ho">5 proyectos: aurawallet, aurawallet-web, ce-salon, mekka, shared (configs default dev/stg/prd). mekka + aurawallet-web quedan vacíos por ahora (placeholders; sus secrets eran tooling→shared o inexistentes). </div>
         </div>
         <div class="row">
-          <div class="name">2 · Importar 29 secrets (bws→doppler)</div>
-          <div class="st"><span class="chip" style="color:#94a3b8;background:#94a3b81a;border-color:#94a3b866"><i style="background:#94a3b8"></i>planned</span></div>
-          <div class="ho">Script bws secret list → doppler secrets set, mapeando cada secret a su proyecto/config. Sin imprimir valores. </div>
+          <div class="name">2 · Importar 29 secrets</div>
+          <div class="st"><span class="chip" style="color:#16a34a;background:#16a34a1a;border-color:#16a34a66"><i style="background:#16a34a"></i>done</span></div>
+          <div class="ho">Migrados a config `prd` vía stdin (valores en memoria, sin fugas ni disco). shared=10 (8 tooling + 2 Stripe). aurawallet=9 (signing/store/push). ce-salon=10. NOTAS: (a) STRIPE_* son STALE (proyecto web-billing de AuraWallet abortado) → parqueadas en shared como cold storage, NO cableadas a nada, reusabilidad TBD. (b) DB_SupabasePass → DB_SUPABASE_PASS (Doppler exige UPPER_SNAKE; NO está en el código de ce-salon, rename seguro). </div>
         </div>
         <div class="row">
-          <div class="name">3 · Piloto (aurawallet-web)</div>
-          <div class="st"><span class="chip" style="color:#94a3b8;background:#94a3b81a;border-color:#94a3b866"><i style="background:#94a3b8"></i>planned</span></div>
-          <div class="ho">Web, bajo riesgo (no firma binarios): rewire dev a `doppler run` + verificar. Benjamin prueba. </div>
+          <div class="name">3 · Piloto (ce-salon)</div>
+          <div class="st"><span class="chip" style="color:#2563eb;background:#2563eb1a;border-color:#2563eb66"><i style="background:#2563eb"></i>active</span></div>
+          <div class="ho">ce-salon (web, sin firmar binarios): recablear `pnpm dev:bws` (bws run) → `doppler run -- next dev`. A resolver: GEMINI_API_KEY vive en shared pero ce-salon lo usa en runtime → probar referencia cross-project `${shared.prd.GEMINI_API_KEY}` (¿free?), si no duplicar a ce-salon+mekka. Benjamin valida que el dev server levante. </div>
         </div>
         <div class="row">
           <div class="name">4 · Rollout resto</div>
           <div class="st"><span class="chip" style="color:#94a3b8;background:#94a3b81a;border-color:#94a3b866"><i style="background:#94a3b8"></i>planned</span></div>
-          <div class="ho">ce-salon (dev:bws→doppler), Mekka (bws-materialize + signing keys, delicado), AuraWallet, CI (DOPPLER_TOKEN en GH Actions), machine-doctor bootstrap, notion_trash.py del /umbrella. </div>
+          <div class="ho">Mekka (bws-materialize + signing, delicado), AuraWallet (fastlane/CI), CI GitHub Actions (DOPPLER_TOKEN service token), machine-doctor bootstrap (materializar tooling de shared al env), notion_trash.py del /umbrella. </div>
         </div>
         <div class="row">
           <div class="name">5 · Decomisar bws</div>
           <div class="st"><span class="chip" style="color:#94a3b8;background:#94a3b81a;border-color:#94a3b866"><i style="background:#94a3b8"></i>planned</span></div>
-          <div class="ho">Cuando todo esté verde: bajar bws de scripts/CI/bootstrap, liberar el plan free. </div>
+          <div class="ho">Cuando todo verde: bajar bws de scripts/CI/bootstrap, liberar el plan free. </div>
         </div></div>
 <p class="foot">Generado desde STATE.yaml por render_umbrella.py — no editar a mano.</p>
 </div></body></html>
