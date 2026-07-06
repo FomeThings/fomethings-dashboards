@@ -12,7 +12,3 @@ umbrellas:
     title: Modernización AuraWallet
     project: AuraWallet
     state: ../aurawallet/docs/plans/modernizacion-aurawallet/STATE.yaml
-  - slug: test-del
-    title: Prueba delete
-    project: FomeThings OS
-    state: ../fomethings-os/docs/plans/test-del/STATE.yaml
