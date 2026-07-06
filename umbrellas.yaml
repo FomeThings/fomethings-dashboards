@@ -16,3 +16,7 @@ umbrellas:
     title: Migración de secrets → Doppler
     project: FomeThings OS
     state: ../fomethings-os/docs/plans/migracion-doppler/STATE.yaml
+  - slug: verseo-mvp
+    title: Verseo — MVP (F0→F4)
+    project: DiarIA
+    state: ../Diaria/docs/plans/verseo-mvp/STATE.yaml

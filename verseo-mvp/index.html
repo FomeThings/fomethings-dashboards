@@ -1,0 +1,130 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Verseo — MVP (F0→F4) — UMC</title><style>
+:root{--bg:#f6f8fb;--surf:#fff;--surf2:#f1f5f9;--bd:#e2e8f0;--fg:#0f172a;--mut:#64748b;--fnt:#94a3b8;--a:#3b82f6;--a2:#22c55e}
+@media(prefers-color-scheme:dark){:root{--bg:#0a0e17;--surf:#111826;--surf2:#0e1420;--bd:#1e293b;--fg:#e6edf6;--mut:#93a2b8;--fnt:#64748b;--a:#60a5fa;--a2:#4ade80}}
+*{box-sizing:border-box}body{margin:0;font:15px/1.55 system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:var(--bg);color:var(--fg);padding:36px 18px;-webkit-font-smoothing:antialiased}
+.wrap{max-width:760px;margin:0 auto}
+.eyebrow{font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--a);margin:0 0 8px}
+h1{font-size:clamp(22px,4vw,30px);font-weight:700;letter-spacing:-.02em;margin:0 0 10px;text-wrap:balance}
+.meta{display:flex;flex-wrap:wrap;gap:6px 16px;color:var(--mut);font-size:13.5px;margin-bottom:24px}.meta b{color:var(--fg)}
+.tnum{font-variant-numeric:tabular-nums}
+.track{height:9px;background:var(--surf2);border:1px solid var(--bd);border-radius:999px;overflow:hidden}
+.track>i{display:block;height:100%;width:64%;background:linear-gradient(90deg,var(--a),var(--a2))}
+.cap{display:flex;justify-content:space-between;margin:8px 0 26px;font-size:12.5px;color:var(--mut)}
+.cards{display:grid;grid-template-columns:1fr 1fr;gap:13px;margin-bottom:13px}@media(max-width:560px){.cards{grid-template-columns:1fr}}
+.card,.strip{background:var(--surf);border:1px solid var(--bd);border-radius:13px;padding:14px 16px;box-shadow:0 1px 2px rgba(15,23,42,.05),0 8px 22px rgba(15,23,42,.04)}
+.card h3,.strip h3,.sec{font-size:10.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--fnt);margin:0 0 6px}
+.card p{margin:0}.strip{display:flex;align-items:center;gap:12px;margin-bottom:26px}.strip h3{margin:0}.ok{color:var(--a2);font-weight:600}
+.sec{margin:0 0 10px}
+.phases{background:var(--surf);border:1px solid var(--bd);border-radius:13px;overflow:hidden;box-shadow:0 1px 2px rgba(15,23,42,.05),0 8px 22px rgba(15,23,42,.04)}
+.row{display:grid;grid-template-columns:172px 120px 1fr;gap:12px;align-items:center;padding:12px 16px;border-top:1px solid var(--bd)}
+.row:first-child{border-top:0}.row .name{font-weight:600;font-size:14px}.row .ho{color:var(--mut);font-size:13px}
+.row.step{background:var(--surf2)}.row.step .name{font-weight:500;color:var(--mut);font-size:13px;padding-left:16px;position:relative}
+.row.step .name::before{content:"";position:absolute;left:2px;top:50%;width:8px;height:1px;background:var(--fnt)}
+.chip{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:600;padding:3px 10px;border-radius:999px;border:1px solid;text-transform:capitalize}
+.chip i{width:6px;height:6px;border-radius:50%}.count{margin-left:7px;color:var(--fnt);font-size:12px;font-variant-numeric:tabular-nums}
+.ho code{font-family:ui-monospace,Menlo,monospace;font-size:11.5px;background:var(--surf2);padding:1px 6px;border-radius:5px;color:var(--fnt)}
+.foot{margin-top:18px;font-size:12px;color:var(--fnt);text-align:center}
+.back{display:inline-block;color:var(--mut);text-decoration:none;font-size:13px;font-weight:500;margin-bottom:16px}.back:hover{color:var(--a)}
+</style></head><body><div class="wrap">
+<a class="back" href="../">← Todos los dashboards</a>
+<p class="eyebrow">FomeThings · Umbrella Mission Control</p>
+<h1>Verseo — MVP (F0→F4)</h1>
+<div class="meta"><span>Fase actual: <b>F3 cerrada · F3.5 por planificar</b></span><span class="tnum">Actualizado 2026-07-05T22:50</span></div>
+<div class="track"><i></i></div>
+<div class="cap"><span>6/9 fases · 9/14 pasos</span><span class="tnum">64%</span></div>
+<div class="cards">
+  <div class="card"><h3>Foco actual</h3><p>Núcleo de features COMPLETO y validado end-to-end en emulador (captura → IA → mapa → memoria → constelación). 6 Edge Functions vivas. Estructurando el proyecto al FomeThings OS.</p></div>
+  <div class="card"><h3>Próxima acción</h3><p>Presentar plan de F3.5 (craft pass total: componentes core + Mobbin a fondo + micro-motion/háptica) para aprobación de Benjamin; al arrancar, escribir docs/plans/f35-craft-pass/.</p></div>
+</div>
+<div class="strip"><h3>Bloqueos</h3><ul><li>Gate de fluidez en DEVICE FÍSICO pendiente (Benjamin; emulador = GL software, valida función no perf). No bloquea F3.5, sí el release.</li><li>Proyección a Notion pendiente: MCP notion desconectado en la sesión que creó esta umbrella — correr /umbrella sync verseo-mvp al reconectar.</li></ul></div>
+<div class="sec">Fases</div>
+<div class="phases">
+        <div class="row">
+          <div class="name">F0 · Cimientos</div>
+          <div class="st"><span class="chip" style="color:#16a34a;background:#16a34a1a;border-color:#16a34a66"><i style="background:#16a34a"></i>done</span></div>
+          <div class="ho">Flutter 3.44 (FVM) + Riverpod 3 + go_router + Drift cifrado con sqlite3mc/ChaCha20 (SQLCipher EOL — specs/07 §9/§14). Modelo C completo: 10 tablas espejo Drift↔Postgres con RLS por operación. Flavors dev/prod, tokens v0.2 → ThemeData (Fraunces/Hanken), shell 4 tabs + captura modal. </div>
+        </div>
+        <div class="row">
+          <div class="name">F1 · Loop core + tono</div>
+          <div class="st"><span class="chip" style="color:#16a34a;background:#16a34a1a;border-color:#16a34a66"><i style="background:#16a34a"></i>done</span><span class="count">2/2</span></div>
+          <div class="ho">Captura sagrada &lt;10s offline (texto/foto/voz; original.jpg con GPS se borra tras comprimir — canon 04). Outbox pending|synced validado E2E contra Supabase real (RLS probado). Auth email+password. IA confidente (elaborate, prompt v2 iterado en harness contra Gemini PAGO — el free entrena). Cierre de día (narrador_v1) + transcripción. 3 Edge Functions vivas. <code>54c5b5c</code></div>
+        </div>
+        <div class="row step">
+          <div class="name">F1.1 · Captura + outbox + auth + confidente</div>
+          <div class="st"><span class="chip" style="color:#16a34a;background:#16a34a1a;border-color:#16a34a66"><i style="background:#16a34a"></i>done</span></div>
+          <div class="ho"></div>
+        </div>
+        <div class="row step">
+          <div class="name">F1.2 · Elaboración UI + cierre de día + transcripción</div>
+          <div class="st"><span class="chip" style="color:#16a34a;background:#16a34a1a;border-color:#16a34a66"><i style="background:#16a34a"></i>done</span></div>
+          <div class="ho"></div>
+        </div>
+        <div class="row">
+          <div class="name">F2 · Mapa de descubrimiento (1er wow) + features sin gate visual</div>
+          <div class="st"><span class="chip" style="color:#16a34a;background:#16a34a1a;border-color:#16a34a66"><i style="background:#16a34a"></i>done</span></div>
+          <div class="ho">Spike del mapa: flutter_map 8.3 + OpenFreeMap (sin key, sin tracking) + niebla saveLayer/dstOut sobre celdas geohash derivadas de entries (deriva, no refresques). vector_map_tiles PINEADO 9.0.0-beta.9 (ADR-0002). Reaflorar (pull, nunca push) · Calendario · Perfil + exportación libre md+zip (canon 04) · rutas type-safe go_router_builder. Validado en emulador propio verseo_pixel7 (capturas docs/capturas/2026-07-03-emulador/); 5 hallazgos visuales → spec de F2.2. <code>93f05d2</code></div>
+        </div>
+        <div class="row">
+          <div class="name">F2.2 · Estilo tinta/papel del mapa</div>
+          <div class="st"><span class="chip" style="color:#16a34a;background:#16a34a1a;border-color:#16a34a66"><i style="background:#16a34a"></i>done</span></div>
+          <div class="ho">Theme tinta/papel día+noche por PATCH EN MEMORIA del JSON Liberty a tokens (ADR-0002; parks→salvia, halos→paper, E2E guard de paleta). NIEBLA TINTA decidida por A/B con pantallazos (specs/10 🔒; deslavado descartado — revelado invisible). Celdas por zoom con histéresis + reveal animado + fit-to-cells + double-tap OK. 2 bugs de producto cazados con datos reales: geohash NaN por EXIF 0/0 y picker que redacta GPS sin ACCESS_MEDIA_LOCATION (ADR-0003). riverpod_lint plugin nativo; gate = fvm dart analyze (ADR-0001). Capturas docs/capturas/2026-07-03-f22/. <code>10fc36d</code></div>
+        </div>
+        <div class="row">
+          <div class="name">F2.3 · Artefacto compartible del mapa</div>
+          <div class="st"><span class="chip" style="color:#16a34a;background:#16a34a1a;border-color:#16a34a66"><i style="background:#16a34a"></i>done</span></div>
+          <div class="ho">Compartir = artefacto abstracto (canon 02): theme sin labels (includeLabels:false) → RepaintBoundary.toImage ×2 → share sheet; atribución ODbL dentro de la imagen; sin texto ni stats. Gotchas: esperas de frame REALES (endOfFrame) + presupuesto de re-raster 1500ms (ADR-0005). PNG real día/noche en docs/capturas/2026-07-03-f23/. <code>e4aef54</code></div>
+        </div>
+        <div class="row">
+          <div class="name">F3 · Capa Memoria</div>
+          <div class="st"><span class="chip" style="color:#16a34a;background:#16a34a1a;border-color:#16a34a66"><i style="background:#16a34a"></i>done</span><span class="count">3/3</span></div>
+          <div class="ho">6 Edge Functions vivas (+extract-tags, suggest-chapters, synthesize). Validación end-to-end en emulador con datos reales: captura → tags IA → constelación (María oro central + arista de co-ocurrencia) → cluster sugerido → título IA aceptado → capítulo → síntesis voz canon (capturas docs/capturas/2026-07-04-f3/). Prompt synthesis v2 iterado en harness (ADR-0004). Bug clave cazado: userId placeholder &#x27;demo-user&#x27; — los fakes no cazan placeholders, validar SIEMPRE con datos reales. TODOs F3.x en código: persistir síntesis/descartes, sync de junction-removes, labels en bordes. <code>b48cc59</code></div>
+        </div>
+        <div class="row step">
+          <div class="name">F3.0 · Sustrato: tagging IA + outbox extendido + migración Drift v2</div>
+          <div class="st"><span class="chip" style="color:#16a34a;background:#16a34a1a;border-color:#16a34a66"><i style="background:#16a34a"></i>done</span></div>
+          <div class="ho"></div>
+        </div>
+        <div class="row step">
+          <div class="name">F3.1 · Tab Memoria: capítulos (clustering determinista, IA solo titula) + heirlooms + síntesis</div>
+          <div class="st"><span class="chip" style="color:#16a34a;background:#16a34a1a;border-color:#16a34a66"><i style="background:#16a34a"></i>done</span></div>
+          <div class="ho"></div>
+        </div>
+        <div class="row step">
+          <div class="name">F3.2 · Constelación: phyllotaxis determinista, isolate &gt;40 nodos, share sin labels</div>
+          <div class="st"><span class="chip" style="color:#16a34a;background:#16a34a1a;border-color:#16a34a66"><i style="background:#16a34a"></i>done</span></div>
+          <div class="ho"></div>
+        </div>
+        <div class="row">
+          <div class="name">F3.5 · Craft pass total (belleza en UNA pasada)</div>
+          <div class="st"><span class="chip" style="color:#94a3b8;background:#94a3b81a;border-color:#94a3b866"><i style="background:#94a3b8"></i>planned</span></div>
+          <div class="ho">Enmienda 🔒 de specs/08 (decisión del founder jul-2026): primero features, después belleza total. Contenido (método de specs/10): formalizar 5–6 componentes core → cada pantalla anclada en referencias reales de Mobbin (uso a fondo) → capa de craft (flutter_animate, háptica, transiciones shared-element, empty states, auditoría dark+AA) → Rive solo momentos firma. Explorar (F2.2) es el patrón de referencia. La GENTE REAL entra DESPUÉS de esta fase. </div>
+        </div>
+        <div class="row">
+          <div class="name">Pre-release · Transversales</div>
+          <div class="st"><span class="chip" style="color:#94a3b8;background:#94a3b81a;border-color:#94a3b866"><i style="background:#94a3b8"></i>planned</span><span class="count">0/3</span></div>
+          <div class="ho">Lo que falta antes de manos ajenas: SIWA + onboarding real (specs/09 🔒: mínimo, sin paywall, semilla=fotos; el auth actual es dev-quality) · flavors iOS en Xcode (docs/ios-flavors.md) · gate de fluidez en device físico (pendiente desde F2). </div>
+        </div>
+        <div class="row step">
+          <div class="name">SIWA + onboarding real</div>
+          <div class="st"><span class="chip" style="color:#94a3b8;background:#94a3b81a;border-color:#94a3b866"><i style="background:#94a3b8"></i>planned</span></div>
+          <div class="ho"></div>
+        </div>
+        <div class="row step">
+          <div class="name">Flavors iOS en Xcode</div>
+          <div class="st"><span class="chip" style="color:#94a3b8;background:#94a3b81a;border-color:#94a3b866"><i style="background:#94a3b8"></i>planned</span></div>
+          <div class="ho"></div>
+        </div>
+        <div class="row step">
+          <div class="name">Gate de fluidez en device físico</div>
+          <div class="st"><span class="chip" style="color:#94a3b8;background:#94a3b81a;border-color:#94a3b866"><i style="background:#94a3b8"></i>planned</span></div>
+          <div class="ho"></div>
+        </div>
+        <div class="row">
+          <div class="name">F4 · Monetización</div>
+          <div class="st"><span class="chip" style="color:#94a3b8;background:#94a3b81a;border-color:#94a3b866"><i style="background:#94a3b8"></i>planned</span></div>
+          <div class="ho">Créditos de consumo SIN suscripción (specs/03 🔒): capturar y leer nunca cuestan; créditos solo para magia deliberada (voz, imágenes, síntesis ricas). Solo cuando el núcleo gratis demostró uso con gente real. Pendiente de decidir: pricing exacto, line-item gratis/pago (specs/06). </div>
+        </div></div>
+<p class="foot">Generado desde STATE.yaml por render_umbrella.py — no editar a mano.</p>
+</div></body></html>
