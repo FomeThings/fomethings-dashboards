@@ -10,7 +10,7 @@ h1{font-size:clamp(22px,4vw,30px);font-weight:700;letter-spacing:-.02em;margin:0
 .meta{display:flex;flex-wrap:wrap;gap:6px 16px;color:var(--mut);font-size:13.5px;margin-bottom:24px}.meta b{color:var(--fg)}
 .tnum{font-variant-numeric:tabular-nums}
 .track{height:9px;background:var(--surf2);border:1px solid var(--bd);border-radius:999px;overflow:hidden}
-.track>i{display:block;height:100%;width:56%;background:linear-gradient(90deg,var(--a),var(--a2))}
+.track>i{display:block;height:100%;width:67%;background:linear-gradient(90deg,var(--a),var(--a2))}
 .cap{display:flex;justify-content:space-between;margin:8px 0 26px;font-size:12.5px;color:var(--mut)}
 .cards{display:grid;grid-template-columns:1fr 1fr;gap:13px;margin-bottom:13px}@media(max-width:560px){.cards{grid-template-columns:1fr}}
 .card,.strip{background:var(--surf);border:1px solid var(--bd);border-radius:13px;padding:14px 16px;box-shadow:0 1px 2px rgba(15,23,42,.05),0 8px 22px rgba(15,23,42,.04)}
@@ -31,11 +31,11 @@ h1{font-size:clamp(22px,4vw,30px);font-weight:700;letter-spacing:-.02em;margin:0
 <a class="back" href="../">← Todos los dashboards</a>
 <p class="eyebrow">FomeThings · Umbrella Mission Control</p>
 <h1>Metodología Frontend (F11)</h1>
-<div class="meta"><span>Fase actual: <b>2b — PR #2 LISTO, esperando review + gate visual de Benjamin</b></span><span class="tnum">Actualizado 2026-07-06T23:00</span></div>
+<div class="meta"><span>Fase actual: <b>FASE 2 COMPLETA (2a+2b) — siguientes: F11.3 pipeline DTCG (Mekka) / F11.4 web tokens / F11.5 REVIEW.md+i18n, en sesiones frescas</b></span><span class="tnum">Actualizado 2026-07-06T23:00</span></div>
 <div class="track"><i></i></div>
-<div class="cap"><span>5/9 fases · 5/9 pasos</span><span class="tnum">56%</span></div>
+<div class="cap"><span>6/9 fases · 6/9 pasos</span><span class="tnum">67%</span></div>
 <div class="cards">
-  <div class="card"><h3>Foco actual</h3><p>TODO CERRADO 2026-07-06: gates aplicados en ce-salon Y VERSEO (ambos con CI verde en runner real), vocabulario canonico aprobado y materializado como skeletons compilables, /new-project copia packs. Verseo: baseline 50 violaciones (16 color/8 insets/12 font/14 sizedbox), 476 tests pass, coverage 42% floor 35, audit enforced PASSED, commit 821903c. Solo AuraWallet y Mekka quedan pre-1.4.0 (tienen sus gates propios equivalentes; su adopcion del gate gestionado = oportunista o en F11.3).</p></div>
+  <div class="card"><h3>Foco actual</h3><p>FASE 2 CERRADA: Verseo es el primer proyecto 100% L8 (PR #2 APROBADO por Benjamin y MERGEADO 2026-07-07, main 788f811) — estructura canonica lib/app/theme, vocabulario Anexo A, valores de identidad intactos, cero cambio visual probado (476 tests match, goldens intactos), stock 44. ce-salon+Verseo gated con CI real. Pendiente natural: alinear nombres de rol de Mekka (Anexo A) junto a F11.3; AuraWallet adopta gate gestionado oportunista.</p></div>
   <div class="card"><h3>Próxima acción</h3><p>2a (correccion de secuencia, review de Benjamin: la base antes que la migracion): auditar vocabularios reales de tokens (AuraWallet vs Mekka vs ce-salon) -&gt; proponer vocabulario canonico L8 -&gt; Benjamin aprueba -&gt; skeletons de referencia al scaffold. Verseo pasa a 2b, gated a post-F3.5. Follow-up menor: portar test del gate Dart al scaffold.</p></div>
 </div>
 <div class="strip"><h3>Bloqueos</h3><span class="ok">✓ Ninguno</span></div>
@@ -68,8 +68,8 @@ h1{font-size:clamp(22px,4vw,30px);font-weight:700;letter-spacing:-.02em;margin:0
         </div>
         <div class="row">
           <div class="name">2b · Verseo consume la base (post-F3.5)</div>
-          <div class="st"><span class="chip" style="color:#2563eb;background:#2563eb1a;border-color:#2563eb66"><i style="background:#2563eb"></i>active</span></div>
-          <div class="ho">MIGRACION COMPLETA EN PR #2 (no mergeado — gate de Benjamin): lib/core/theme -&gt; lib/app/theme L8 (primitives/tokens/domain + accessors), ~50 lib + ~17 test files, mapping Anexo A con valores identicos, 12 roles gap nuevos zero-consumer. CERO CAMBIO VISUAL PROBADO: 476 tests pass match exacto vs main, ningun golden regenerado; stock 50-&gt;44. 4 deviaciones documentadas en el PR (ColorScheme hand-authored, sombras theme-invariant, onBrand=paper, textTheme via .apply()) — todas al servicio de pixel-parity. Bug real cazado: context.motion en initState (prohibido por Flutter). CI audit+quality verdes. FALTA: eyeball de Benjamin light/dark en las 4 tabs (test plan en el PR) -&gt; merge. <code>verseo #2 (OPEN — review de Benjamin pendiente)</code></div>
+          <div class="st"><span class="chip" style="color:#16a34a;background:#16a34a1a;border-color:#16a34a66"><i style="background:#16a34a"></i>done</span></div>
+          <div class="ho">MIGRACION COMPLETA EN PR #2 (no mergeado — gate de Benjamin): lib/core/theme -&gt; lib/app/theme L8 (primitives/tokens/domain + accessors), ~50 lib + ~17 test files, mapping Anexo A con valores identicos, 12 roles gap nuevos zero-consumer. CERO CAMBIO VISUAL PROBADO: 476 tests pass match exacto vs main, ningun golden regenerado; stock 50-&gt;44. 4 deviaciones documentadas en el PR (ColorScheme hand-authored, sombras theme-invariant, onBrand=paper, textTheme via .apply()) — todas al servicio de pixel-parity. Bug real cazado: context.motion en initState (prohibido por Flutter). CI audit+quality verdes. FALTA: eyeball de Benjamin light/dark en las 4 tabs (test plan en el PR) -&gt; merge. <code>verseo #2 (MERGED 2026-07-07, aprobado por Benjamin)</code></div>
         </div>
         <div class="row">
           <div class="name">3 · Pipeline DTCG (piloto Mekka → AuraWallet)</div>
