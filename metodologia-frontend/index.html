@@ -10,7 +10,7 @@ h1{font-size:clamp(22px,4vw,30px);font-weight:700;letter-spacing:-.02em;margin:0
 .meta{display:flex;flex-wrap:wrap;gap:6px 16px;color:var(--mut);font-size:13.5px;margin-bottom:24px}.meta b{color:var(--fg)}
 .tnum{font-variant-numeric:tabular-nums}
 .track{height:9px;background:var(--surf2);border:1px solid var(--bd);border-radius:999px;overflow:hidden}
-.track>i{display:block;height:100%;width:80%;background:linear-gradient(90deg,var(--a),var(--a2))}
+.track>i{display:block;height:100%;width:90%;background:linear-gradient(90deg,var(--a),var(--a2))}
 .cap{display:flex;justify-content:space-between;margin:8px 0 26px;font-size:12.5px;color:var(--mut)}
 .cards{display:grid;grid-template-columns:1fr 1fr;gap:13px;margin-bottom:13px}@media(max-width:560px){.cards{grid-template-columns:1fr}}
 .card,.strip{background:var(--surf);border:1px solid var(--bd);border-radius:13px;padding:14px 16px;box-shadow:0 1px 2px rgba(15,23,42,.05),0 8px 22px rgba(15,23,42,.04)}
@@ -31,12 +31,12 @@ h1{font-size:clamp(22px,4vw,30px);font-weight:700;letter-spacing:-.02em;margin:0
 <a class="back" href="../">← Todos los dashboards</a>
 <p class="eyebrow">FomeThings · Umbrella Mission Control</p>
 <h1>Metodología Frontend (F11)</h1>
-<div class="meta"><span>Fase actual: <b>5 COMPLETA (falta solo merge Mekka #26) — umbrella fases 1-5 cerradas; 3b gated post-ADL</b></span><span class="tnum">Actualizado 2026-07-06T23:00</span></div>
+<div class="meta"><span>Fase actual: <b>UMBRELLA EJECUTADO (fases 1-5 completas y mergeadas) — solo 3b gated post-ADL + backlog visual-regression</b></span><span class="tnum">Actualizado 2026-07-06T23:00</span></div>
 <div class="track"><i></i></div>
-<div class="cap"><span>8/10 fases · 8/10 pasos</span><span class="tnum">80%</span></div>
+<div class="cap"><span>9/10 fases · 9/10 pasos</span><span class="tnum">90%</span></div>
 <div class="cards">
   <div class="card"><h3>Foco actual</h3><p>FASE 2 CERRADA: Verseo es el primer proyecto 100% L8 (PR #2 APROBADO por Benjamin y MERGEADO 2026-07-07, main 788f811) — estructura canonica lib/app/theme, vocabulario Anexo A, valores de identidad intactos, cero cambio visual probado (476 tests match, goldens intactos), stock 44. ce-salon+Verseo gated con CI real. Pendiente natural: alinear nombres de rol de Mekka (Anexo A) junto a F11.3; AuraWallet adopta gate gestionado oportunista.</p></div>
-  <div class="card"><h3>Próxima acción</h3><p>2a (correccion de secuencia, review de Benjamin: la base antes que la migracion): auditar vocabularios reales de tokens (AuraWallet vs Mekka vs ce-salon) -&gt; proponer vocabulario canonico L8 -&gt; Benjamin aprueba -&gt; skeletons de referencia al scaffold. Verseo pasa a 2b, gated a post-F3.5. Follow-up menor: portar test del gate Dart al scaffold.</p></div>
+  <div class="card"><h3>Próxima acción</h3><p>NADA ACTIVO. Diferidos con gate: 3b AuraWallet-&gt;pipeline DTCG (cuando aterrice el Aura Design Language de F5 modernizacion); evaluacion visual-regression (investigacion propia, backlog); follow-up menor: portar test del gate Dart al scaffold. Al retomar: leer este STATE + cap.11 (Anexo A).</p></div>
 </div>
 <div class="strip"><h3>Bloqueos</h3><span class="ok">✓ Ninguno</span></div>
 <div class="sec">Fases</div>
@@ -88,8 +88,8 @@ h1{font-size:clamp(22px,4vw,30px);font-weight:700;letter-spacing:-.02em;margin:0
         </div>
         <div class="row">
           <div class="name">5 · REVIEW.md + i18n bootstrap + frontera</div>
-          <div class="st"><span class="chip" style="color:#2563eb;background:#2563eb1a;border-color:#2563eb66"><i style="background:#2563eb"></i>active</span></div>
-          <div class="ho">HECHO (5a+5b): REVIEW.md template al scaffold + instancias en los 4 proyectos (destilacion de las 10 reglas trans-plataforma + checks especificos por repo; contradiccion de Flutter-AI-rules vs D2 correctamente filtrada; Mekka via PR #26 por su policy). i18n bootstrap: Verseo gen-l10n+ARB es (476 tests OK; dato: Flutter 3.44 elimino el modo sintetico), ce-salon diccionario tipado + doctrina actualizada, Mekka ya lo tenia, packs al scaffold + /new-project. DIFERIDO EXPLICITO: evaluacion Widgetbook/visual-regression (requiere investigacion propia — backlog, no bloquea). FUENTE DE DESTILACION verificada 2026-07-06: vercel-labs/web-interface-guidelines (90 reglas, ~59% trans-plataforma) — cherry-pick al REVIEW.md web DE ce-salon Y al Flutter pack (confirmacion destructiva, empty states, error-copy con next-step, virtualizacion &gt;50 items, hit targets sin dead zones, animar solo compositor-friendly); el checker del skill es web-only, el contenido NO — referenciar/destilar, no vendorear. TAMBIEN evaluar las Flutter AI rules OFICIALES (flutter/flutter docs/rules/rules.md, variantes 10k/4k/1k) como insumo del Flutter pack — destilar contra nuestras rules existentes, no anexar (pueden contradecir doctrina decidida, p.ej. D2). </div>
+          <div class="st"><span class="chip" style="color:#16a34a;background:#16a34a1a;border-color:#16a34a66"><i style="background:#16a34a"></i>done</span></div>
+          <div class="ho">HECHO (5a+5b): REVIEW.md template al scaffold + instancias en los 4 proyectos (destilacion de las 10 reglas trans-plataforma + checks especificos por repo; contradiccion de Flutter-AI-rules vs D2 correctamente filtrada; Mekka via PR #26 por su policy). i18n bootstrap: Verseo gen-l10n+ARB es (476 tests OK; dato: Flutter 3.44 elimino el modo sintetico), ce-salon diccionario tipado + doctrina actualizada, Mekka ya lo tenia, packs al scaffold + /new-project. DIFERIDO EXPLICITO: evaluacion Widgetbook/visual-regression (requiere investigacion propia — backlog, no bloquea). FUENTE DE DESTILACION verificada 2026-07-06: vercel-labs/web-interface-guidelines (90 reglas, ~59% trans-plataforma) — cherry-pick al REVIEW.md web DE ce-salon Y al Flutter pack (confirmacion destructiva, empty states, error-copy con next-step, virtualizacion &gt;50 items, hit targets sin dead zones, animar solo compositor-friendly); el checker del skill es web-only, el contenido NO — referenciar/destilar, no vendorear. TAMBIEN evaluar las Flutter AI rules OFICIALES (flutter/flutter docs/rules/rules.md, variantes 10k/4k/1k) como insumo del Flutter pack — destilar contra nuestras rules existentes, no anexar (pueden contradecir doctrina decidida, p.ej. D2). <code>directos (aura 47021e75, ce-salon 0685595+f581c4e, verseo db9f796+aab63d1) + Mekka #26 (MERGED)</code></div>
         </div></div>
 <p class="foot">Generado desde STATE.yaml por render_umbrella.py — no editar a mano.</p>
 </div></body></html>
