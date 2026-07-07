@@ -31,11 +31,11 @@ h1{font-size:clamp(22px,4vw,30px);font-weight:700;letter-spacing:-.02em;margin:0
 <a class="back" href="../">← Todos los dashboards</a>
 <p class="eyebrow">FomeThings · Umbrella Mission Control</p>
 <h1>Metodología Frontend (F11)</h1>
-<div class="meta"><span>Fase actual: <b>2a DONE — esperando cierre de gates Verseo (CI en runner)</b></span><span class="tnum">Actualizado 2026-07-06T23:00</span></div>
+<div class="meta"><span>Fase actual: <b>F11.1 + 2a COMPLETAS en todos los proyectos — siguiente: 2b (migracion L8 de Verseo) en sesion fresca</b></span><span class="tnum">Actualizado 2026-07-06T23:00</span></div>
 <div class="track"><i></i></div>
 <div class="cap"><span>5/9 fases · 5/9 pasos</span><span class="tnum">56%</span></div>
 <div class="cards">
-  <div class="card"><h3>Foco actual</h3><p>F11.1 completa; ce-salon gated con CI verde en runner real. BENJAMIN ATERRIZO F3.5 (2026-07-06): Verseo en main limpio y sync con origin (8f7dbe3) -&gt; GATES DE VERSEO EN APLICACION YA (agente, receta 1d sabor Flutter). En paralelo: auditoria de vocabularios corriendo (2a). La migracion L8 de Verseo (2b) sigue esperando el vocabulario canonico.</p></div>
+  <div class="card"><h3>Foco actual</h3><p>TODO CERRADO 2026-07-06: gates aplicados en ce-salon Y VERSEO (ambos con CI verde en runner real), vocabulario canonico aprobado y materializado como skeletons compilables, /new-project copia packs. Verseo: baseline 50 violaciones (16 color/8 insets/12 font/14 sizedbox), 476 tests pass, coverage 42% floor 35, audit enforced PASSED, commit 821903c. Solo AuraWallet y Mekka quedan pre-1.4.0 (tienen sus gates propios equivalentes; su adopcion del gate gestionado = oportunista o en F11.3).</p></div>
   <div class="card"><h3>Próxima acción</h3><p>2a (correccion de secuencia, review de Benjamin: la base antes que la migracion): auditar vocabularios reales de tokens (AuraWallet vs Mekka vs ce-salon) -&gt; proponer vocabulario canonico L8 -&gt; Benjamin aprueba -&gt; skeletons de referencia al scaffold. Verseo pasa a 2b, gated a post-F3.5. Follow-up menor: portar test del gate Dart al scaffold.</p></div>
 </div>
 <div class="strip"><h3>Bloqueos</h3><span class="ok">✓ Ninguno</span></div>
@@ -59,7 +59,7 @@ h1{font-size:clamp(22px,4vw,30px);font-weight:700;letter-spacing:-.02em;margin:0
         <div class="row">
           <div class="name">1d · Aplicar a Verseo + ce-salon</div>
           <div class="st"><span class="chip" style="color:#16a34a;background:#16a34a1a;border-color:#16a34a66"><i style="background:#16a34a"></i>done</span></div>
-          <div class="ho">ce-salon COMPLETO: gate+workflow+hooks+baseline(58 legacy)+version 1.4.0+audit enforced PASSED; AMBOS workflows VERDES en runner real al 1er push. Bug pnpm 10.x -- passthrough: fix ce-salon + back-port scaffold. FT_SKIP_LINT usado con justificacion (commit sin archivos lintables; verificado post-hoc que nada se enmascaro). VERSEO NO TOCADO (inspeccion: branch f35/craft-pass, main+1 sin push, 15 branches locales nunca pusheadas) — gates cuando Benjamin aterrice F3.5. Skills de terceros web: nota movida a F11.5. <code>88f4de9 (ce-salon) + d9ba0cb (scaffold back-port)</code></div>
+          <div class="ho">ce-salon COMPLETO (gate+workflow+hooks+baseline 58+audit enforced; CI verde 1er push; bug pnpm 10.x fixeado+back-port). VERSEO COMPLETO post-F3.5 (821903c directo a main: baseline 50, 476 tests pass, coverage 42% floor 35, audit enforced PASSED, ambos CI runs SUCCESS en runner real; goldens de Verseo pasan en Linux — sin gap de scaffold; back-port menor de lint de comillas). F11.1 aplicada en TODOS los proyectos objetivo. <code>88f4de9 (ce-salon) + d9ba0cb (scaffold back-port)</code></div>
         </div>
         <div class="row">
           <div class="name">2a · Vocabulario canónico L8 + skeletons de referencia</div>
