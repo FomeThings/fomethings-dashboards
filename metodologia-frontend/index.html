@@ -31,7 +31,7 @@ h1{font-size:clamp(22px,4vw,30px);font-weight:700;letter-spacing:-.02em;margin:0
 <a class="back" href="../">← Todos los dashboards</a>
 <p class="eyebrow">FomeThings · Umbrella Mission Control</p>
 <h1>Metodología Frontend (F11)</h1>
-<div class="meta"><span>Fase actual: <b>F11.1 + 2a COMPLETAS en todos los proyectos — siguiente: 2b (migracion L8 de Verseo) en sesion fresca</b></span><span class="tnum">Actualizado 2026-07-06T23:00</span></div>
+<div class="meta"><span>Fase actual: <b>2b — PR #2 LISTO, esperando review + gate visual de Benjamin</b></span><span class="tnum">Actualizado 2026-07-06T23:00</span></div>
 <div class="track"><i></i></div>
 <div class="cap"><span>5/9 fases · 5/9 pasos</span><span class="tnum">56%</span></div>
 <div class="cards">
@@ -68,8 +68,8 @@ h1{font-size:clamp(22px,4vw,30px);font-weight:700;letter-spacing:-.02em;margin:0
         </div>
         <div class="row">
           <div class="name">2b · Verseo consume la base (post-F3.5)</div>
-          <div class="st"><span class="chip" style="color:#94a3b8;background:#94a3b81a;border-color:#94a3b866"><i style="background:#94a3b8"></i>planned</span></div>
-          <div class="ho">Migrar AppColors flat de Verseo → estructura L8 con el vocabulario canonico. GATE F3.5 LEVANTADO (Benjamin aterrizo 2026-07-06; main limpio sync 8f7dbe3); los QUALITY GATES se aplican YA por separado (no dependen del vocabulario). Esta fase queda solo para la migracion L8 tras aprobar 2a. </div>
+          <div class="st"><span class="chip" style="color:#2563eb;background:#2563eb1a;border-color:#2563eb66"><i style="background:#2563eb"></i>active</span></div>
+          <div class="ho">MIGRACION COMPLETA EN PR #2 (no mergeado — gate de Benjamin): lib/core/theme -&gt; lib/app/theme L8 (primitives/tokens/domain + accessors), ~50 lib + ~17 test files, mapping Anexo A con valores identicos, 12 roles gap nuevos zero-consumer. CERO CAMBIO VISUAL PROBADO: 476 tests pass match exacto vs main, ningun golden regenerado; stock 50-&gt;44. 4 deviaciones documentadas en el PR (ColorScheme hand-authored, sombras theme-invariant, onBrand=paper, textTheme via .apply()) — todas al servicio de pixel-parity. Bug real cazado: context.motion en initState (prohibido por Flutter). CI audit+quality verdes. FALTA: eyeball de Benjamin light/dark en las 4 tabs (test plan en el PR) -&gt; merge. <code>verseo #2 (OPEN — review de Benjamin pendiente)</code></div>
         </div>
         <div class="row">
           <div class="name">3 · Pipeline DTCG (piloto Mekka → AuraWallet)</div>
