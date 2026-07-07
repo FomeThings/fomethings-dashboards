@@ -10,7 +10,7 @@ h1{font-size:clamp(22px,4vw,30px);font-weight:700;letter-spacing:-.02em;margin:0
 .meta{display:flex;flex-wrap:wrap;gap:6px 16px;color:var(--mut);font-size:13.5px;margin-bottom:24px}.meta b{color:var(--fg)}
 .tnum{font-variant-numeric:tabular-nums}
 .track{height:9px;background:var(--surf2);border:1px solid var(--bd);border-radius:999px;overflow:hidden}
-.track>i{display:block;height:100%;width:25%;background:linear-gradient(90deg,var(--a),var(--a2))}
+.track>i{display:block;height:100%;width:38%;background:linear-gradient(90deg,var(--a),var(--a2))}
 .cap{display:flex;justify-content:space-between;margin:8px 0 26px;font-size:12.5px;color:var(--mut)}
 .cards{display:grid;grid-template-columns:1fr 1fr;gap:13px;margin-bottom:13px}@media(max-width:560px){.cards{grid-template-columns:1fr}}
 .card,.strip{background:var(--surf);border:1px solid var(--bd);border-radius:13px;padding:14px 16px;box-shadow:0 1px 2px rgba(15,23,42,.05),0 8px 22px rgba(15,23,42,.04)}
@@ -31,12 +31,12 @@ h1{font-size:clamp(22px,4vw,30px);font-weight:700;letter-spacing:-.02em;margin:0
 <a class="back" href="../">← Todos los dashboards</a>
 <p class="eyebrow">FomeThings · Umbrella Mission Control</p>
 <h1>Metodología Frontend (F11)</h1>
-<div class="meta"><span>Fase actual: <b>1c — /new-project skill + audit verifica gates</b></span><span class="tnum">Actualizado 2026-07-06T23:00</span></div>
+<div class="meta"><span>Fase actual: <b>1d — Aplicar a ce-salon (Verseo gated por trabajo en vuelo)</b></span><span class="tnum">Actualizado 2026-07-06T23:00</span></div>
 <div class="track"><i></i></div>
-<div class="cap"><span>2/8 fases · 2/8 pasos</span><span class="tnum">25%</span></div>
+<div class="cap"><span>3/8 fases · 3/8 pasos</span><span class="tnum">38%</span></div>
 <div class="cards">
-  <div class="card"><h3>Foco actual</h3><p>1a+1b DONE con evidencia. 1b (commit 3d7a522): gate web smoke-tested en ce-salon (4 reglas disparan, ignore respetado, 0 falsos positivos en 20 commits reales + 1 verdadero positivo text-[10px]), workflows+hooks validados localmente (kill-switches, fail-open, awk cobertura unit-tested). NO verificado aún: workflows en runner real de GH Actions (pasa en 1d). 1c en ejecución vía agente.</p></div>
-  <div class="card"><h3>Próxima acción</h3><p>1c: skill global /new-project (bootstrap Golden Template + pack + gates día 0) + fomethings_audit gana verificación de gates VERSION-GATED (exige gates solo si .fomethings-version del proyecto &gt;= la versión que los introduce — no rompe compliance de proyectos pre-adopción).</p></div>
+  <div class="card"><h3>Foco actual</h3><p>1a+1b+1c DONE con evidencia (1c commit 8bc7ccb: /new-project skill chezmoi-managed dotfiles 556929d; VERSION 1.4.0 = V_GATES; audit version-gated sin regresión en los 5 proyectos; smoke de enforcement bidireccional OK). 1d en ejecución: ce-salon completo; Verseo SOLO inspección (memoria indica main local con 12 commits sin push — trabajo de Benjamin en vuelo, no tocar).</p></div>
+  <div class="card"><h3>Próxima acción</h3><p>1d: fomethings_sync a ce-salon + wiring (token-gate-web.json, baseline --stock, hooks .web renombrados, core.hooksPath, quality workflow) + bump .fomethings-version 1.4.0 + audit verde + push y VERIFICAR el workflow en runner REAL de GH Actions. Verseo: inspeccionar estado y reportar (decisión de Benjamin).</p></div>
 </div>
 <div class="strip"><h3>Bloqueos</h3><span class="ok">✓ Ninguno</span></div>
 <div class="sec">Fases</div>
@@ -53,12 +53,12 @@ h1{font-size:clamp(22px,4vw,30px);font-weight:700;letter-spacing:-.02em;margin:0
         </div>
         <div class="row">
           <div class="name">1c · /new-project skill + audit verifica gates</div>
-          <div class="st"><span class="chip" style="color:#2563eb;background:#2563eb1a;border-color:#2563eb66"><i style="background:#2563eb"></i>active</span></div>
-          <div class="ho">Skill global /new-project (bootstrap Golden Template + pack + gates día 0) + fomethings_audit verifica gates VERSION-GATED (no rompe compliance de proyectos pre-adopción; el requisito se activa cuando el proyecto sube su .fomethings-version en 1d). </div>
+          <div class="st"><span class="chip" style="color:#16a34a;background:#16a34a1a;border-color:#16a34a66"><i style="background:#16a34a"></i>done</span></div>
+          <div class="ho">/new-project SKILL.md global (bootstrap completo, audit verde obligatorio antes del 1er commit; chezmoi-managed). fomethings_audit: seccion quality-gates VERSION-GATED (V_GATES=1.4.0; pack por pubspec/next-dep; flutter y web checks; info bajo 1.4.0, fail desde 1.4.0). Bug cazado en smoke: PACK_ALTERNATIVE_FILES exime los 6 archivos alternativos de pack del check de managed-missing. VERIFICADO: 5 proyectos sin regresion (info-only), smoke ft-smoke con enforcement bidireccional, sin residuos. Asuncion flaggeada: web gate check = OR de presencia (como flutter). NO verificado: flutter create / pnpm create reales (pasa en uso real). <code>8bc7ccb (OS) + 556929d (dotfiles)</code></div>
         </div>
         <div class="row">
           <div class="name">1d · Aplicar a Verseo + ce-salon</div>
-          <div class="st"><span class="chip" style="color:#94a3b8;background:#94a3b81a;border-color:#94a3b866"><i style="background:#94a3b8"></i>planned</span></div>
+          <div class="st"><span class="chip" style="color:#2563eb;background:#2563eb1a;border-color:#2563eb66"><i style="background:#2563eb"></i>active</span></div>
           <div class="ho">Los 2 proyectos hoy sin gates reciben: token gate, quality workflow, hooks, bump .fomethings-version (activa el audit de gates). Diff-scoped + ratchet para no ahogar con legacy. Verifica los workflows en runner REAL. Web pack declara skills de terceros recomendadas: plugin Vercel (ya activo) + vercel-labs/agent-skills (web-design-guidelines, composition-patterns) — referenciar, no vendorear; cherry-pick a REVIEW.md en F11.5. </div>
         </div>
         <div class="row">
@@ -79,7 +79,7 @@ h1{font-size:clamp(22px,4vw,30px);font-weight:700;letter-spacing:-.02em;margin:0
         <div class="row">
           <div class="name">5 · REVIEW.md + i18n bootstrap + frontera</div>
           <div class="st"><span class="chip" style="color:#94a3b8;background:#94a3b81a;border-color:#94a3b866"><i style="background:#94a3b8"></i>planned</span></div>
-          <div class="ho">REVIEW.md al scaffold (D6) + ARB/diccionario es-only en proyectos sin i18n (D5 diff-scoped) + evaluar Widgetbook/visual regression con investigación propia (territorio no verificado). </div>
+          <div class="ho">REVIEW.md al scaffold (D6) + ARB/diccionario es-only en proyectos sin i18n (D5 diff-scoped) + evaluar Widgetbook/visual regression con investigación propia (territorio no verificado). FUENTE DE DESTILACION verificada 2026-07-06: vercel-labs/web-interface-guidelines (90 reglas, ~59% trans-plataforma) — cherry-pick al REVIEW.md web DE ce-salon Y al Flutter pack (confirmacion destructiva, empty states, error-copy con next-step, virtualizacion &gt;50 items, hit targets sin dead zones, animar solo compositor-friendly); el checker del skill es web-only, el contenido NO — referenciar/destilar, no vendorear. TAMBIEN evaluar las Flutter AI rules OFICIALES (flutter/flutter docs/rules/rules.md, variantes 10k/4k/1k) como insumo del Flutter pack — destilar contra nuestras rules existentes, no anexar (pueden contradecir doctrina decidida, p.ej. D2). </div>
         </div></div>
 <p class="foot">Generado desde STATE.yaml por render_umbrella.py — no editar a mano.</p>
 </div></body></html>
