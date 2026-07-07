@@ -10,7 +10,7 @@ h1{font-size:clamp(22px,4vw,30px);font-weight:700;letter-spacing:-.02em;margin:0
 .meta{display:flex;flex-wrap:wrap;gap:6px 16px;color:var(--mut);font-size:13.5px;margin-bottom:24px}.meta b{color:var(--fg)}
 .tnum{font-variant-numeric:tabular-nums}
 .track{height:9px;background:var(--surf2);border:1px solid var(--bd);border-radius:999px;overflow:hidden}
-.track>i{display:block;height:100%;width:64%;background:linear-gradient(90deg,var(--a),var(--a2))}
+.track>i{display:block;height:100%;width:71%;background:linear-gradient(90deg,var(--a),var(--a2))}
 .cap{display:flex;justify-content:space-between;margin:8px 0 26px;font-size:12.5px;color:var(--mut)}
 .cards{display:grid;grid-template-columns:1fr 1fr;gap:13px;margin-bottom:13px}@media(max-width:560px){.cards{grid-template-columns:1fr}}
 .card,.strip{background:var(--surf);border:1px solid var(--bd);border-radius:13px;padding:14px 16px;box-shadow:0 1px 2px rgba(15,23,42,.05),0 8px 22px rgba(15,23,42,.04)}
@@ -31,14 +31,14 @@ h1{font-size:clamp(22px,4vw,30px);font-weight:700;letter-spacing:-.02em;margin:0
 <a class="back" href="../">← Todos los dashboards</a>
 <p class="eyebrow">FomeThings · Umbrella Mission Control</p>
 <h1>Verseo — MVP (F0→F4)</h1>
-<div class="meta"><span>Fase actual: <b>F3 cerrada · F3.5 por planificar</b></span><span class="tnum">Actualizado 2026-07-05T23:15</span></div>
+<div class="meta"><span>Fase actual: <b>F3.5 · Slice 1 (Hoy + componentes core + refinamiento) APROBADO por Benjamin en emulador; branch f35/craft-pass lista para landing</b></span><span class="tnum">Actualizado 2026-07-06T21:00</span></div>
 <div class="track"><i></i></div>
-<div class="cap"><span>6/9 fases · 9/14 pasos</span><span class="tnum">64%</span></div>
+<div class="cap"><span>6/9 fases · 10/14 pasos</span><span class="tnum">71%</span></div>
 <div class="cards">
-  <div class="card"><h3>Foco actual</h3><p>Núcleo de features COMPLETO y validado end-to-end en emulador (captura → IA → mapa → memoria → constelación). 6 Edge Functions vivas. Proyecto estructurado al FomeThings OS (umbrella + ADRs + Notion + dashboard).</p></div>
-  <div class="card"><h3>Próxima acción</h3><p>Presentar plan de F3.5 (craft pass total: componentes core + Mobbin a fondo + micro-motion/háptica) para aprobación de Benjamin; al arrancar, escribir docs/plans/f35-craft-pass/.</p></div>
+  <div class="card"><h3>Foco actual</h3><p>Slice 1 COMPLETO y aprobado (branch f35/craft-pass, 22 commits). Capa lib/ui/ (PaperCard, CaptureButton, AppBottomNav, PaperGrain, hero_tags, motion) + Hoy a craft total. Refinamiento post-gate (tras feedback &#x27;se ve plano&#x27;): modelo de profundidad tinta/papel (superficie elevada por brillo + borde hairline + escala de sombras sm/md/lg + chrome en bandas), timestamps en acento-tinta, header con tokens display/metadata (se cerró el hardcode), firma letterpress del cierre, grano de papel tokenizado (domado de ruido a fibra). analyze 0 · 476 tests +3 skip · goldens día+noche. Residuo destilado a ADR-0006; spec/11 enmendado (DayClosureCard = tratamiento liviano, formalización aún diferida). Capturas en docs/capturas/2026-07-06-f35-hoy/.</p></div>
+  <div class="card"><h3>Próxima acción</h3><p>Landing de f35/craft-pass (merge/PR a main) + /umbrella sync. Luego slices 2-8 reusando lib/ui/: captura→elaboración, cierre-de-día (formalizar DayClosureCard como componente + goldens), memoria/chip, calendario (aquí SÍ el timeline agrupado por día), reaflorar, perfil, auth-craft — cada uno su plan liviano.</p></div>
 </div>
-<div class="strip"><h3>Bloqueos</h3><ul><li>Gate de fluidez en DEVICE FÍSICO pendiente (Benjamin; emulador = GL software, valida función no perf). No bloquea F3.5, sí el release.</li></ul></div>
+<div class="strip"><h3>Bloqueos</h3><ul><li>Gate de fluidez en DEVICE FÍSICO pendiente (Benjamin; emulador = GL software, valida función no perf). No bloquea F3.5, sí el release. Verificar ahí: re-stagger de la lista al capturar (flutter_animate re-anima en cada re-emit; si molesta, guard animar-una-vez — ADR-0006).</li></ul></div>
 <div class="sec">Fases</div>
 <div class="phases">
         <div class="row">
@@ -98,8 +98,13 @@ h1{font-size:clamp(22px,4vw,30px);font-weight:700;letter-spacing:-.02em;margin:0
         </div>
         <div class="row">
           <div class="name">F3.5 · Craft pass total (belleza en UNA pasada)</div>
-          <div class="st"><span class="chip" style="color:#94a3b8;background:#94a3b81a;border-color:#94a3b866"><i style="background:#94a3b8"></i>planned</span></div>
-          <div class="ho">Enmienda 🔒 de specs/08 (decisión del founder jul-2026): primero features, después belleza total. Contenido (método de specs/10): formalizar 5–6 componentes core → cada pantalla anclada en referencias reales de Mobbin (uso a fondo) → capa de craft (flutter_animate, háptica, transiciones shared-element, empty states, auditoría dark+AA) → Rive solo momentos firma. Explorar (F2.2) es el patrón de referencia. La GENTE REAL entra DESPUÉS de esta fase. </div>
+          <div class="st"><span class="chip" style="color:#2563eb;background:#2563eb1a;border-color:#2563eb66"><i style="background:#2563eb"></i>active</span><span class="count">1/1</span></div>
+          <div class="ho">Enmienda 🔒 de specs/08 (decisión del founder jul-2026): primero features, después belleza total. Diseño en specs/11 (aprobado): slice vertical faro-first (Hoy), extraer componentes core a lib/ui/, código+screenshots en emulador (precedente F2.2), Mobbin ancla. Método de specs/10. Rive solo momentos firma. GENTE REAL entra DESPUÉS. </div>
+        </div>
+        <div class="row step">
+          <div class="name">F3.5 Slice 1 · Hoy + componentes core (PaperCard, CaptureButton, AppBottomNav, EntryTile) + capa de craft + refinamiento de profundidad</div>
+          <div class="st"><span class="chip" style="color:#16a34a;background:#16a34a1a;border-color:#16a34a66"><i style="background:#16a34a"></i>done</span></div>
+          <div class="ho"></div>
         </div>
         <div class="row">
           <div class="name">Pre-release · Transversales</div>
