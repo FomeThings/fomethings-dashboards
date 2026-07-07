@@ -10,7 +10,7 @@ h1{font-size:clamp(22px,4vw,30px);font-weight:700;letter-spacing:-.02em;margin:0
 .meta{display:flex;flex-wrap:wrap;gap:6px 16px;color:var(--mut);font-size:13.5px;margin-bottom:24px}.meta b{color:var(--fg)}
 .tnum{font-variant-numeric:tabular-nums}
 .track{height:9px;background:var(--surf2);border:1px solid var(--bd);border-radius:999px;overflow:hidden}
-.track>i{display:block;height:100%;width:38%;background:linear-gradient(90deg,var(--a),var(--a2))}
+.track>i{display:block;height:100%;width:50%;background:linear-gradient(90deg,var(--a),var(--a2))}
 .cap{display:flex;justify-content:space-between;margin:8px 0 26px;font-size:12.5px;color:var(--mut)}
 .cards{display:grid;grid-template-columns:1fr 1fr;gap:13px;margin-bottom:13px}@media(max-width:560px){.cards{grid-template-columns:1fr}}
 .card,.strip{background:var(--surf);border:1px solid var(--bd);border-radius:13px;padding:14px 16px;box-shadow:0 1px 2px rgba(15,23,42,.05),0 8px 22px rgba(15,23,42,.04)}
@@ -31,12 +31,12 @@ h1{font-size:clamp(22px,4vw,30px);font-weight:700;letter-spacing:-.02em;margin:0
 <a class="back" href="../">← Todos los dashboards</a>
 <p class="eyebrow">FomeThings · Umbrella Mission Control</p>
 <h1>Metodología Frontend (F11)</h1>
-<div class="meta"><span>Fase actual: <b>1d — Aplicar a ce-salon (Verseo gated por trabajo en vuelo)</b></span><span class="tnum">Actualizado 2026-07-06T23:00</span></div>
+<div class="meta"><span>Fase actual: <b>F11.1 CERRADA — siguiente: fase 2 (sesión nueva)</b></span><span class="tnum">Actualizado 2026-07-06T23:00</span></div>
 <div class="track"><i></i></div>
-<div class="cap"><span>3/8 fases · 3/8 pasos</span><span class="tnum">38%</span></div>
+<div class="cap"><span>4/8 fases · 4/8 pasos</span><span class="tnum">50%</span></div>
 <div class="cards">
-  <div class="card"><h3>Foco actual</h3><p>1a+1b+1c DONE con evidencia (1c commit 8bc7ccb: /new-project skill chezmoi-managed dotfiles 556929d; VERSION 1.4.0 = V_GATES; audit version-gated sin regresión en los 5 proyectos; smoke de enforcement bidireccional OK). 1d en ejecución: ce-salon completo; Verseo SOLO inspección (memoria indica main local con 12 commits sin push — trabajo de Benjamin en vuelo, no tocar).</p></div>
-  <div class="card"><h3>Próxima acción</h3><p>1d: fomethings_sync a ce-salon + wiring (token-gate-web.json, baseline --stock, hooks .web renombrados, core.hooksPath, quality workflow) + bump .fomethings-version 1.4.0 + audit verde + push y VERIFICAR el workflow en runner REAL de GH Actions. Verseo: inspeccionar estado y reportar (decisión de Benjamin).</p></div>
+  <div class="card"><h3>Foco actual</h3><p>F11.1 COMPLETA (1a-1d). ce-salon gated end-to-end con CI verde en runner real al primer push (compliance + quality-web); baseline 58 violaciones legacy congeladas por ratchet. Bug pnpm 10.x (-- passthrough) cazado por el hook nuevo, fix + back-port al scaffold (d9ba0cb). VERSEO DIFERIDO por decision de Benjamin: esta en f35/craft-pass con main+1 sin push — aplicar gates cuando aterrice F3.5 (usar 1d de ce-salon como receta).</p></div>
+  <div class="card"><h3>Próxima acción</h3><p>Fase 2 en sesion nueva: Verseo a 2-tier + gates (post-aterrizaje F3.5, decision de Benjamin) + ce-salon STATE.md-&gt;STATE.yaml. Follow-up menor pendiente: portar el test del token gate Dart al scaffold (nota en 1a).</p></div>
 </div>
 <div class="strip"><h3>Bloqueos</h3><span class="ok">✓ Ninguno</span></div>
 <div class="sec">Fases</div>
@@ -58,8 +58,8 @@ h1{font-size:clamp(22px,4vw,30px);font-weight:700;letter-spacing:-.02em;margin:0
         </div>
         <div class="row">
           <div class="name">1d · Aplicar a Verseo + ce-salon</div>
-          <div class="st"><span class="chip" style="color:#2563eb;background:#2563eb1a;border-color:#2563eb66"><i style="background:#2563eb"></i>active</span></div>
-          <div class="ho">Los 2 proyectos hoy sin gates reciben: token gate, quality workflow, hooks, bump .fomethings-version (activa el audit de gates). Diff-scoped + ratchet para no ahogar con legacy. Verifica los workflows en runner REAL. Web pack declara skills de terceros recomendadas: plugin Vercel (ya activo) + vercel-labs/agent-skills (web-design-guidelines, composition-patterns) — referenciar, no vendorear; cherry-pick a REVIEW.md en F11.5. </div>
+          <div class="st"><span class="chip" style="color:#16a34a;background:#16a34a1a;border-color:#16a34a66"><i style="background:#16a34a"></i>done</span></div>
+          <div class="ho">ce-salon COMPLETO: gate+workflow+hooks+baseline(58 legacy)+version 1.4.0+audit enforced PASSED; AMBOS workflows VERDES en runner real al 1er push. Bug pnpm 10.x -- passthrough: fix ce-salon + back-port scaffold. FT_SKIP_LINT usado con justificacion (commit sin archivos lintables; verificado post-hoc que nada se enmascaro). VERSEO NO TOCADO (inspeccion: branch f35/craft-pass, main+1 sin push, 15 branches locales nunca pusheadas) — gates cuando Benjamin aterrice F3.5. Skills de terceros web: nota movida a F11.5. <code>88f4de9 (ce-salon) + d9ba0cb (scaffold back-port)</code></div>
         </div>
         <div class="row">
           <div class="name">2 · Verseo a 2-tier + ce-salon STATE.yaml</div>
