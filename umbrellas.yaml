@@ -24,3 +24,7 @@ umbrellas:
     title: Mekka — MVP
     project: Mekka
     state: ../Mekka/docs/plans/mekka-mvp/STATE.yaml
+  - slug: metodologia-frontend
+    title: Metodología Frontend (F11)
+    project: FomeThings OS
+    state: ../fomethings-os/docs/plans/metodologia-frontend/STATE.yaml
