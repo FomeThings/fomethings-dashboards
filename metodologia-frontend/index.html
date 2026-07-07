@@ -10,7 +10,7 @@ h1{font-size:clamp(22px,4vw,30px);font-weight:700;letter-spacing:-.02em;margin:0
 .meta{display:flex;flex-wrap:wrap;gap:6px 16px;color:var(--mut);font-size:13.5px;margin-bottom:24px}.meta b{color:var(--fg)}
 .tnum{font-variant-numeric:tabular-nums}
 .track{height:9px;background:var(--surf2);border:1px solid var(--bd);border-radius:999px;overflow:hidden}
-.track>i{display:block;height:100%;width:90%;background:linear-gradient(90deg,var(--a),var(--a2))}
+.track>i{display:block;height:100%;width:82%;background:linear-gradient(90deg,var(--a),var(--a2))}
 .cap{display:flex;justify-content:space-between;margin:8px 0 26px;font-size:12.5px;color:var(--mut)}
 .cards{display:grid;grid-template-columns:1fr 1fr;gap:13px;margin-bottom:13px}@media(max-width:560px){.cards{grid-template-columns:1fr}}
 .card,.strip{background:var(--surf);border:1px solid var(--bd);border-radius:13px;padding:14px 16px;box-shadow:0 1px 2px rgba(15,23,42,.05),0 8px 22px rgba(15,23,42,.04)}
@@ -31,12 +31,12 @@ h1{font-size:clamp(22px,4vw,30px);font-weight:700;letter-spacing:-.02em;margin:0
 <a class="back" href="../">← Todos los dashboards</a>
 <p class="eyebrow">FomeThings · Umbrella Mission Control</p>
 <h1>Metodología Frontend (F11)</h1>
-<div class="meta"><span>Fase actual: <b>UMBRELLA EJECUTADO (fases 1-5 completas y mergeadas) — solo 3b gated post-ADL + backlog visual-regression</b></span><span class="tnum">Actualizado 2026-07-06T23:00</span></div>
+<div class="meta"><span>Fase actual: <b>3b+3c — Pipeline DTCG a AuraWallet y Verseo (des-gateado por decision de Benjamin: estandarizar ANTES de modernizar)</b></span><span class="tnum">Actualizado 2026-07-06T23:00</span></div>
 <div class="track"><i></i></div>
-<div class="cap"><span>9/10 fases · 9/10 pasos</span><span class="tnum">90%</span></div>
+<div class="cap"><span>9/11 fases · 9/11 pasos</span><span class="tnum">82%</span></div>
 <div class="cards">
   <div class="card"><h3>Foco actual</h3><p>FASE 2 CERRADA: Verseo es el primer proyecto 100% L8 (PR #2 APROBADO por Benjamin y MERGEADO 2026-07-07, main 788f811) — estructura canonica lib/app/theme, vocabulario Anexo A, valores de identidad intactos, cero cambio visual probado (476 tests match, goldens intactos), stock 44. ce-salon+Verseo gated con CI real. Pendiente natural: alinear nombres de rol de Mekka (Anexo A) junto a F11.3; AuraWallet adopta gate gestionado oportunista.</p></div>
-  <div class="card"><h3>Próxima acción</h3><p>NADA ACTIVO. Diferidos con gate: 3b AuraWallet-&gt;pipeline DTCG (cuando aterrice el Aura Design Language de F5 modernizacion); evaluacion visual-regression (investigacion propia, backlog); follow-up menor: portar test del gate Dart al scaffold. Al retomar: leer este STATE + cap.11 (Anexo A).</p></div>
+  <div class="card"><h3>Próxima acción</h3><p>3b (AuraWallet) + 3c (Verseo) en ejecucion paralela via os-implementer: adopcion del pipeline DTCG con paridad de valores (cero visual), patron Mekka #25. DECISION DE BENJAMIN 2026-07-07: el gate post-ADL se INVIRTIO — estandarizar primero para que el rediseno F5 se exprese DENTRO del sistema (el ADL sera un diff de tokens JSON). Backlog: visual-regression eval; portar test gate Dart.</p></div>
 </div>
 <div class="strip"><h3>Bloqueos</h3><span class="ok">✓ Ninguno</span></div>
 <div class="sec">Fases</div>
@@ -77,9 +77,14 @@ h1{font-size:clamp(22px,4vw,30px);font-weight:700;letter-spacing:-.02em;margin:0
           <div class="ho">PILOTO COMPLETO EN PR #25 (no mergeado): tokens DTCG draft JSON (primitives/semantic.light+dark/scale) + SD v4.4 custom format dart/mekka-token-class -&gt; 6 .g.dart commiteados; melos run tokens (local-only, CI sin Node); ThemeExtensions consumen valores generados (shells hand-written). Renames Anexo A aplicados a la FUENTE + 19 componentes + widgetbook + tests. PARIDAD PROBADA: parity test commiteado 9/9 + build idempotente x2 + spot-checks byte-equal. 103/103 tests, cov 88% (floor 70), analyze/format/guards/audit verdes. Notas: Curve + TextStyle composites fuera del pipeline (ADR 0014, fase futura); fix analyze exclude node_modules. MERGEADO (main 218c1a9). TRANCHE AURAWALLET DIFERIDO DELIBERADAMENTE a post-Aura-Design-Language: el reset F5 de modernizacion esta redefiniendo esos valores — mapearlos hoy seria trabajo desechable (mismo criterio que Verseo/F3.5). Fase 3b creada. <code>Mekka #25 (MERGED 2026-07-07, aprobado por Benjamin)</code></div>
         </div>
         <div class="row">
-          <div class="name">3b · AuraWallet adopta el pipeline (post-ADL)</div>
-          <div class="st"><span class="chip" style="color:#94a3b8;background:#94a3b81a;border-color:#94a3b866"><i style="background:#94a3b8"></i>planned</span></div>
-          <div class="ho">GATED al aterrizaje del Aura Design Language (F5 de modernizacion-aurawallet): mapear el sistema de tokens de AuraWallet a DTCG JSON + SD usando el pipeline probado en Mekka (#25). Hacerlo antes seria mapear valores que F5 esta por cambiar. </div>
+          <div class="name">3b · AuraWallet adopta el pipeline (ANTES del ADL)</div>
+          <div class="st"><span class="chip" style="color:#2563eb;background:#2563eb1a;border-color:#2563eb66"><i style="background:#2563eb"></i>active</span></div>
+          <div class="ho">GATE INVERTIDO por Benjamin (2026-07-07): estandarizar ANTES de modernizar — el razonamiento anterior (valores por cambiar = desechable) era defectuoso; lo que se mapea es ESTRUCTURA, y el ADL luego sera un diff de tokens JSON dentro del sistema. Adopcion DTCG con paridad de valores (patron Mekka #25) sobre el theme mas maduro (25+ roles color, chart palettes fuera del core, typography, breakpoints). </div>
+        </div>
+        <div class="row">
+          <div class="name">3c · Verseo adopta el pipeline</div>
+          <div class="st"><span class="chip" style="color:#2563eb;background:#2563eb1a;border-color:#2563eb66"><i style="background:#2563eb"></i>active</span></div>
+          <div class="ho">Verseo ya esta en L8 (2b) — plug directo: sus primitivos hand-written pasan a DTCG JSON + SD generando los .g.dart. Paridad de valores, cero visual. Completa el 4/4 de pipeline. </div>
         </div>
         <div class="row">
           <div class="name">4 · Web tokens vía @theme</div>
