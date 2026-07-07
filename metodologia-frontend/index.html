@@ -10,7 +10,7 @@ h1{font-size:clamp(22px,4vw,30px);font-weight:700;letter-spacing:-.02em;margin:0
 .meta{display:flex;flex-wrap:wrap;gap:6px 16px;color:var(--mut);font-size:13.5px;margin-bottom:24px}.meta b{color:var(--fg)}
 .tnum{font-variant-numeric:tabular-nums}
 .track{height:9px;background:var(--surf2);border:1px solid var(--bd);border-radius:999px;overflow:hidden}
-.track>i{display:block;height:100%;width:50%;background:linear-gradient(90deg,var(--a),var(--a2))}
+.track>i{display:block;height:100%;width:44%;background:linear-gradient(90deg,var(--a),var(--a2))}
 .cap{display:flex;justify-content:space-between;margin:8px 0 26px;font-size:12.5px;color:var(--mut)}
 .cards{display:grid;grid-template-columns:1fr 1fr;gap:13px;margin-bottom:13px}@media(max-width:560px){.cards{grid-template-columns:1fr}}
 .card,.strip{background:var(--surf);border:1px solid var(--bd);border-radius:13px;padding:14px 16px;box-shadow:0 1px 2px rgba(15,23,42,.05),0 8px 22px rgba(15,23,42,.04)}
@@ -31,12 +31,12 @@ h1{font-size:clamp(22px,4vw,30px);font-weight:700;letter-spacing:-.02em;margin:0
 <a class="back" href="../">← Todos los dashboards</a>
 <p class="eyebrow">FomeThings · Umbrella Mission Control</p>
 <h1>Metodología Frontend (F11)</h1>
-<div class="meta"><span>Fase actual: <b>F11.1 CERRADA — siguiente: fase 2 (sesión nueva)</b></span><span class="tnum">Actualizado 2026-07-06T23:00</span></div>
+<div class="meta"><span>Fase actual: <b>2a — Vocabulario canónico + skeletons de referencia (la base antes que Verseo)</b></span><span class="tnum">Actualizado 2026-07-06T23:00</span></div>
 <div class="track"><i></i></div>
-<div class="cap"><span>4/8 fases · 4/8 pasos</span><span class="tnum">50%</span></div>
+<div class="cap"><span>4/9 fases · 4/9 pasos</span><span class="tnum">44%</span></div>
 <div class="cards">
   <div class="card"><h3>Foco actual</h3><p>F11.1 COMPLETA (1a-1d). ce-salon gated end-to-end con CI verde en runner real al primer push (compliance + quality-web); baseline 58 violaciones legacy congeladas por ratchet. Bug pnpm 10.x (-- passthrough) cazado por el hook nuevo, fix + back-port al scaffold (d9ba0cb). VERSEO DIFERIDO por decision de Benjamin: esta en f35/craft-pass con main+1 sin push — aplicar gates cuando aterrice F3.5 (usar 1d de ce-salon como receta).</p></div>
-  <div class="card"><h3>Próxima acción</h3><p>Fase 2 en sesion nueva: Verseo a 2-tier + gates (post-aterrizaje F3.5, decision de Benjamin) + ce-salon STATE.md-&gt;STATE.yaml. Follow-up menor pendiente: portar el test del token gate Dart al scaffold (nota en 1a).</p></div>
+  <div class="card"><h3>Próxima acción</h3><p>2a (correccion de secuencia, review de Benjamin: la base antes que la migracion): auditar vocabularios reales de tokens (AuraWallet vs Mekka vs ce-salon) -&gt; proponer vocabulario canonico L8 -&gt; Benjamin aprueba -&gt; skeletons de referencia al scaffold. Verseo pasa a 2b, gated a post-F3.5. Follow-up menor: portar test del gate Dart al scaffold.</p></div>
 </div>
 <div class="strip"><h3>Bloqueos</h3><span class="ok">✓ Ninguno</span></div>
 <div class="sec">Fases</div>
@@ -62,9 +62,14 @@ h1{font-size:clamp(22px,4vw,30px);font-weight:700;letter-spacing:-.02em;margin:0
           <div class="ho">ce-salon COMPLETO: gate+workflow+hooks+baseline(58 legacy)+version 1.4.0+audit enforced PASSED; AMBOS workflows VERDES en runner real al 1er push. Bug pnpm 10.x -- passthrough: fix ce-salon + back-port scaffold. FT_SKIP_LINT usado con justificacion (commit sin archivos lintables; verificado post-hoc que nada se enmascaro). VERSEO NO TOCADO (inspeccion: branch f35/craft-pass, main+1 sin push, 15 branches locales nunca pusheadas) — gates cuando Benjamin aterrice F3.5. Skills de terceros web: nota movida a F11.5. <code>88f4de9 (ce-salon) + d9ba0cb (scaffold back-port)</code></div>
         </div>
         <div class="row">
-          <div class="name">2 · Verseo a 2-tier + ce-salon STATE.yaml</div>
+          <div class="name">2a · Vocabulario canónico L8 + skeletons de referencia</div>
+          <div class="st"><span class="chip" style="color:#2563eb;background:#2563eb1a;border-color:#2563eb66"><i style="background:#2563eb"></i>active</span></div>
+          <div class="ho">LA BASE ANTES QUE LA MIGRACION (correccion de Benjamin al cierre de F11.1: L8 declaraba vocabulario estandar que no existia como artefacto). Auditar roles/escalas reales de AuraWallet (AppColorTokens etc.) vs Mekka (MekkaColors etc.) vs ce-salon (CSS vars) -&gt; vocabulario canonico (Benjamin aprueba) -&gt; skeletons de referencia en scaffold (Flutter + web) que /new-project copia. + ce-salon STATE.md-&gt;STATE.yaml (independiente, chico). </div>
+        </div>
+        <div class="row">
+          <div class="name">2b · Verseo consume la base (post-F3.5)</div>
           <div class="st"><span class="chip" style="color:#94a3b8;background:#94a3b81a;border-color:#94a3b866"><i style="background:#94a3b8"></i>planned</span></div>
-          <div class="ho">Migrar AppColors flat de Verseo → primitivos + ThemeExtension semántica (gap 2); ce-salon STATE.md → STATE.yaml (gap 6). </div>
+          <div class="ho">Migrar AppColors flat de Verseo → estructura L8 con el vocabulario canonico + gates (receta 1d de ce-salon). GATED a que Benjamin aterrice F3.5 a main (trabajo en vuelo; inspeccion 1d: branch f35/craft-pass, main+1 sin push). </div>
         </div>
         <div class="row">
           <div class="name">3 · Pipeline DTCG (piloto Mekka → AuraWallet)</div>
