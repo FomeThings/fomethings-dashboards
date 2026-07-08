@@ -10,7 +10,7 @@ h1{font-size:clamp(22px,4vw,30px);font-weight:700;letter-spacing:-.02em;margin:0
 .meta{display:flex;flex-wrap:wrap;gap:6px 16px;color:var(--mut);font-size:13.5px;margin-bottom:24px}.meta b{color:var(--fg)}
 .tnum{font-variant-numeric:tabular-nums}
 .track{height:9px;background:var(--surf2);border:1px solid var(--bd);border-radius:999px;overflow:hidden}
-.track>i{display:block;height:100%;width:82%;background:linear-gradient(90deg,var(--a),var(--a2))}
+.track>i{display:block;height:100%;width:100%;background:linear-gradient(90deg,var(--a),var(--a2))}
 .cap{display:flex;justify-content:space-between;margin:8px 0 26px;font-size:12.5px;color:var(--mut)}
 .cards{display:grid;grid-template-columns:1fr 1fr;gap:13px;margin-bottom:13px}@media(max-width:560px){.cards{grid-template-columns:1fr}}
 .card,.strip{background:var(--surf);border:1px solid var(--bd);border-radius:13px;padding:14px 16px;box-shadow:0 1px 2px rgba(15,23,42,.05),0 8px 22px rgba(15,23,42,.04)}
@@ -31,12 +31,12 @@ h1{font-size:clamp(22px,4vw,30px);font-weight:700;letter-spacing:-.02em;margin:0
 <a class="back" href="../">← Todos los dashboards</a>
 <p class="eyebrow">FomeThings · Umbrella Mission Control</p>
 <h1>Metodología Frontend (F11)</h1>
-<div class="meta"><span>Fase actual: <b>3b+3c — AMBOS PRs LISTOS (aura #235, verseo #3), esperando aprobacion de Benjamin para el 4/4</b></span><span class="tnum">Actualizado 2026-07-06T23:00</span></div>
+<div class="meta"><span>Fase actual: <b>COMPLETO — 4/4 proyectos estandarizados (estructura + vocabulario + pipeline DTCG + gates). Solo backlog opcional.</b></span><span class="tnum">Actualizado 2026-07-06T23:00</span></div>
 <div class="track"><i></i></div>
-<div class="cap"><span>9/11 fases · 9/11 pasos</span><span class="tnum">82%</span></div>
+<div class="cap"><span>11/11 fases · 11/11 pasos</span><span class="tnum">100%</span></div>
 <div class="cards">
   <div class="card"><h3>Foco actual</h3><p>FASE 2 CERRADA: Verseo es el primer proyecto 100% L8 (PR #2 APROBADO por Benjamin y MERGEADO 2026-07-07, main 788f811) — estructura canonica lib/app/theme, vocabulario Anexo A, valores de identidad intactos, cero cambio visual probado (476 tests match, goldens intactos), stock 44. ce-salon+Verseo gated con CI real. Pendiente natural: alinear nombres de rol de Mekka (Anexo A) junto a F11.3; AuraWallet adopta gate gestionado oportunista.</p></div>
-  <div class="card"><h3>Próxima acción</h3><p>3b (AuraWallet) + 3c (Verseo) en ejecucion paralela via os-implementer: adopcion del pipeline DTCG con paridad de valores (cero visual), patron Mekka #25. DECISION DE BENJAMIN 2026-07-07: el gate post-ADL se INVIRTIO — estandarizar primero para que el rediseno F5 se exprese DENTRO del sistema (el ADL sera un diff de tokens JSON). Backlog: visual-regression eval; portar test gate Dart.</p></div>
+  <div class="card"><h3>Próxima acción</h3><p>INICIATIVA EJECUTADA COMPLETA. El rediseno F5 de AuraWallet (Aura Design Language) ya puede disenarse DENTRO del sistema: editar tokens/*.json + tool/build_tokens.sh. Backlog opcional (no bloquea): visual-regression eval (investigacion propia), portar test del gate Dart al scaffold, converger AuraWallet/Mekka al gate gestionado (hoy usan sus equivalentes propios). Nota scaffold: REVIEW.md necesita exclusion cspell al bootstrap (aprendizaje #235, anotado en el template).</p></div>
 </div>
 <div class="strip"><h3>Bloqueos</h3><span class="ok">✓ Ninguno</span></div>
 <div class="sec">Fases</div>
@@ -78,13 +78,13 @@ h1{font-size:clamp(22px,4vw,30px);font-weight:700;letter-spacing:-.02em;margin:0
         </div>
         <div class="row">
           <div class="name">3b · AuraWallet adopta el pipeline (ANTES del ADL)</div>
-          <div class="st"><span class="chip" style="color:#2563eb;background:#2563eb1a;border-color:#2563eb66"><i style="background:#2563eb"></i>active</span></div>
-          <div class="ho">PR #235 LISTO (no mergeado): 89 primitivos + 43x2 roles byte-identicos, scale/radius/borders/elevation/breakpoints verificados, 2039 tests pass, gate+ratchet intactos (2139 stock), build idempotente. dart/aura-token-class con soporte RRGGBBAA. Hand-written con rationale: EdgeInsets compuestos, shadowColor runtime, palettes. CI verde salvo spell-check preexistente de main (ADL spec en espanol) — FIXEADO en main aparte (exclusion docs/specs/** dos capas, patron documentado). </div>
+          <div class="st"><span class="chip" style="color:#16a34a;background:#16a34a1a;border-color:#16a34a66"><i style="background:#16a34a"></i>done</span></div>
+          <div class="ho">PR #235 LISTO (no mergeado): 89 primitivos + 43x2 roles byte-identicos, scale/radius/borders/elevation/breakpoints verificados, 2039 tests pass, gate+ratchet intactos (2139 stock), build idempotente. dart/aura-token-class con soporte RRGGBBAA. Hand-written con rationale: EdgeInsets compuestos, shadowColor runtime, palettes. CI 100% verde tras DOS fixes de cspell en main (exclusion docs/specs/** + exclusion REVIEW.md — la 2da diagnosticada del log real: 5 palabras del REVIEW.md, misma trampa que llevo a excluir CLAUDE.md; nota agregada al scaffold). <code>#235 (MERGED 2026-07-08)</code></div>
         </div>
         <div class="row">
           <div class="name">3c · Verseo adopta el pipeline</div>
-          <div class="st"><span class="chip" style="color:#2563eb;background:#2563eb1a;border-color:#2563eb66"><i style="background:#2563eb"></i>active</span></div>
-          <div class="ho">PR #3 LISTO (no mergeado): snapshot de paridad 243 lineas byte-identico (via flutter test antes/despues), 476 tests + goldens verdes, stock 44 estable, audit PASSED, CI compliance+quality verdes. Novedades tecnicas vs pilot: soporte RRGGBBAA alpha, $type number (pressScale), grupo domainColor; 2 renames de KEYS JSON para evitar colision de merge de SD (campos Dart intactos). Hand-written: Curve, TextStyles, estructura BoxShadow (sus numeros SI generados). </div>
+          <div class="st"><span class="chip" style="color:#16a34a;background:#16a34a1a;border-color:#16a34a66"><i style="background:#16a34a"></i>done</span></div>
+          <div class="ho">PR #3 LISTO (no mergeado): snapshot de paridad 243 lineas byte-identico (via flutter test antes/despues), 476 tests + goldens verdes, stock 44 estable, audit PASSED, CI compliance+quality verdes. Novedades tecnicas vs pilot: soporte RRGGBBAA alpha, $type number (pressScale), grupo domainColor; 2 renames de KEYS JSON para evitar colision de merge de SD (campos Dart intactos). Hand-written: Curve, TextStyles, estructura BoxShadow (sus numeros SI generados). <code>verseo #3 (MERGED 2026-07-08)</code></div>
         </div>
         <div class="row">
           <div class="name">4 · Web tokens vía @theme</div>
