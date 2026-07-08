@@ -31,7 +31,7 @@ h1{font-size:clamp(22px,4vw,30px);font-weight:700;letter-spacing:-.02em;margin:0
 <a class="back" href="../">← Todos los dashboards</a>
 <p class="eyebrow">FomeThings · Umbrella Mission Control</p>
 <h1>Metodología Frontend (F11)</h1>
-<div class="meta"><span>Fase actual: <b>3b+3c — Pipeline DTCG a AuraWallet y Verseo (des-gateado por decision de Benjamin: estandarizar ANTES de modernizar)</b></span><span class="tnum">Actualizado 2026-07-06T23:00</span></div>
+<div class="meta"><span>Fase actual: <b>3b+3c — AMBOS PRs LISTOS (aura #235, verseo #3), esperando aprobacion de Benjamin para el 4/4</b></span><span class="tnum">Actualizado 2026-07-06T23:00</span></div>
 <div class="track"><i></i></div>
 <div class="cap"><span>9/11 fases · 9/11 pasos</span><span class="tnum">82%</span></div>
 <div class="cards">
@@ -79,12 +79,12 @@ h1{font-size:clamp(22px,4vw,30px);font-weight:700;letter-spacing:-.02em;margin:0
         <div class="row">
           <div class="name">3b · AuraWallet adopta el pipeline (ANTES del ADL)</div>
           <div class="st"><span class="chip" style="color:#2563eb;background:#2563eb1a;border-color:#2563eb66"><i style="background:#2563eb"></i>active</span></div>
-          <div class="ho">GATE INVERTIDO por Benjamin (2026-07-07): estandarizar ANTES de modernizar — el razonamiento anterior (valores por cambiar = desechable) era defectuoso; lo que se mapea es ESTRUCTURA, y el ADL luego sera un diff de tokens JSON dentro del sistema. Adopcion DTCG con paridad de valores (patron Mekka #25) sobre el theme mas maduro (25+ roles color, chart palettes fuera del core, typography, breakpoints). </div>
+          <div class="ho">PR #235 LISTO (no mergeado): 89 primitivos + 43x2 roles byte-identicos, scale/radius/borders/elevation/breakpoints verificados, 2039 tests pass, gate+ratchet intactos (2139 stock), build idempotente. dart/aura-token-class con soporte RRGGBBAA. Hand-written con rationale: EdgeInsets compuestos, shadowColor runtime, palettes. CI verde salvo spell-check preexistente de main (ADL spec en espanol) — FIXEADO en main aparte (exclusion docs/specs/** dos capas, patron documentado). </div>
         </div>
         <div class="row">
           <div class="name">3c · Verseo adopta el pipeline</div>
           <div class="st"><span class="chip" style="color:#2563eb;background:#2563eb1a;border-color:#2563eb66"><i style="background:#2563eb"></i>active</span></div>
-          <div class="ho">Verseo ya esta en L8 (2b) — plug directo: sus primitivos hand-written pasan a DTCG JSON + SD generando los .g.dart. Paridad de valores, cero visual. Completa el 4/4 de pipeline. </div>
+          <div class="ho">PR #3 LISTO (no mergeado): snapshot de paridad 243 lineas byte-identico (via flutter test antes/despues), 476 tests + goldens verdes, stock 44 estable, audit PASSED, CI compliance+quality verdes. Novedades tecnicas vs pilot: soporte RRGGBBAA alpha, $type number (pressScale), grupo domainColor; 2 renames de KEYS JSON para evitar colision de merge de SD (campos Dart intactos). Hand-written: Curve, TextStyles, estructura BoxShadow (sus numeros SI generados). </div>
         </div>
         <div class="row">
           <div class="name">4 · Web tokens vía @theme</div>
