@@ -97,9 +97,9 @@ h1{font-size:clamp(22px,4vw,30px);font-weight:700;letter-spacing:-.02em;margin:0
           <div class="ho">PROPUESTA DE BENJAMIN 2026-07-08: ahora que los valores viven en DTCG JSON, el contraste es funcion pura de los datos. Script (stdlib, python o node) que lee tokens/*.json + manifiesto de pares (textPrimary-background, onBrand-brand, on*-status...) y verifica WCAG AA (4.5:1 texto, 3:1 UI) POR MODO (light/dark/publico). Corre en build_tokens + CI = capa 2 del stack (bloquea). Probablemente ENCUENTRE pares que hoy fallan — ese es el valor. Aplicar a los 4 + scaffold. </div>
         </div>
         <div class="row">
-          <div class="name">6b · Estados canónicos del kit (empty/loading/error)</div>
+          <div class="name">6b · Componentes canónicos mínimos del kit (estados + botón)</div>
           <div class="st"><span class="chip" style="color:#94a3b8;background:#94a3b81a;border-color:#94a3b866"><i style="background:#94a3b8"></i>planned</span></div>
-          <div class="ho">Canonizar el patron tri-estado de AuraWallet (CustomEmpty/Error/Progress + toda pantalla con datos renderiza loading-&gt;empty/error/loaded) como clausula L8: todo kit debe tener el trio con nombres canonicos; stubs al skeleton del scaffold; auditar los kits de Mekka/Verseo/ce-salon (probablemente parcial); enforcement advisory (REVIEW.md ya trae los checks, se refuerzan). </div>
+          <div class="ho">AMPLIADA por Benjamin 2026-07-08 (botones): (1) trio de estados canonico — patron tri-estado de AuraWallet (CustomEmpty/Error/Progress; toda pantalla con datos renderiza loading-&gt;empty/error/loaded); (2) ANATOMIA canonica de boton — variantes primary/secondary/ghost/danger, estados default/hover/pressed/disabled/loading (los roles ya existen: surfaceHover/surfaceDisabled/focus), touch target &gt;=44/48; la APARIENCIA sigue siendo identidad por app (L8). Clausula L8 + stubs al skeleton + auditar los 4 kits. SINERGIA: el ADL de AuraWallet (F5) planea kit de controles modernizado — la anatomia canonica debe existir ANTES para que aterrice sobre el contrato (mismo criterio estandarizar-antes-de-modernizar). </div>
         </div>
         <div class="row">
           <div class="name">5 · REVIEW.md + i18n bootstrap + frontera</div>
