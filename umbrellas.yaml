@@ -28,3 +28,7 @@ umbrellas:
     title: Metodología Frontend (F11)
     project: FomeThings OS
     state: ../fomethings-os/docs/plans/metodologia-frontend/STATE.yaml
+  - slug: stampy-mvp
+    title: Stampy MVP
+    project: Stampy
+    state: ../stampy/docs/plans/stampy-mvp/STATE.yaml
