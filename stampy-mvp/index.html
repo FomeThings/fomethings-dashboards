@@ -31,14 +31,14 @@ h1{font-size:clamp(22px,4vw,30px);font-weight:700;letter-spacing:-.02em;margin:0
 <a class="back" href="../">← Todos los dashboards</a>
 <p class="eyebrow">FomeThings · Umbrella Mission Control</p>
 <h1>Stampy MVP</h1>
-<div class="meta"><span>Fase actual: <b>SP1</b></span><span class="tnum">Actualizado 2026-07-10T05:32</span></div>
+<div class="meta"><span>Fase actual: <b>SP1</b></span><span class="tnum">Actualizado 2026-07-11T23:55</span></div>
 <div class="track"><i></i></div>
 <div class="cap"><span>1/7 fases · 1/7 pasos</span><span class="tnum">14%</span></div>
 <div class="cards">
-  <div class="card"><h3>Foco actual</h3><p>SP0 COMPLETO: esquema aplicado al remoto jtvlhfojvigvcovtruog (5 migraciones sincronizadas local==remote), pgTAP verde, PR #2 abierto. Listo para SP1.</p></div>
-  <div class="card"><h3>Próxima acción</h3><p>Mergear PR #2. Arrancar SP1: Edge Function validate-stamp (geocerca PostGIS + un-sello-por-visita + rate limits, service_role) + lectura NFC (nfc_manager) + animación. Escribir plan SP1.</p></div>
+  <div class="card"><h3>Foco actual</h3><p>SP1 en curso. Hecho y MERGEADO: SP1 backend (validate-stamp desplegado, PR#3), SP1 flutter foundation Tasks 1-3 (PR#4), identidad visual (Frambuesa #E6317A + Fredoka/Nunito + logo, PR#5). La UI está DESBLOQUEADA. Falta cerrar SP1: Task 5 (UI Estampar) + Task 4 (gesto NFC).</p></div>
+  <div class="card"><h3>Próxima acción</h3><p>SP1 Task 5: construir la pantalla Estampar + animación tri-estado (plan docs/plans/stampy-mvp/SP1-espina-flutter.md, ya con identidad → correr /visual-gate). SP1 Task 4 (gesto NFC real): necesita el dispositivo de Benjamin + tag NTAG213 grabado (PRD #1). Después SP2 (onboarding cliente).</p></div>
 </div>
-<div class="strip"><h3>Bloqueos</h3><span class="ok">✓ Ninguno</span></div>
+<div class="strip"><h3>Bloqueos</h3><ul><li>Task 4 (gesto NFC) requiere dispositivo físico + tag NTAG213 grabado (PRD #1)</li></ul></div>
 <div class="sec">Fases</div>
 <div class="phases">
         <div class="row">
@@ -49,7 +49,7 @@ h1{font-size:clamp(22px,4vw,30px);font-weight:700;letter-spacing:-.02em;margin:0
         <div class="row">
           <div class="name">SP1 — Espina: sello NFC end-to-end</div>
           <div class="st"><span class="chip" style="color:#2563eb;background:#2563eb1a;border-color:#2563eb66"><i style="background:#2563eb"></i>active</span></div>
-          <div class="ho">Edge Function validate-stamp (local/stamper activos, geocerca PostGIS, un-sello-por-visita, rate limits) + lectura NFC (nfc_manager) + animación. El corazón y el mayor riesgo. ADR 0008. </div>
+          <div class="ho">HECHO+MERGEADO: (a) backend — función register_stamp (anti-fraude atómico, pgTAP) + Edge Function validate-stamp, DESPLEGADAS al remoto (ADR 0008); (b) flutter foundation — app bootea (Riverpod 3+go_router+supabase_flutter), parser del tag, StampRepository sobre validate-stamp (3 tareas TDD); (c) identidad visual (frambuesa/Fredoka/logo). PENDIENTE para cerrar SP1: Task 5 (pantalla Estampar + animación tri-estado + /visual-gate) — plan en docs/plans/stampy-mvp/SP1-espina-flutter.md; Task 4 (gesto NFC real con nfc_manager) — requiere dispositivo + tag NTAG213 (PRD #1). Seed piloto para probar: local 00000000-...-0009f1, stamper ...09a1, coords -33.4260,-70.6100. <code>PR#3 (backend) + PR#4 (flutter foundation) + PR#5 (identidad) — todos mergeados</code></div>
         </div>
         <div class="row">
           <div class="name">SP2 — Onboarding + identidad del cliente</div>
