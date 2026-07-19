@@ -10,7 +10,7 @@ h1{font-size:clamp(22px,4vw,30px);font-weight:700;letter-spacing:-.02em;margin:0
 .meta{display:flex;flex-wrap:wrap;gap:6px 16px;color:var(--mut);font-size:13.5px;margin-bottom:24px}.meta b{color:var(--fg)}
 .tnum{font-variant-numeric:tabular-nums}
 .track{height:9px;background:var(--surf2);border:1px solid var(--bd);border-radius:999px;overflow:hidden}
-.track>i{display:block;height:100%;width:67%;background:linear-gradient(90deg,var(--a),var(--a2))}
+.track>i{display:block;height:100%;width:100%;background:linear-gradient(90deg,var(--a),var(--a2))}
 .cap{display:flex;justify-content:space-between;margin:8px 0 26px;font-size:12.5px;color:var(--mut)}
 .cards{display:grid;grid-template-columns:1fr 1fr;gap:13px;margin-bottom:13px}@media(max-width:560px){.cards{grid-template-columns:1fr}}
 .card,.strip{background:var(--surf);border:1px solid var(--bd);border-radius:13px;padding:14px 16px;box-shadow:0 1px 2px rgba(15,23,42,.05),0 8px 22px rgba(15,23,42,.04)}
@@ -31,60 +31,50 @@ h1{font-size:clamp(22px,4vw,30px);font-weight:700;letter-spacing:-.02em;margin:0
 <a class="back" href="../">← Todos los dashboards</a>
 <p class="eyebrow">FomeThings · Umbrella Mission Control</p>
 <h1>Modernización AuraWallet</h1>
-<div class="meta"><span>Fase actual: <b>F5</b></span><span class="tnum">Actualizado 2026-07-05T00:00</span></div>
+<div class="meta"><span>Fase actual: <b>F7 — CERRADA</b></span><span class="tnum">Actualizado 2026-07-16T20:39</span></div>
 <div class="track"><i></i></div>
-<div class="cap"><span>6/9 fases · 6/9 pasos</span><span class="tnum">67%</span></div>
+<div class="cap"><span>7/7 fases · 7/7 pasos</span><span class="tnum">100%</span></div>
 <div class="cards">
-  <div class="card"><h3>Foco actual</h3><p>FASE 5 — tipografía de marca + rediseño Aura (F5A/F5B mergeados; falta onboarding, Rajdhani in-app, rediseño por pantalla)</p></div>
-  <div class="card"><h3>Próxima acción</h3><p>Decidir dirección de onboarding (artifact c131ac70) + bundlear Rajdhani in-app (rol wordmark/amountHero)</p></div>
+  <div class="card"><h3>Foco actual</h3><p>Iniciativa cerrada 2026-07-16 (ADR 0039). F1-F7 completas: backend hardening (seguridad+higiene), fundacion de color (WCAG+tokens), escape hatches del design system, layout, Aura Design Language B (rediseno visual completo), reactividad/perf frontend, deuda estructural. Residuo permanente en ADRs 0006-0039 + docs/specs/aura-migration-playbook.md.</p></div>
+  <div class="card"><h3>Próxima acción</h3><p>Ninguna -- cerrada. Backlog remanente registrado en ADR 0039 (NO comprometido como fase): dartz-&gt;fpdart DROPEADO (dartz estable/no roto, churn sin beneficio de usuario); majors de deps BACKLOGGEADOS gateados a device/E2E (purchases_flutter, flutter_secure_storage, local_auth, permission_handler) para la proxima ventana de dispositivo; splits de archivos grandes adicionales (app_utils, investment_edit, etc.) quedan oportunistas, no comprometidos.</p></div>
 </div>
 <div class="strip"><h3>Bloqueos</h3><span class="ok">✓ Ninguno</span></div>
 <div class="sec">Fases</div>
 <div class="phases">
         <div class="row">
-          <div class="name">S — Seguridad (backend)</div>
+          <div class="name">F1</div>
           <div class="st"><span class="chip" style="color:#16a34a;background:#16a34a1a;border-color:#16a34a66"><i style="background:#16a34a"></i>done</span></div>
-          <div class="ho">Bypass anon en guards != auth.uid() remediado (REVOKE anon+PUBLIC en 84 RPCs). still_vulnerable=0. <code>MCP migrations (secfix_c1b, notification_settings)</code></div>
+          <div class="ho">Backend hardening -- Seguridad (bypass anon en 84 RPCs remediado via REVOKE FROM anon+PUBLIC, still_vulnerable=0), quick wins (FK indexes, valid_timezones cache, RLS initplan 24-&gt;0, crons vacios apagados), higiene (60 get_* marcadas STABLE, deny policies internas, 9 CHECKs de longitud). Backend 100% cerrado 2026-07-03. <code>MCP migrations (secfix_c1b_revoke_anon_execute_guarded_rpcs, perf_add_transactions_fk_indexes, perf_cache_valid_timezones_and_harden_update_timezone, perf_rls_initplan_wrap_auth_uid/role, perf_mark_pure_read_get_functions_stable, sec_deny_policies_internal_tables, hardening_add_text_length_caps)</code></div>
         </div>
         <div class="row">
-          <div class="name">0 — Backend quick wins</div>
+          <div class="name">F2</div>
           <div class="st"><span class="chip" style="color:#16a34a;background:#16a34a1a;border-color:#16a34a66"><i style="background:#16a34a"></i>done</span></div>
-          <div class="ho">FK indexes en transactions, valid_timezones cache, RLS initplan (24-&gt;0), crons vacíos off. <code>MCP migrations</code></div>
+          <div class="ho">Fundacion visual (color) -- WCAG contrast fix por tema (C2), migracion colorScheme.*-&gt;tokens (C3a/b, ~1937 usos), ColorScheme M3 reparado (C3c), ratchet de stock de tokens (tool/check_design_tokens.dart --stock, baseline inicial 2.717). Fundacion de color completa, base de F3-F5. <code>#216 #217 #218 #219 #220</code></div>
         </div>
         <div class="row">
-          <div class="name">1 — Higiene + validación (backend)</div>
+          <div class="name">F3</div>
           <div class="st"><span class="chip" style="color:#16a34a;background:#16a34a1a;border-color:#16a34a66"><i style="background:#16a34a"></i>done</span></div>
-          <div class="ho">60 get_* STABLE, deny policies internas, 9 CHECKs de longitud. Backend 100% cerrado (2026-07-03). <code>MCP migrations</code></div>
+          <div class="ho">Escape hatches del design system -- roles tipograficos F3A/B (~275 sitios, font_size 552-&gt;233), sheets+paleta privada F3C (11 showModalBottomSheet crudos -&gt; AppBottomSheet), cards a mano -&gt; DetailCard F3D (~65 sitios en 10 features). Baseline de tokens 2.717-&gt;2.277. <code>#221 #222 #223 #224</code></div>
         </div>
         <div class="row">
-          <div class="name">2 — Fundación visual (color)</div>
+          <div class="name">F4</div>
           <div class="st"><span class="chip" style="color:#16a34a;background:#16a34a1a;border-color:#16a34a66"><i style="background:#16a34a"></i>done</span></div>
-          <div class="ho">C2 WCAG + C3a/b/c migración colorScheme-&gt;tokens + ColorScheme M3 reparado + ratchet de stock. Fundación de color completa. <code>#216 #217 #218 #219 #220</code></div>
+          <div class="ho">Layout -- fixes adaptativos F4A (rail-inset muerto en 6 rutas, contentBottomClearance unificado, overflow ARS-&gt;USD resuelto), Transactions-&gt;PageScaffold F4B, unificacion Finance+Analytics/Trends F4C (3 skeletons dedicados, pull-to-refresh, patron de error unico). Baseline 2.277-&gt;2.190. F4D/I6 (densidad Dashboard) movido a F5 por ser decision de rediseno, no de estructura. <code>#225 #226 #227</code></div>
         </div>
         <div class="row">
-          <div class="name">3 — Escape hatches del design system</div>
+          <div class="name">F5</div>
           <div class="st"><span class="chip" style="color:#16a34a;background:#16a34a1a;border-color:#16a34a66"><i style="background:#16a34a"></i>done</span></div>
-          <div class="ho">Roles tipográficos (F3A/B), sheets+paleta privada (F3C), cards-&gt;DetailCard (F3D). Ratchet 2.717-&gt;2.277. <code>#221 #222 #223 #224</code></div>
+          <div class="ho">Aura Design Language B -- rediseno completo: recolor de marca + lockups Rajdhani (F5A/B, #228/#229), onboarding &#x27;los numeros son la marca&#x27; (F5C, #232), Dashboard/kit/forms/Cashflow chart (F5D-G), Transacciones (F5H, #246), fan-in de holders Settings+Analytics(4)+Finance(4)+Categorias-manage (#251-#263), dock-FAB unify + forms diferidos (#264-#266), Shared Wallets 3 tranches (#267-#270), Auth+Onboarding (#269), organic AuraGlow (#271, ADR 0030), cierre F5Z/consolidacion en 6 PRs (#274-#280, ADR 0031: ADL B es el default y unico path, sin scaffolding transicional). F5 CERRADO Y VALIDADO EN DEVICE 2026-07-16 (sign-off de Benjamin). <code>#228-#280 (kit-prep + holder fan-in x9 + shared-wallets x3 + F5Z consolidacion x6, ~40 PRs)</code></div>
         </div>
         <div class="row">
-          <div class="name">4 — Layout</div>
+          <div class="name">F6</div>
           <div class="st"><span class="chip" style="color:#16a34a;background:#16a34a1a;border-color:#16a34a66"><i style="background:#16a34a"></i>done</span></div>
-          <div class="ho">Fixes adaptativos (F4A), Transactions-&gt;PageScaffold (F4B), unificación Finance+Trends (F4C). F4D/I6 movido a F5. <code>#225 #226 #227</code></div>
+          <div class="ho">Reactividad + perf frontend -- C4 invalidacion perezosa de cubits analiticos (ADR 0032, -7/-10 RPC por mutacion), I3 lazifica paginacion de transacciones a SliverList.builder (ADR 0033), R2 SingletonLifecycleMixin sobre 17 cubits (ADR 0034) + registro declarativo de refresh reemplazando el god-coordinator cubit_refresh_helper (ADR 0036), minors (AssetLogo-&gt;CachedNetworkImage, memoize getters unique*, cap de memoria en listas paginadas) + login hero a lockup (#293). F6 sustancialmente completo. <code>#281 #283 #284 #285 #287 #290 #292 #293</code></div>
         </div>
         <div class="row">
-          <div class="name">5 — Tipografía de marca + rediseño Aura</div>
-          <div class="st"><span class="chip" style="color:#2563eb;background:#2563eb1a;border-color:#2563eb66"><i style="background:#2563eb"></i>active</span></div>
-          <div class="ho">F5A recolor logo 258° + assets, F5B lockups Rajdhani. PENDIENTE: onboarding dir, Rajdhani in-app, CardHeader, I6 densidad Dashboard, rediseño Aura por pantalla. <code>#228 #229</code></div>
-        </div>
-        <div class="row">
-          <div class="name">6 — Reactividad + perf frontend</div>
-          <div class="st"><span class="chip" style="color:#94a3b8;background:#94a3b81a;border-color:#94a3b866"><i style="background:#94a3b8"></i>planned</span></div>
-          <div class="ho">C4 fan-out de red (~23-38 RPCs), I3 jank paginación, R2 SingletonLifecycleMixin, AssetLogo cache. </div>
-        </div>
-        <div class="row">
-          <div class="name">7 — Deuda estructural + tests</div>
-          <div class="st"><span class="chip" style="color:#94a3b8;background:#94a3b81a;border-color:#94a3b866"><i style="background:#94a3b8"></i>planned</span></div>
-          <div class="ho">subscription 0 tests (gatekeeper paywall), partir accounts_list.dart (1851 líneas), dartz-&gt;fpdart, majors de deps. </div>
+          <div class="name">F7</div>
+          <div class="st"><span class="chip" style="color:#16a34a;background:#16a34a1a;border-color:#16a34a66"><i style="background:#16a34a"></i>done</span></div>
+          <div class="ho">Deuda estructural + tests -- premisa &#x27;subscription 0 tests&#x27; DESMENTIDA (ya bien cubierto: cubit/entity/datasource/model/usecase/premium_gate); se agregaron 3 render-tests de SubscriptionHeroCard. Split de accounts_list.dart (1889-&gt;206 lineas, 6 part files byte-identicos, ADR 0038, incluye fix del token-gate para moves verbatim). dartz-&gt;fpdart DROPEADO (dartz estable/no roto; 53 archivos/733 usos de churn sin beneficio de usuario). Majors de deps BACKLOGGEADOS (gateados a device/E2E, proxima ventana). Cierre de la iniciativa completa registrado en ADR 0039 (2026-07-16). <code>#296</code></div>
         </div></div>
 <p class="foot">Generado desde STATE.yaml por render_umbrella.py — no editar a mano.</p>
 </div></body></html>

@@ -11,7 +11,12 @@ umbrellas:
   - slug: modernizacion-aurawallet
     title: Modernización AuraWallet
     project: AuraWallet
-    state: ../aurawallet/docs/plans/modernizacion-aurawallet/STATE.yaml
+    state: modernizacion-aurawallet/STATE.yaml
+    # ^ ARCHIVED (frozen) — the umbrella closed 2026-07-16 (ADR 0039 in the
+    # aurawallet repo) and its ephemeral docs/plans/ tracker was deleted per
+    # the plan lifecycle. This local copy is the permanent closure snapshot;
+    # do not repoint it back to a project-repo plan (a closed umbrella does
+    # not reopen).
   - slug: migracion-doppler
     title: Migración de secrets → Doppler
     project: FomeThings OS
