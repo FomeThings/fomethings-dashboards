@@ -37,3 +37,7 @@ umbrellas:
     title: Stampy MVP
     project: Stampy
     state: ../stampy/docs/plans/stampy-mvp/STATE.yaml
+  - slug: aura-ai-assistant
+    title: Aura IA - Asistente Conversacional
+    project: AuraWallet
+    state: ../aurawallet/docs/plans/aura-ai-assistant/STATE.yaml
