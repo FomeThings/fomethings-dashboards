@@ -10,7 +10,7 @@ h1{font-size:clamp(22px,4vw,30px);font-weight:700;letter-spacing:-.02em;margin:0
 .meta{display:flex;flex-wrap:wrap;gap:6px 16px;color:var(--mut);font-size:13.5px;margin-bottom:24px}.meta b{color:var(--fg)}
 .tnum{font-variant-numeric:tabular-nums}
 .track{height:9px;background:var(--surf2);border:1px solid var(--bd);border-radius:999px;overflow:hidden}
-.track>i{display:block;height:100%;width:85%;background:linear-gradient(90deg,var(--a),var(--a2))}
+.track>i{display:block;height:100%;width:67%;background:linear-gradient(90deg,var(--a),var(--a2))}
 .cap{display:flex;justify-content:space-between;margin:8px 0 26px;font-size:12.5px;color:var(--mut)}
 .cards{display:grid;grid-template-columns:1fr 1fr;gap:13px;margin-bottom:13px}@media(max-width:560px){.cards{grid-template-columns:1fr}}
 .card,.strip{background:var(--surf);border:1px solid var(--bd);border-radius:13px;padding:14px 16px;box-shadow:0 1px 2px rgba(15,23,42,.05),0 8px 22px rgba(15,23,42,.04)}
@@ -31,23 +31,23 @@ h1{font-size:clamp(22px,4vw,30px);font-weight:700;letter-spacing:-.02em;margin:0
 <a class="back" href="../">← Todos los dashboards</a>
 <p class="eyebrow">FomeThings · Umbrella Mission Control</p>
 <h1>Aura IA - Asistente Conversacional</h1>
-<div class="meta"><span>Fase actual: <b>Fase A (Analista, chat read-only) CODE-COMPLETE: 11 tareas, 2485 tests verdes, PR #331 abierto. Backend VIVO en prod (tablas + RLS + RPCs de cuota + GEMINI_API_KEY + edge fn assistant-chat desplegada, JWT-verified) y validado end-to-end contra Gemini real (2-turn tool call devuelve una cifra grounded). Fases B (captura conversacional) y C (curador) reusan esta plataforma.</b></span><span class="tnum">Actualizado 2026-07-21T19:30</span></div>
+<div class="meta"><span>Fase actual: <b>Fase A (Analista, chat read-only) MERGEADA el 2026-07-21: PR #331 (squash ca95fe10) + fix de teclado e1bf975c. Plataforma viva en prod y validada end-to-end contra Gemini real. Residuo destilado en ADR 0051 y plan borrado. Queda un PR-2 de polish visual/UX del chat antes de considerar la Fase A entregable de cara al usuario. Fases B y C reusan esta plataforma sin cambios.</b></span><span class="tnum">Actualizado 2026-07-21T07:10</span></div>
 <div class="track"><i></i></div>
-<div class="cap"><span>0/3 fases · 11/13 pasos</span><span class="tnum">85%</span></div>
+<div class="cap"><span>1/4 fases · 12/18 pasos</span><span class="tnum">67%</span></div>
 <div class="cards">
-  <div class="card"><h3>Foco actual</h3><p>Fase A entregada en PR #331 (rama feat/assistant-phase-a). Arquitectura: AssistantCubit -&gt; sheet del chat -&gt; edge fn assistant-chat (gate Premium/cuota) -&gt; Gemini 3.1 Flash-Lite tras capa LlmProvider agnostica -&gt; tool-calling sobre RPCs de lectura existentes en cliente caller-scoped (RLS) -&gt; grounding (nunca inventa cifras). Monetizacion: free 3/mes -&gt; paywall, Premium 30/dia. Entrada = boton del dock del dashboard que abre el chat como AppBottomSheet sheet.</p></div>
-  <div class="card"><h3>Próxima acción</h3><p>Gate de Benjamin: aprobar -&gt; merge (el smoke en emulador ya paso, con 3 bugs cazados y corregidos). Al mergear: spec-conformance-reviewer -&gt; destilar residuo a ADR -&gt; borrar plan -&gt; checkpoint STATE + umbrella sync -&gt; archivar STATE cerrado en fomethings-dashboards.</p></div>
+  <div class="card"><h3>Foco actual</h3><p>PR-2: polish visual/UX del chat. El proceso correcto es MOCKUPS APROBADOS ANTES DE CODEAR (en la Fase A se salto ese paso). Problemas identificados: mensajes anclados arriba dejando un vacio grande (un chat ancla al fondo); altura fija 72% sin importar el contenido; burbujas incoherentes (usuario = pildora de marca vs Aura = rectangulo casi full-width con borde, parece card); contenedores anidados (card tonal dentro de caja con borde); header pelado sin limpiar-chat ni disclaimer; composer con TextField crudo, fuera de la maquina de 6 bordes del design system y sin estado disabled real en el boton de envio. SIN VERIFICAR: dark mode y tablet.</p></div>
+  <div class="card"><h3>Próxima acción</h3><p>Producir mockups de cada estado (vacio, conversacion, pensando, error/paywall) en telefono + tablet, claro + oscuro. Aprobacion de Benjamin. Recien ahi codigo, y despues gate visual con capturas reales.</p></div>
 </div>
-<div class="strip"><h3>Bloqueos</h3><ul><li>Ninguno para Fase A. Smoke en emulador HECHO (2026-07-21): login, boton del dock, chat, respuesta grounded + tarjeta, persistencia y cuota verificados. Falta solo la aprobacion de Benjamin -&gt; merge.</li><li>PRE-EXISTENTE (fuera de alcance de esta fase): get_forecast_insights devuelve HTTP 405 &#x27;cannot execute CREATE TABLE in a read-only transaction&#x27; via PostgREST. Es uno de los 10 tools (degrada suave: el modelo recibe un error y sigue), pero probablemente tambien rompe la pantalla Forecast de la app. Investigar aparte.</li></ul></div>
+<div class="strip"><h3>Bloqueos</h3><ul><li>Ninguno tecnico. El PR-2 esta bloqueado por diseno: faltan los mockups y la aprobacion de Benjamin.</li><li>PRE-EXISTENTE (fuera de alcance de esta iniciativa): get_forecast_insights devuelve HTTP 405 &#x27;cannot execute CREATE TABLE in a read-only transaction&#x27; via PostgREST. Es uno de los 10 tools (degrada suave: el modelo recibe un error y sigue), pero probablemente tambien rompe la pantalla Forecast de la app. Investigar aparte.</li></ul></div>
 <div class="sec">Fases</div>
 <div class="phases">
         <div class="row">
           <div class="name">A · Analista (chat read-only) — plataforma</div>
-          <div class="st"><span class="chip" style="color:#2563eb;background:#2563eb1a;border-color:#2563eb66"><i style="background:#2563eb"></i>active</span><span class="count">11/11</span></div>
-          <div class="ho">Backend (Deno) + Flutter feature completos y testeados (2485 flutter + 21 Deno). Backend desplegado y validado end-to-end contra Gemini real. Falta smoke en device + merge. <code>331</code></div>
+          <div class="st"><span class="chip" style="color:#16a34a;background:#16a34a1a;border-color:#16a34a66"><i style="background:#16a34a"></i>done</span><span class="count">12/12</span></div>
+          <div class="ho">Mergeada 2026-07-21 (ca95fe10 + e1bf975c). Backend Deno + feature Flutter completos (2485 tests Flutter + 24 Deno). Smoke en emulador cazo 3 bugs de protocolo Gemini, todos corregidos y verificados live. Plan destilado en ADR 0051 y borrado. <code>331</code></div>
         </div>
         <div class="row step">
-          <div class="name">T1 · Data model (tablas + RLS + quota RPC)</div>
+          <div class="name">T1 · Data model (tablas + RLS + quota RPC + refund)</div>
           <div class="st"><span class="chip" style="color:#16a34a;background:#16a34a1a;border-color:#16a34a66"><i style="background:#16a34a"></i>done</span></div>
           <div class="ho"></div>
         </div>
@@ -97,8 +97,38 @@ h1{font-size:clamp(22px,4vw,30px);font-weight:700;letter-spacing:-.02em;margin:0
           <div class="ho"></div>
         </div>
         <div class="row step">
-          <div class="name">T11 · Verificacion (2485 green) + PR + smoke en emulador (3 bugs fixed)</div>
+          <div class="name">T11 · Verificacion + PR + smoke en emulador (3 bugs fixed)</div>
           <div class="st"><span class="chip" style="color:#16a34a;background:#16a34a1a;border-color:#16a34a66"><i style="background:#16a34a"></i>done</span></div>
+          <div class="ho"></div>
+        </div>
+        <div class="row step">
+          <div class="name">T12 · Cierre: spec-conformance -&gt; ADR 0051 -&gt; plan borrado</div>
+          <div class="st"><span class="chip" style="color:#16a34a;background:#16a34a1a;border-color:#16a34a66"><i style="background:#16a34a"></i>done</span></div>
+          <div class="ho"></div>
+        </div>
+        <div class="row">
+          <div class="name">A2 · Polish visual/UX del chat (PR-2)</div>
+          <div class="st"><span class="chip" style="color:#2563eb;background:#2563eb1a;border-color:#2563eb66"><i style="background:#2563eb"></i>active</span><span class="count">0/4</span></div>
+          <div class="ho">La Fase A shippeo funcional, no pulida. Mockups (telefono + tablet, claro + oscuro) -&gt; aprobacion de Benjamin -&gt; codigo -&gt; gate visual. Incluye el borrar-historial del spec §10. </div>
+        </div>
+        <div class="row step">
+          <div class="name">M1 · Mockups de los 4 estados x 2 devices x 2 temas</div>
+          <div class="st"><span class="chip" style="color:#94a3b8;background:#94a3b81a;border-color:#94a3b866"><i style="background:#94a3b8"></i>pending</span></div>
+          <div class="ho"></div>
+        </div>
+        <div class="row step">
+          <div class="name">M2 · Aprobacion de Benjamin</div>
+          <div class="st"><span class="chip" style="color:#94a3b8;background:#94a3b81a;border-color:#94a3b866"><i style="background:#94a3b8"></i>pending</span></div>
+          <div class="ho"></div>
+        </div>
+        <div class="row step">
+          <div class="name">M3 · Implementacion + borrar-historial (spec §10)</div>
+          <div class="st"><span class="chip" style="color:#94a3b8;background:#94a3b81a;border-color:#94a3b866"><i style="background:#94a3b8"></i>pending</span></div>
+          <div class="ho"></div>
+        </div>
+        <div class="row step">
+          <div class="name">M4 · Gate visual con capturas reales</div>
+          <div class="st"><span class="chip" style="color:#94a3b8;background:#94a3b81a;border-color:#94a3b866"><i style="background:#94a3b8"></i>pending</span></div>
           <div class="ho"></div>
         </div>
         <div class="row">
