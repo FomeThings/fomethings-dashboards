@@ -31,12 +31,12 @@ h1{font-size:clamp(22px,4vw,30px);font-weight:700;letter-spacing:-.02em;margin:0
 <a class="back" href="../">← Todos los dashboards</a>
 <p class="eyebrow">FomeThings · Umbrella Mission Control</p>
 <h1>Mekka — MVP</h1>
-<div class="meta"><span>Fase actual: <b>F4</b></span><span class="tnum">Actualizado 2026-07-20T21:27</span></div>
+<div class="meta"><span>Fase actual: <b>F4</b></span><span class="tnum">Actualizado 2026-07-21T00:40</span></div>
 <div class="track"><i></i></div>
 <div class="cap"><span>3/6 fases · 16/23 pasos</span><span class="tnum">70%</span></div>
 <div class="cards">
-  <div class="card"><h3>Foco actual</h3><p>F4.3 (detalle de diagnóstico) mergeado a main (PR #36, feat/19): pantalla anzuelo — VerdictBand + DtcFindingCard (bloque agrupado) + los 4 tri-estados, sobre la lógica ya construida. MekkaErrorState al kit; view-model puente dominio→DS; aiDiagnosticProvider cableado (cierra ADR 0013); scan AsyncNotifier (Either→AsyncValue directo); ruta /diagnostico + trigger demo provisional en Hoy (// TODO F4.4). Gate verde (89%), conformance CONFORMANT, gate visual APPROVE-WITH-NITS (render headless con fuentes reales). 2 nits de DS anotados como deuda en ADR 0016 (skeleton light, coral dark). Ver ADR 0016.</p></div>
-  <div class="card"><h3>Próxima acción</h3><p>F4.2: onboarding del dongle (first-run, guía de conexión BLE, permisos con timing/copy honesto V13). Luego F4.4 Hoy (Home real, absorbe el trigger demo) · F4.5 expediente · F4.6 viajes · F4.7 perfil.</p></div>
+  <div class="card"><h3>Foco actual</h3><p>F4.3 (detalle de diagnóstico) mergeado (#36, ADR 0016). DESPUÉS, dos sub-proyectos TRANSVERSALES de alineación (no son fases del MVP, pero base para lo que sigue): A — alineación OS 1.3.1→1.4.2 (#37, ADR 0017): token-gate genérico monorepo-aware (tapó el hueco de apps/mekka_app/lib que NO se gateaba), render_umbrella local, comandos /pre-pr //umbrella //drive-archive, agente locator, integration-checklists, workflow.md al día. B — motion craft L10 (#38, ADR 0018): standardCurve (Cubic canon) + pressScale tokens; press-feedback en MekkaButton (Listener, sin double-fire); crossfade tri-estado en DiagnosticScreen; regla rules-motion.md. Ambos CONFORMANT, gate verde 89%. FLUJO DE MOCKS acordado (feedback del founder): mockup-antes + render-después por pantalla (ver memoria).</p></div>
+  <div class="card"><h3>Próxima acción</h3><p>F4.2: onboarding del dongle (first-run, guía de conexión BLE, permisos con timing/copy honesto V13), CON el flujo de mocks. Base ya al día (OS 1.4.2 + motion). Luego F4.4 Hoy (Home real, absorbe el trigger demo de F4.3) · F4.5 expediente · F4.6 viajes · F4.7 perfil.</p></div>
 </div>
 <div class="strip"><h3>Bloqueos</h3><span class="ok">✓ Ninguno</span></div>
 <div class="sec">Fases</div>
