@@ -10,7 +10,7 @@ h1{font-size:clamp(22px,4vw,30px);font-weight:700;letter-spacing:-.02em;margin:0
 .meta{display:flex;flex-wrap:wrap;gap:6px 16px;color:var(--mut);font-size:13.5px;margin-bottom:24px}.meta b{color:var(--fg)}
 .tnum{font-variant-numeric:tabular-nums}
 .track{height:9px;background:var(--surf2);border:1px solid var(--bd);border-radius:999px;overflow:hidden}
-.track>i{display:block;height:100%;width:82%;background:linear-gradient(90deg,var(--a),var(--a2))}
+.track>i{display:block;height:100%;width:65%;background:linear-gradient(90deg,var(--a),var(--a2))}
 .cap{display:flex;justify-content:space-between;margin:8px 0 26px;font-size:12.5px;color:var(--mut)}
 .cards{display:grid;grid-template-columns:1fr 1fr;gap:13px;margin-bottom:13px}@media(max-width:560px){.cards{grid-template-columns:1fr}}
 .card,.strip{background:var(--surf);border:1px solid var(--bd);border-radius:13px;padding:14px 16px;box-shadow:0 1px 2px rgba(15,23,42,.05),0 8px 22px rgba(15,23,42,.04)}
@@ -31,12 +31,12 @@ h1{font-size:clamp(22px,4vw,30px);font-weight:700;letter-spacing:-.02em;margin:0
 <a class="back" href="../">← Todos los dashboards</a>
 <p class="eyebrow">FomeThings · Umbrella Mission Control</p>
 <h1>Mekka — MVP</h1>
-<div class="meta"><span>Fase actual: <b>F4</b></span><span class="tnum">Actualizado 2026-07-06T15:30</span></div>
+<div class="meta"><span>Fase actual: <b>F4</b></span><span class="tnum">Actualizado 2026-07-20T20:14</span></div>
 <div class="track"><i></i></div>
-<div class="cap"><span>3/6 fases · 14/17 pasos</span><span class="tnum">82%</span></div>
+<div class="cap"><span>3/6 fases · 15/23 pasos</span><span class="tnum">65%</span></div>
 <div class="cards">
-  <div class="card"><h3>Foco actual</h3><p>F3 completo en feat/16-app-integration (9 tasks TDD, gate verde, cobertura 88%). App integrada viva: 4-tab shell + auth anónima + sync background. Ver ADR 0013.</p></div>
-  <div class="card"><h3>Próxima acción</h3><p>Mergear PR de F3 tras CI verde; luego F4: brainstorm de pantallas de features (contenido real + vehicle picker).</p></div>
+  <div class="card"><h3>Foco actual</h3><p>F4.1 (identidad de vehículo) mergeado a main (#34): kit inputs/overlays (MekkaTextField/Select/Sheet/ListTile, Anexo B) + AddVehicleScreen (manual-primario + VIN) + switcher + auto activo persistido. Gate verde (cobertura 89%), conformance CONFORMANT, gate visual APPROVE (screenshots reales). Android build desbloqueado (Kotlin 1.9). Ver ADR 0015.</p></div>
+  <div class="card"><h3>Próxima acción</h3><p>F4.3: pantalla héroe de diagnóstico (DTC → veredicto + placa DTC + explicación IA + banda de precio; la lógica ya está construida en diagnostics/obd_engine). Luego F4.2 onboarding · F4.4 Hoy · F4.5 expediente · F4.6 viajes · F4.7 perfil.</p></div>
 </div>
 <div class="strip"><h3>Bloqueos</h3><span class="ok">✓ Ninguno</span></div>
 <div class="sec">Fases</div>
@@ -123,8 +123,43 @@ h1{font-size:clamp(22px,4vw,30px);font-weight:700;letter-spacing:-.02em;margin:0
         </div>
         <div class="row">
           <div class="name">F4 · Pantallas de features</div>
+          <div class="st"><span class="chip" style="color:#2563eb;background:#2563eb1a;border-color:#2563eb66"><i style="background:#2563eb"></i>active</span><span class="count">1/7</span></div>
+          <div class="ho">Pantallas que componen el design system (F2) sobre la lógica (F1) y el shell (F3). F4.1 (identidad de vehículo) en main (#34/#35, ADR 0015). Sigue F4.3 (héroe de diagnóstico), luego onboarding · Hoy · expediente · viajes · perfil. <code>#34, #35</code></div>
+        </div>
+        <div class="row step">
+          <div class="name">4.1 identidad de vehículo (add-car + switcher + auto activo + kit inputs/overlays)</div>
+          <div class="st"><span class="chip" style="color:#16a34a;background:#16a34a1a;border-color:#16a34a66"><i style="background:#16a34a"></i>done</span></div>
+          <div class="ho"></div>
+        </div>
+        <div class="row step">
+          <div class="name">4.3 pantalla héroe de diagnóstico (DTC → veredicto + placa + IA + banda de precio)</div>
           <div class="st"><span class="chip" style="color:#94a3b8;background:#94a3b81a;border-color:#94a3b866"><i style="background:#94a3b8"></i>planned</span></div>
-          <div class="ho">Onboarding del dongle, Home &quot;Hoy&quot;, Viajes, Expediente, diagnóstico, Perfil, sheet de selección de vehículo. Componen el design system (F2). </div>
+          <div class="ho"></div>
+        </div>
+        <div class="row step">
+          <div class="name">4.2 onboarding del dongle</div>
+          <div class="st"><span class="chip" style="color:#94a3b8;background:#94a3b81a;border-color:#94a3b866"><i style="background:#94a3b8"></i>planned</span></div>
+          <div class="ho"></div>
+        </div>
+        <div class="row step">
+          <div class="name">4.4 Home «Hoy»</div>
+          <div class="st"><span class="chip" style="color:#94a3b8;background:#94a3b81a;border-color:#94a3b866"><i style="background:#94a3b8"></i>planned</span></div>
+          <div class="ho"></div>
+        </div>
+        <div class="row step">
+          <div class="name">4.5 expediente</div>
+          <div class="st"><span class="chip" style="color:#94a3b8;background:#94a3b81a;border-color:#94a3b866"><i style="background:#94a3b8"></i>planned</span></div>
+          <div class="ho"></div>
+        </div>
+        <div class="row step">
+          <div class="name">4.6 viajes</div>
+          <div class="st"><span class="chip" style="color:#94a3b8;background:#94a3b81a;border-color:#94a3b866"><i style="background:#94a3b8"></i>planned</span></div>
+          <div class="ho"></div>
+        </div>
+        <div class="row step">
+          <div class="name">4.7 perfil</div>
+          <div class="st"><span class="chip" style="color:#94a3b8;background:#94a3b81a;border-color:#94a3b866"><i style="background:#94a3b8"></i>planned</span></div>
+          <div class="ho"></div>
         </div>
         <div class="row">
           <div class="name">F5 · Capa nativa de viajes</div>
