@@ -10,7 +10,7 @@ h1{font-size:clamp(22px,4vw,30px);font-weight:700;letter-spacing:-.02em;margin:0
 .meta{display:flex;flex-wrap:wrap;gap:6px 16px;color:var(--mut);font-size:13.5px;margin-bottom:24px}.meta b{color:var(--fg)}
 .tnum{font-variant-numeric:tabular-nums}
 .track{height:9px;background:var(--surf2);border:1px solid var(--bd);border-radius:999px;overflow:hidden}
-.track>i{display:block;height:100%;width:14%;background:linear-gradient(90deg,var(--a),var(--a2))}
+.track>i{display:block;height:100%;width:25%;background:linear-gradient(90deg,var(--a),var(--a2))}
 .cap{display:flex;justify-content:space-between;margin:8px 0 26px;font-size:12.5px;color:var(--mut)}
 .cards{display:grid;grid-template-columns:1fr 1fr;gap:13px;margin-bottom:13px}@media(max-width:560px){.cards{grid-template-columns:1fr}}
 .card,.strip{background:var(--surf);border:1px solid var(--bd);border-radius:13px;padding:14px 16px;box-shadow:0 1px 2px rgba(15,23,42,.05),0 8px 22px rgba(15,23,42,.04)}
@@ -31,14 +31,14 @@ h1{font-size:clamp(22px,4vw,30px);font-weight:700;letter-spacing:-.02em;margin:0
 <a class="back" href="../">← Todos los dashboards</a>
 <p class="eyebrow">FomeThings · Umbrella Mission Control</p>
 <h1>Stampy MVP</h1>
-<div class="meta"><span>Fase actual: <b>SP1</b></span><span class="tnum">Actualizado 2026-07-11T23:55</span></div>
+<div class="meta"><span>Fase actual: <b>SP2</b></span><span class="tnum">Actualizado 2026-07-20T20:15</span></div>
 <div class="track"><i></i></div>
-<div class="cap"><span>1/7 fases · 1/7 pasos</span><span class="tnum">14%</span></div>
+<div class="cap"><span>2/8 fases · 2/8 pasos</span><span class="tnum">25%</span></div>
 <div class="cards">
-  <div class="card"><h3>Foco actual</h3><p>SP1 en curso. Hecho y MERGEADO: SP1 backend (validate-stamp desplegado, PR#3), SP1 flutter foundation Tasks 1-3 (PR#4), identidad visual (Frambuesa #E6317A + Fredoka/Nunito + logo, PR#5). La UI está DESBLOQUEADA. Falta cerrar SP1: Task 5 (UI Estampar) + Task 4 (gesto NFC).</p></div>
-  <div class="card"><h3>Próxima acción</h3><p>SP1 Task 5: construir la pantalla Estampar + animación tri-estado (plan docs/plans/stampy-mvp/SP1-espina-flutter.md, ya con identidad → correr /visual-gate). SP1 Task 4 (gesto NFC real): necesita el dispositivo de Benjamin + tag NTAG213 grabado (PRD #1). Después SP2 (onboarding cliente).</p></div>
+  <div class="card"><h3>Foco actual</h3><p>SP2 CONTENIDO CONSTRUIDO (2026-07-17) — camino feliz completo en rama feat/sp2-onboarding-cliente (plan docs/plans/stampy-mvp/SP2-onboarding-cliente.md, 15 tasks TDD). Backend: trigger auth.users→profiles, bono de bienvenida por-local en register_stamp (welcome_bonus_enabled, +1 stamp real al primer sello, ledger==count), vista v_my_cards (pgTAP verde, 31 tests). App: AUTH = email OTP (signInWithOtp/verifyOTP; Google/Apple/SMS = mock &#x27;próximamente&#x27;; diverge del spec &#x27;SMS OTP&#x27; → ADR 0016). Shell cliente = StatefulShellRoute barra 2+FAB+2 + avatar; solo Inicio/Estampar/Perfil-del-local ENCENDIDOS, Favoritos/Descubrir/Actividad = ComingSoon. Inicio tri-estado con PunchCards (surface cards, ref Mobbin Honest Greens). Perfil del local read-only (nombre+progreso+premio, sin canje). Bono reflejado en Estampar (StampSuccess.welcomeBonus). Kit: DsTextField (canónico), DsPinField (auth). 52 tests verdes, analyze limpio. Mobbin usado para login/OTP/home/nav/detalle. Decisiones nuevas en ADR 0016 (email OTP + bono por-local). SP0/SP1 DONE. PR#9 abierto (2026-07-17): mergeable/CLEAN, CI verde (audit+quality); spec-conformance-reviewer corriendo (2026-07-20).</p></div>
+  <div class="card"><h3>Próxima acción</h3><p>SP2 código LISTO, PR#9 ABIERTO y mergeable (CI verde) — NO mergeado, en gate de cierre. spec-conformance-reviewer CORRIENDO (2026-07-20). CIERRE GATED (requiere Benjamin): (1) push de las 3 migraciones al remoto + habilitar email OTP en dashboard + seed piloto welcome_bonus_enabled=true; (2) correr la app con ./scripts/doppler-dart-define.sh run y validar el camino feliz en device (login email OTP → estampar → card nace → Inicio → Perfil del local); (3) /visual-gate (login, OTP, Inicio empty+loaded, Perfil del local, shell — light+dark); (4) mergear PR#9 → main; (5) borrar el plan de docs/plans/, cerrar SP2. FUERA de SP2 = SP3-SP7 (Favoritos/Descubrir/Actividad/promos/referido/gamificación/canje/modo-negocio). Follow-ups NFC (Android dispatch, iOS entitlements) en notes_followups. El &#x27;teléfono único&#x27; anti-multicuenta (ADR 0014) queda diferido a cuando shippee referido/canje (ADR 0016).</p></div>
 </div>
-<div class="strip"><h3>Bloqueos</h3><ul><li>Task 4 (gesto NFC) requiere dispositivo físico + tag NTAG213 grabado (PRD #1)</li></ul></div>
+<div class="strip"><h3>Bloqueos</h3><span class="ok">✓ Ninguno</span></div>
 <div class="sec">Fases</div>
 <div class="phases">
         <div class="row">
@@ -48,13 +48,13 @@ h1{font-size:clamp(22px,4vw,30px);font-weight:700;letter-spacing:-.02em;margin:0
         </div>
         <div class="row">
           <div class="name">SP1 — Espina: sello NFC end-to-end</div>
-          <div class="st"><span class="chip" style="color:#2563eb;background:#2563eb1a;border-color:#2563eb66"><i style="background:#2563eb"></i>active</span></div>
-          <div class="ho">HECHO+MERGEADO: (a) backend — función register_stamp (anti-fraude atómico, pgTAP) + Edge Function validate-stamp, DESPLEGADAS al remoto (ADR 0008); (b) flutter foundation — app bootea (Riverpod 3+go_router+supabase_flutter), parser del tag, StampRepository sobre validate-stamp (3 tareas TDD); (c) identidad visual (frambuesa/Fredoka/logo). PENDIENTE para cerrar SP1: Task 5 (pantalla Estampar + animación tri-estado + /visual-gate) — plan en docs/plans/stampy-mvp/SP1-espina-flutter.md; Task 4 (gesto NFC real con nfc_manager) — requiere dispositivo + tag NTAG213 (PRD #1). Seed piloto para probar: local 00000000-...-0009f1, stamper ...09a1, coords -33.4260,-70.6100. <code>PR#3 (backend) + PR#4 (flutter foundation) + PR#5 (identidad) — todos mergeados</code></div>
+          <div class="st"><span class="chip" style="color:#16a34a;background:#16a34a1a;border-color:#16a34a66"><i style="background:#16a34a"></i>done</span></div>
+          <div class="ho">COMPLETO + CERRADO (2026-07-16, ADR 0012): (a) backend register_stamp + validate-stamp (ADR 0008, PR#3); (b) foundation Riverpod3/go_router/supabase (PR#4); (c) identidad frambuesa (PR#5, ADR0010); (d) Task 5 pantalla Estampar 5 estados + animación + kit DsButton/PunchCard (PR#6, ADR0011); (e) Task 4b readNfcTagUri real (nfc_manager v4) + dominio getstampy.cl + secrets Doppler (PR#7, ADR0012). VALIDADO en Pixel 9a físico: el tap lee y parsea la URL correcta del NTAG213. Camino feliz (¡Sello sumado!) se completa con SP2 (login) + geocerca. Follow-ups en notes_followups (NFC Android dispatch, iOS entitlements). <code>PR#3 (backend) + PR#4 (foundation) + PR#5 (identidad) + PR#6 (Task5 UI+kit) + PR#7 (Task4b NFC+dominio+Doppler) — todos mergeados</code></div>
         </div>
         <div class="row">
           <div class="name">SP2 — Onboarding + identidad del cliente</div>
-          <div class="st"><span class="chip" style="color:#94a3b8;background:#94a3b81a;border-color:#94a3b866"><i style="background:#94a3b8"></i>planned</span></div>
-          <div class="ho">SMS OTP (Supabase Auth), bono de bienvenida (stamp source=welcome_bonus), home Mis locales con punch card (tri-estado), detalle de local. </div>
+          <div class="st"><span class="chip" style="color:#2563eb;background:#2563eb1a;border-color:#2563eb66"><i style="background:#2563eb"></i>active</span></div>
+          <div class="ho">CONSTRUIDO (2026-07-17, plan SP2-onboarding-cliente.md, 15 tasks TDD). Backend: 3 migraciones (trigger auth.users→profiles; welcome_bonus_enabled + register_stamp v2 con bono por-local al primer sello; vista v_my_cards) — pgTAP 31 verde. App (email OTP en vez de SMS, ADR 0016): AuthRepository/Controller con seams, login (email + mock Google/Apple/SMS), OTP 6 dígitos (DsPinField) + reenviar, router redirect sesión↔login. Shell StatefulShellRoute barra 2+FAB+2 + avatar (solo Inicio/Estampar/Perfil-del-local activos; resto ComingSoon). Inicio tri-estado con PunchCards en surface cards. Perfil del local read-only. Perfil usuario (cerrar sesión). Bono en Estampar (StampSuccess.welcomeBonus). Kit: DsTextField (canónico) + DsPinField. 52 tests Flutter verdes, analyze limpio, dart format aplicado. Mobbin para consistencia. PENDIENTE (gated): push migraciones remoto, /visual-gate, spec-conformance-reviewer, PR+merge, borrar plan. <code>PR#9 abierto — https://github.com/FomeThings/stampy/pull/9 (CI verde audit+quality; mergeable/CLEAN; NO mergeado, en gate de cierre)</code></div>
         </div>
         <div class="row">
           <div class="name">SP3 — Onboarding del negocio + provisioning del estampador</div>
@@ -74,7 +74,12 @@ h1{font-size:clamp(22px,4vw,30px);font-weight:700;letter-spacing:-.02em;margin:0
         <div class="row">
           <div class="name">SP6 — Panel interno (stampy-web)</div>
           <div class="st"><span class="chip" style="color:#94a3b8;background:#94a3b81a;border-color:#94a3b866"><i style="background:#94a3b8"></i>planned</span></div>
-          <div class="ho">Repo web (ADR 0003): landing stampy.cl + /canje + panel interno (provisioning/revocación de stampers, flags de fraude, métricas). Arranca con Supabase Studio + SQL. </div>
+          <div class="ho">Repo web (ADR 0003): landing getstampy.cl + /canje + panel interno (provisioning/revocación de stampers, flags de fraude, métricas). Arranca con Supabase Studio + SQL. </div>
+        </div>
+        <div class="row">
+          <div class="name">SP7 — Descubrimiento + Perfil de negocio + Promos</div>
+          <div class="st"><span class="chip" style="color:#94a3b8;background:#94a3b81a;border-color:#94a3b866"><i style="background:#94a3b8"></i>planned</span></div>
+          <div class="ho">Visión de producto, post primer release (ADR 0013). Descubrir = mapa + lista de locales cercanos con promos activas (query PostGIS que reusa la geocerca; adquisición/reactivación). Perfil del local = página pública (marca heredada del business + horarios/contacto/redes/promos) fusionada con el progreso de la tarjeta del usuario (una pantalla, dos públicos). Modo negocio (owner): Mi página + Promociones. Modelo: tabla offers (recurring/temporal) + campos de marca en businesses + operativos en locals. Push geo/temporal de ofertas (OneSignal). Palanca plan Pro (ADR 0004). El pedacito &#x27;progreso en el Perfil del local&#x27; se adelanta a SP2. </div>
         </div></div>
 <p class="foot">Generado desde STATE.yaml por render_umbrella.py — no editar a mano.</p>
 </div></body></html>
