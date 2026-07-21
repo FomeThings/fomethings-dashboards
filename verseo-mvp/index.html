@@ -10,7 +10,7 @@ h1{font-size:clamp(22px,4vw,30px);font-weight:700;letter-spacing:-.02em;margin:0
 .meta{display:flex;flex-wrap:wrap;gap:6px 16px;color:var(--mut);font-size:13.5px;margin-bottom:24px}.meta b{color:var(--fg)}
 .tnum{font-variant-numeric:tabular-nums}
 .track{height:9px;background:var(--surf2);border:1px solid var(--bd);border-radius:999px;overflow:hidden}
-.track>i{display:block;height:100%;width:71%;background:linear-gradient(90deg,var(--a),var(--a2))}
+.track>i{display:block;height:100%;width:73%;background:linear-gradient(90deg,var(--a),var(--a2))}
 .cap{display:flex;justify-content:space-between;margin:8px 0 26px;font-size:12.5px;color:var(--mut)}
 .cards{display:grid;grid-template-columns:1fr 1fr;gap:13px;margin-bottom:13px}@media(max-width:560px){.cards{grid-template-columns:1fr}}
 .card,.strip{background:var(--surf);border:1px solid var(--bd);border-radius:13px;padding:14px 16px;box-shadow:0 1px 2px rgba(15,23,42,.05),0 8px 22px rgba(15,23,42,.04)}
@@ -31,12 +31,12 @@ h1{font-size:clamp(22px,4vw,30px);font-weight:700;letter-spacing:-.02em;margin:0
 <a class="back" href="../">← Todos los dashboards</a>
 <p class="eyebrow">FomeThings · Umbrella Mission Control</p>
 <h1>Verseo — MVP (F0→F4)</h1>
-<div class="meta"><span>Fase actual: <b>F3.5 en curso · Slice 1 (Hoy) LANDED en main vía PR #1 (merge e92ce4b). Slice 2 (captura→elaboración) CÓDIGO COMPLETO + reviewado en branch f35/slice2 (15 commits) — PENDIENTE gate visual emulador día+noche + aprobación de Benjamin antes de aterrizar. Slices 3-8 pendientes, reusan el kit lib/shared/widgets/.</b></span><span class="tnum">Actualizado 2026-07-08T13:00</span></div>
+<div class="meta"><span>Fase actual: <b>F3.5 en curso · Slice 1 (Hoy) LANDED en main vía PR #1 (merge e92ce4b). Slice 2 (captura→elaboración) COMPLETO + GATE VISUAL PASADO en branch f35/slice2 (19 commits): ui-reviewer (NEEDS-FIX→arreglado) + validación funcional en emulador con confidente VIVO día+noche (MarginNote canon 05). 2 MAJOR arreglados (labels w600 sobre brand por contraste día; AppButton loading conserva footprint). Cobertura tablet por golden. Plan BORRADO; residuo en ADR-0007 (addendum 2026-07-20). LANDED en main vía PR #5 (merge 992d0bd, 2026-07-20). Slices 3-8 pendientes, reusan el kit lib/shared/widgets/.</b></span><span class="tnum">Actualizado 2026-07-20T22:00</span></div>
 <div class="track"><i></i></div>
-<div class="cap"><span>6/9 fases · 10/14 pasos</span><span class="tnum">71%</span></div>
+<div class="cap"><span>6/9 fases · 11/15 pasos</span><span class="tnum">73%</span></div>
 <div class="cards">
-  <div class="card"><h3>Foco actual</h3><p>Slice 2 (branch f35/slice2, 15 commits) CÓDIGO COMPLETO. Estrenó el KIT CANÓNICO Anexo B en lib/shared/widgets/ (AppButton primary/secondary/ghost/danger · AppTextField máquina de 6 bordes + flag `bordered` para lienzo a sangre · AppSegmented&lt;T&gt; con IntrinsicHeight self-cap · trío Empty/Error/Loading · showAppSnackbar · MarginNote = voz IA como nota al margen, canon 05) + craft de captura (switcher del kit, lienzo a sangre, confirm primary, foto/voz en paleta, grano) + elaboración (voz IA MarginNote, input bar del kit, regla tri-estado, snackbar de error transitorio). PRIMERA feature en consumir AppLocalizations (26 keys, gen-l10n, arneses de test con delegates) — decisión de Benjamin 2026-07-08. Gates: analyze 0 · 508 tests +3 skip · token gate baseline (44) · format · goldens día+noche. Reviews whole-branch: spec-conformance CONFORMANT + code-quality fix-first (2 Important arreglados: AppSegmented self-cap, ErrorState i18n). Residuo destilado a ADR-0007.</p></div>
-  <div class="card"><h3>Próxima acción</h3><p>GATE VISUAL en emulador día+noche (captura texto/foto/voz + conversación con confidente + &#x27;pensando&#x27;) → aprobación de Benjamin → aterrizar Slice 2 (PR/merge a main) + BORRAR el plan docs/plans/f35-slice2-captura-elaboracion/. Luego Slices restantes: cierre-de-día (formalizar DayClosureCard + goldens), memoria/chip, calendario (timeline por día), reaflorar, perfil, auth-craft.</p></div>
+  <div class="card"><h3>Foco actual</h3><p>Slice 2 LANDED en main (PR #5, 2026-07-20); próximo: Slice 3 (cierre-de-día). Kit canónico Anexo B en lib/shared/widgets/ (AppButton · AppTextField con flag `bordered` para lienzo a sangre · AppSegmented&lt;T&gt; self-cap · trío Empty/Error/Loading · showAppSnackbar · MarginNote = voz IA nota al margen, canon 05) + craft de captura + elaboración. 1ª feature en consumir AppLocalizations. GATE VISUAL 2026-07-20: ui-reviewer NEEDS-FIX → 2 MAJOR arreglados — (1) contraste día onBrand/brand ~3.58:1 en labels de botón primary + segmento activo → w600 (founder eligió BOLD, no oscurecer el oro; ratio no cambia, cruza 3:1 no 4.5:1 — AA-normal estricto = follow-up); (2) AppButton loading conserva el FOOTPRINT del label (Stack), no solo el fill (fin del salto de layout en cada envío). Cobertura tablet 1280×800 por golden test (contenido se acota/centra). Snackbar de error ya verificado por tests existentes. LECCIÓN (Benjamin 2026-07-20): iterar visual = goldens (host, rápido), NO emulador; emulador solo para gate FUNCIONAL (confidente vivo). Gates: analyze 0 · 510 tests +3 skip · format · token-gate PASS. Residuo destilado a ADR-0007 (addendum).</p></div>
+  <div class="card"><h3>Próxima acción</h3><p>Arrancar Slice 3 · cierre-de-día: formalizar DayClosureCard + goldens día+noche, reusando el kit. Iterar el visual por GOLDENS (no emulador). Luego: memoria/chip, calendario (timeline por día), reaflorar, perfil, auth-craft. Follow-ups de pre-release: AA-normal estricto del contraste día (oscurecer brand) si se decide; 2 nits de tablet (input bar full-width vs columna capada; header al borde); gate de fluidez en device físico.</p></div>
 </div>
 <div class="strip"><h3>Bloqueos</h3><ul><li>Gate de fluidez en DEVICE FÍSICO pendiente (Benjamin; emulador = GL software, valida función no perf). No bloquea F3.5, sí el release. Verificar ahí: re-stagger de la lista al capturar (flutter_animate re-anima en cada re-emit; si molesta, guard animar-una-vez — ADR-0006).</li></ul></div>
 <div class="sec">Fases</div>
@@ -98,11 +98,16 @@ h1{font-size:clamp(22px,4vw,30px);font-weight:700;letter-spacing:-.02em;margin:0
         </div>
         <div class="row">
           <div class="name">F3.5 · Craft pass total (belleza en UNA pasada)</div>
-          <div class="st"><span class="chip" style="color:#2563eb;background:#2563eb1a;border-color:#2563eb66"><i style="background:#2563eb"></i>active</span><span class="count">1/1</span></div>
+          <div class="st"><span class="chip" style="color:#2563eb;background:#2563eb1a;border-color:#2563eb66"><i style="background:#2563eb"></i>active</span><span class="count">2/2</span></div>
           <div class="ho">Enmienda 🔒 de specs/08 (decisión del founder jul-2026): primero features, después belleza total. Diseño en specs/11 (aprobado): slice vertical faro-first (Hoy), extraer componentes core a lib/ui/, código+screenshots en emulador (precedente F2.2), Mobbin ancla. Método de specs/10. Rive solo momentos firma. GENTE REAL entra DESPUÉS. </div>
         </div>
         <div class="row step">
           <div class="name">F3.5 Slice 1 · Hoy + componentes core (PaperCard, CaptureButton, AppBottomNav, EntryTile) + capa de craft + refinamiento de profundidad</div>
+          <div class="st"><span class="chip" style="color:#16a34a;background:#16a34a1a;border-color:#16a34a66"><i style="background:#16a34a"></i>done</span></div>
+          <div class="ho"></div>
+        </div>
+        <div class="row step">
+          <div class="name">F3.5 Slice 2 · captura→elaboración: kit canónico Anexo B (AppButton/AppTextField/AppSegmented/trío estados/showAppSnackbar/MarginNote) + i18n (1ª feature) + gate visual (ui-reviewer + confidente vivo día+noche, 2 MAJOR arreglados) + cobertura tablet. LANDED en main (PR #5, merge 992d0bd).</div>
           <div class="st"><span class="chip" style="color:#16a34a;background:#16a34a1a;border-color:#16a34a66"><i style="background:#16a34a"></i>done</span></div>
           <div class="ho"></div>
         </div>
