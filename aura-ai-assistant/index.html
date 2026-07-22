@@ -10,7 +10,7 @@ h1{font-size:clamp(22px,4vw,30px);font-weight:700;letter-spacing:-.02em;margin:0
 .meta{display:flex;flex-wrap:wrap;gap:6px 16px;color:var(--mut);font-size:13.5px;margin-bottom:24px}.meta b{color:var(--fg)}
 .tnum{font-variant-numeric:tabular-nums}
 .track{height:9px;background:var(--surf2);border:1px solid var(--bd);border-radius:999px;overflow:hidden}
-.track>i{display:block;height:100%;width:87%;background:linear-gradient(90deg,var(--a),var(--a2))}
+.track>i{display:block;height:100%;width:93%;background:linear-gradient(90deg,var(--a),var(--a2))}
 .cap{display:flex;justify-content:space-between;margin:8px 0 26px;font-size:12.5px;color:var(--mut)}
 .cards{display:grid;grid-template-columns:1fr 1fr;gap:13px;margin-bottom:13px}@media(max-width:560px){.cards{grid-template-columns:1fr}}
 .card,.strip{background:var(--surf);border:1px solid var(--bd);border-radius:13px;padding:14px 16px;box-shadow:0 1px 2px rgba(15,23,42,.05),0 8px 22px rgba(15,23,42,.04)}
@@ -31,14 +31,14 @@ h1{font-size:clamp(22px,4vw,30px);font-weight:700;letter-spacing:-.02em;margin:0
 <a class="back" href="../">← Todos los dashboards</a>
 <p class="eyebrow">FomeThings · Umbrella Mission Control</p>
 <h1>Aura IA - Asistente Conversacional</h1>
-<div class="meta"><span>Fase actual: <b>Fase A CERRADA (ADR 0051) y su polish PR-2 mergeado (#333). Fase B PR-1 MERGEADA el 2026-07-22 (#337): captura conversacional de gasto e ingreso, con gate en device completo — una frase real produjo exactamente una fila pese a un doble tap deliberado. Transferencias y recurrentes quedan definidos y validados pero NO ofrecidos, esperando el camino de FX.</b></span><span class="tnum">Actualizado 2026-07-22T01:00</span></div>
+<div class="meta"><span>Fase actual: <b>Fases A y B CERRADAS. B destilada en ADR 0052 y su PLAN borrado; shippeo en tres PRs (#337 gasto/ingreso, #339 correccion del borrador, #340 transferencias + recurrentes). Queda solo la Fase C (curador).</b></span><span class="tnum">Actualizado 2026-07-22T12:30</span></div>
 <div class="track"><i></i></div>
-<div class="cap"><span>2/4 fases · 13/15 pasos</span><span class="tnum">87%</span></div>
+<div class="cap"><span>3/4 fases · 14/15 pasos</span><span class="tnum">93%</span></div>
 <div class="cards">
-  <div class="card"><h3>Foco actual</h3><p>DEUDA ABIERTA de Fase B PR-1, en orden: (1) los callbacks de edicion de la tarjeta de borrador son STUBS VACIOS — hoy solo se guarda lo que Aura acierta completo, que es lo contrario del principio de diseno &quot;estar equivocado cuesta un tap&quot;; (2) transferencias, que necesitan el FX de la app para tasa y monto destino; (3) recurrentes, con su previsualizacion de tres fechas.</p></div>
-  <div class="card"><h3>Próxima acción</h3><p>Cablear los pickers de edicion de la tarjeta (categoria, cuenta, fecha, monto) reusando CustomDropdown y AppDatePickerSheet. Sin eso la tarjeta muestra el campo mal inferido pero no deja corregirlo.</p></div>
+  <div class="card"><h3>Foco actual</h3><p>Nada en vuelo. La decision pendiente NO es de codigo: la iniciativa aparte docs/specs/transaction-capture.md quiere el borrador fuera de features/assistant/ en su F1, y esa promocion se encarecio con cada tipo de borrador que agrego la Fase B. Antes de arrancar la Fase C conviene decidir si esa promocion va primero.</p></div>
+  <div class="card"><h3>Próxima acción</h3><p>Decision de secuencia con Benjamin: Fase C (curador) directamente, o la promocion del borrador a capa compartida antes. Ninguna esta empezada.</p></div>
 </div>
-<div class="strip"><h3>Bloqueos</h3><ul><li>Ninguno. La deuda esta en current_focus, no hay bloqueos.</li><li>RESUELTO 2026-07-21: get_forecast_insights devolvia 405 por estar declarada STABLE mientras llamaba a get_balance_projection (VOLATILE, crea temp tables). PostgREST corre STABLE en transaccion de solo lectura. Migracion fix_get_forecast_insights_volatility; verificado por HTTP con 200.</li></ul></div>
+<div class="strip"><h3>Bloqueos</h3><ul><li>Ninguno para Fase B.</li><li>ATENCION (2026-07-22): docs/specs/transaction-capture.md (iniciativa APARTE, backlog) reclama el borrador para una capa compartida en su F1. Benjamin confirmo que es backlog y que sigamos. Cada tipo de borrador agregado encarece esa promocion; ya van dos (transferencia y recurrente).</li><li>RESUELTO 2026-07-21: get_forecast_insights devolvia 405 por estar declarada STABLE mientras llamaba a get_balance_projection (VOLATILE, crea temp tables). PostgREST corre STABLE en transaccion de solo lectura. Migracion fix_get_forecast_insights_volatility; verificado por HTTP con 200.</li></ul></div>
 <div class="sec">Fases</div>
 <div class="phases">
         <div class="row">
@@ -118,8 +118,8 @@ h1{font-size:clamp(22px,4vw,30px);font-weight:700;letter-spacing:-.02em;margin:0
         </div>
         <div class="row">
           <div class="name">B · Captura conversacional (describe -&gt; draft txn -&gt; confirm)</div>
-          <div class="st"><span class="chip" style="color:#2563eb;background:#2563eb1a;border-color:#2563eb66"><i style="background:#2563eb"></i>active</span></div>
-          <div class="ho">PR-1 (#337) mergeado: gasto e ingreso end-to-end con tarjeta de borrador editable, clave de idempotencia UUIDv5 y gate en device. El modelo NUNCA escribe: emite un borrador y el cliente escribe tras confirmar. PENDIENTE: pickers de edicion (stubs vacios), transferencias (FX), recurrentes (preview de 3 fechas). <code>337</code></div>
+          <div class="st"><span class="chip" style="color:#16a34a;background:#16a34a1a;border-color:#16a34a66"><i style="background:#16a34a"></i>done</span></div>
+          <div class="ho">PR-1 (#337) mergeado: gasto e ingreso end-to-end con tarjeta de borrador editable, clave de idempotencia UUIDv5 y gate en device. El modelo NUNCA escribe: emite un borrador y el cliente escribe tras confirmar. Slice 1 MERGEADO (#339, b78615cf): pickers de edicion + descarte, mas dos bugs de doble-escritura/prompt cazados por el gate. Slices 2 y 3 en PR #340: transferencias con la tasa resuelta por la app (nunca por el modelo) y recurrentes con la previsualizacion de 3 fechas portada linea por linea de compute_recurrence_date. <code>340</code></div>
         </div>
         <div class="row">
           <div class="name">C · Curador (recategorizacion batch + sugerencia en-form)</div>
