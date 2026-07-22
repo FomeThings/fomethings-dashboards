@@ -10,7 +10,7 @@ h1{font-size:clamp(22px,4vw,30px);font-weight:700;letter-spacing:-.02em;margin:0
 .meta{display:flex;flex-wrap:wrap;gap:6px 16px;color:var(--mut);font-size:13.5px;margin-bottom:24px}.meta b{color:var(--fg)}
 .tnum{font-variant-numeric:tabular-nums}
 .track{height:9px;background:var(--surf2);border:1px solid var(--bd);border-radius:999px;overflow:hidden}
-.track>i{display:block;height:100%;width:70%;background:linear-gradient(90deg,var(--a),var(--a2))}
+.track>i{display:block;height:100%;width:74%;background:linear-gradient(90deg,var(--a),var(--a2))}
 .cap{display:flex;justify-content:space-between;margin:8px 0 26px;font-size:12.5px;color:var(--mut)}
 .cards{display:grid;grid-template-columns:1fr 1fr;gap:13px;margin-bottom:13px}@media(max-width:560px){.cards{grid-template-columns:1fr}}
 .card,.strip{background:var(--surf);border:1px solid var(--bd);border-radius:13px;padding:14px 16px;box-shadow:0 1px 2px rgba(15,23,42,.05),0 8px 22px rgba(15,23,42,.04)}
@@ -31,12 +31,12 @@ h1{font-size:clamp(22px,4vw,30px);font-weight:700;letter-spacing:-.02em;margin:0
 <a class="back" href="../">← Todos los dashboards</a>
 <p class="eyebrow">FomeThings · Umbrella Mission Control</p>
 <h1>Mekka — MVP</h1>
-<div class="meta"><span>Fase actual: <b>F4</b></span><span class="tnum">Actualizado 2026-07-21T00:40</span></div>
+<div class="meta"><span>Fase actual: <b>F4</b></span><span class="tnum">Actualizado 2026-07-22T02:35</span></div>
 <div class="track"><i></i></div>
-<div class="cap"><span>3/6 fases · 16/23 pasos</span><span class="tnum">70%</span></div>
+<div class="cap"><span>3/6 fases · 17/23 pasos</span><span class="tnum">74%</span></div>
 <div class="cards">
-  <div class="card"><h3>Foco actual</h3><p>F4.3 (detalle de diagnóstico) mergeado (#36, ADR 0016). DESPUÉS, dos sub-proyectos TRANSVERSALES de alineación (no son fases del MVP, pero base para lo que sigue): A — alineación OS 1.3.1→1.4.2 (#37, ADR 0017): token-gate genérico monorepo-aware (tapó el hueco de apps/mekka_app/lib que NO se gateaba), render_umbrella local, comandos /pre-pr //umbrella //drive-archive, agente locator, integration-checklists, workflow.md al día. B — motion craft L10 (#38, ADR 0018): standardCurve (Cubic canon) + pressScale tokens; press-feedback en MekkaButton (Listener, sin double-fire); crossfade tri-estado en DiagnosticScreen; regla rules-motion.md. Ambos CONFORMANT, gate verde 89%. FLUJO DE MOCKS acordado (feedback del founder): mockup-antes + render-después por pantalla (ver memoria).</p></div>
-  <div class="card"><h3>Próxima acción</h3><p>F4.2: onboarding del dongle (first-run, guía de conexión BLE, permisos con timing/copy honesto V13), CON el flujo de mocks. Base ya al día (OS 1.4.2 + motion). Luego F4.4 Hoy (Home real, absorbe el trigger demo de F4.3) · F4.5 expediente · F4.6 viajes · F4.7 perfil.</p></div>
+  <div class="card"><h3>Foco actual</h3><p>F4.2 (onboarding del dongle) MERGEADO a main (PR #39, squash a795e35) — 15/15 tareas, gate verde (255 tests monorepo, cobertura 88%, analyze/format/imports/token-gate limpios). spec-conformance-reviewer: CONFORMANT sobre OB1-OB38, cero drops silenciosos. Destilado a ADR 0019. El wizard de 5 pasos camina de punta a punta con gate de first-run, guias OEM y salidas honestas. PIVOTE registrado en spec 11: las ilustraciones son dos Lottie derivadas de un mismo archivo de Carsync, re-tematizadas en build-time porque se verifico que lottie 3.3.2 no soporta slots.</p></div>
+  <div class="card"><h3>Próxima acción</h3><p>F4.4 Hoy — el Home real: absorbe el trigger demo de F4.3 y construye la tarjeta Salud de tu Mekka que reanuda el onboarding de quien lo salteo (hoy solo se puede volver por Perfil). Luego F4.5 expediente, F4.6 viajes, F4.7 perfil. PENDIENTE DE PRODUCTO heredado de F4.2: el registro curado de dongles es un stub de 3 modelos y ya alimenta la lista de compatibles que ve el usuario ante una falla — probar hardware real antes de exponerla (V15). Y leer el texto de la Lottie Simple License (confirmada por busqueda, no de la fuente: lottiefiles.com bloquea con 403).</p></div>
 </div>
 <div class="strip"><h3>Bloqueos</h3><span class="ok">✓ Ninguno</span></div>
 <div class="sec">Fases</div>
@@ -123,8 +123,8 @@ h1{font-size:clamp(22px,4vw,30px);font-weight:700;letter-spacing:-.02em;margin:0
         </div>
         <div class="row">
           <div class="name">F4 · Pantallas de features</div>
-          <div class="st"><span class="chip" style="color:#2563eb;background:#2563eb1a;border-color:#2563eb66"><i style="background:#2563eb"></i>active</span><span class="count">2/7</span></div>
-          <div class="ho">Pantallas que componen el design system (F2) sobre la lógica (F1) y el shell (F3). F4.1 (identidad de vehículo) en main (#34/#35, ADR 0015). Sigue F4.3 (héroe de diagnóstico), luego onboarding · Hoy · expediente · viajes · perfil. <code>#34, #35, #36</code></div>
+          <div class="st"><span class="chip" style="color:#2563eb;background:#2563eb1a;border-color:#2563eb66"><i style="background:#2563eb"></i>active</span><span class="count">3/7</span></div>
+          <div class="ho">Pantallas que componen el design system (F2) sobre la lógica (F1) y el shell (F3). F4.1 (identidad de vehículo) en main (#34/#35, ADR 0015). Sigue F4.3 (héroe de diagnóstico), luego onboarding · Hoy · expediente · viajes · perfil. <code>#34, #35, #36, #39</code></div>
         </div>
         <div class="row step">
           <div class="name">4.1 identidad de vehículo (add-car + switcher + auto activo + kit inputs/overlays)</div>
@@ -138,7 +138,7 @@ h1{font-size:clamp(22px,4vw,30px);font-weight:700;letter-spacing:-.02em;margin:0
         </div>
         <div class="row step">
           <div class="name">4.2 onboarding del dongle</div>
-          <div class="st"><span class="chip" style="color:#94a3b8;background:#94a3b81a;border-color:#94a3b866"><i style="background:#94a3b8"></i>planned</span></div>
+          <div class="st"><span class="chip" style="color:#16a34a;background:#16a34a1a;border-color:#16a34a66"><i style="background:#16a34a"></i>done</span></div>
           <div class="ho"></div>
         </div>
         <div class="row step">
