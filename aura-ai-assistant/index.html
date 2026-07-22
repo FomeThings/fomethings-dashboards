@@ -10,7 +10,7 @@ h1{font-size:clamp(22px,4vw,30px);font-weight:700;letter-spacing:-.02em;margin:0
 .meta{display:flex;flex-wrap:wrap;gap:6px 16px;color:var(--mut);font-size:13.5px;margin-bottom:24px}.meta b{color:var(--fg)}
 .tnum{font-variant-numeric:tabular-nums}
 .track{height:9px;background:var(--surf2);border:1px solid var(--bd);border-radius:999px;overflow:hidden}
-.track>i{display:block;height:100%;width:67%;background:linear-gradient(90deg,var(--a),var(--a2))}
+.track>i{display:block;height:100%;width:87%;background:linear-gradient(90deg,var(--a),var(--a2))}
 .cap{display:flex;justify-content:space-between;margin:8px 0 26px;font-size:12.5px;color:var(--mut)}
 .cards{display:grid;grid-template-columns:1fr 1fr;gap:13px;margin-bottom:13px}@media(max-width:560px){.cards{grid-template-columns:1fr}}
 .card,.strip{background:var(--surf);border:1px solid var(--bd);border-radius:13px;padding:14px 16px;box-shadow:0 1px 2px rgba(15,23,42,.05),0 8px 22px rgba(15,23,42,.04)}
@@ -31,14 +31,14 @@ h1{font-size:clamp(22px,4vw,30px);font-weight:700;letter-spacing:-.02em;margin:0
 <a class="back" href="../">← Todos los dashboards</a>
 <p class="eyebrow">FomeThings · Umbrella Mission Control</p>
 <h1>Aura IA - Asistente Conversacional</h1>
-<div class="meta"><span>Fase actual: <b>Fase A (Analista, chat read-only) MERGEADA el 2026-07-21: PR #331 (squash ca95fe10) + fix de teclado e1bf975c. Plataforma viva en prod y validada end-to-end contra Gemini real. Residuo destilado en ADR 0051 y plan borrado. Queda un PR-2 de polish visual/UX del chat antes de considerar la Fase A entregable de cara al usuario. Fases B y C reusan esta plataforma sin cambios.</b></span><span class="tnum">Actualizado 2026-07-21T07:10</span></div>
+<div class="meta"><span>Fase actual: <b>Fase A CERRADA (ADR 0051) y su polish PR-2 mergeado (#333). Fase B PR-1 MERGEADA el 2026-07-22 (#337): captura conversacional de gasto e ingreso, con gate en device completo — una frase real produjo exactamente una fila pese a un doble tap deliberado. Transferencias y recurrentes quedan definidos y validados pero NO ofrecidos, esperando el camino de FX.</b></span><span class="tnum">Actualizado 2026-07-22T01:00</span></div>
 <div class="track"><i></i></div>
-<div class="cap"><span>1/4 fases · 12/18 pasos</span><span class="tnum">67%</span></div>
+<div class="cap"><span>2/4 fases · 13/15 pasos</span><span class="tnum">87%</span></div>
 <div class="cards">
-  <div class="card"><h3>Foco actual</h3><p>PR-2: polish visual/UX del chat. El proceso correcto es MOCKUPS APROBADOS ANTES DE CODEAR (en la Fase A se salto ese paso). Problemas identificados: mensajes anclados arriba dejando un vacio grande (un chat ancla al fondo); altura fija 72% sin importar el contenido; burbujas incoherentes (usuario = pildora de marca vs Aura = rectangulo casi full-width con borde, parece card); contenedores anidados (card tonal dentro de caja con borde); header pelado sin limpiar-chat ni disclaimer; composer con TextField crudo, fuera de la maquina de 6 bordes del design system y sin estado disabled real en el boton de envio. SIN VERIFICAR: dark mode y tablet.</p></div>
-  <div class="card"><h3>Próxima acción</h3><p>Producir mockups de cada estado (vacio, conversacion, pensando, error/paywall) en telefono + tablet, claro + oscuro. Aprobacion de Benjamin. Recien ahi codigo, y despues gate visual con capturas reales.</p></div>
+  <div class="card"><h3>Foco actual</h3><p>DEUDA ABIERTA de Fase B PR-1, en orden: (1) los callbacks de edicion de la tarjeta de borrador son STUBS VACIOS — hoy solo se guarda lo que Aura acierta completo, que es lo contrario del principio de diseno &quot;estar equivocado cuesta un tap&quot;; (2) transferencias, que necesitan el FX de la app para tasa y monto destino; (3) recurrentes, con su previsualizacion de tres fechas.</p></div>
+  <div class="card"><h3>Próxima acción</h3><p>Cablear los pickers de edicion de la tarjeta (categoria, cuenta, fecha, monto) reusando CustomDropdown y AppDatePickerSheet. Sin eso la tarjeta muestra el campo mal inferido pero no deja corregirlo.</p></div>
 </div>
-<div class="strip"><h3>Bloqueos</h3><ul><li>Ninguno tecnico. El PR-2 esta bloqueado por diseno: faltan los mockups y la aprobacion de Benjamin.</li><li>PRE-EXISTENTE (fuera de alcance de esta iniciativa): get_forecast_insights devuelve HTTP 405 &#x27;cannot execute CREATE TABLE in a read-only transaction&#x27; via PostgREST. Es uno de los 10 tools (degrada suave: el modelo recibe un error y sigue), pero probablemente tambien rompe la pantalla Forecast de la app. Investigar aparte.</li></ul></div>
+<div class="strip"><h3>Bloqueos</h3><ul><li>Ninguno. La deuda esta en current_focus, no hay bloqueos.</li><li>RESUELTO 2026-07-21: get_forecast_insights devolvia 405 por estar declarada STABLE mientras llamaba a get_balance_projection (VOLATILE, crea temp tables). PostgREST corre STABLE en transaccion de solo lectura. Migracion fix_get_forecast_insights_volatility; verificado por HTTP con 200.</li></ul></div>
 <div class="sec">Fases</div>
 <div class="phases">
         <div class="row">
@@ -108,33 +108,18 @@ h1{font-size:clamp(22px,4vw,30px);font-weight:700;letter-spacing:-.02em;margin:0
         </div>
         <div class="row">
           <div class="name">A2 · Polish visual/UX del chat (PR-2)</div>
-          <div class="st"><span class="chip" style="color:#2563eb;background:#2563eb1a;border-color:#2563eb66"><i style="background:#2563eb"></i>active</span><span class="count">0/4</span></div>
+          <div class="st"><span class="chip" style="color:#16a34a;background:#16a34a1a;border-color:#16a34a66"><i style="background:#16a34a"></i>done</span><span class="count">1/1</span></div>
           <div class="ho">La Fase A shippeo funcional, no pulida. Mockups (telefono + tablet, claro + oscuro) -&gt; aprobacion de Benjamin -&gt; codigo -&gt; gate visual. Incluye el borrar-historial del spec §10. </div>
         </div>
         <div class="row step">
-          <div class="name">M1 · Mockups de los 4 estados x 2 devices x 2 temas</div>
-          <div class="st"><span class="chip" style="color:#94a3b8;background:#94a3b81a;border-color:#94a3b866"><i style="background:#94a3b8"></i>pending</span></div>
-          <div class="ho"></div>
-        </div>
-        <div class="row step">
-          <div class="name">M2 · Aprobacion de Benjamin</div>
-          <div class="st"><span class="chip" style="color:#94a3b8;background:#94a3b81a;border-color:#94a3b866"><i style="background:#94a3b8"></i>pending</span></div>
-          <div class="ho"></div>
-        </div>
-        <div class="row step">
-          <div class="name">M3 · Implementacion + borrar-historial (spec §10)</div>
-          <div class="st"><span class="chip" style="color:#94a3b8;background:#94a3b81a;border-color:#94a3b866"><i style="background:#94a3b8"></i>pending</span></div>
-          <div class="ho"></div>
-        </div>
-        <div class="row step">
-          <div class="name">M4 · Gate visual con capturas reales</div>
-          <div class="st"><span class="chip" style="color:#94a3b8;background:#94a3b81a;border-color:#94a3b866"><i style="background:#94a3b8"></i>pending</span></div>
+          <div class="name">M1-M4 · Mockups, aprobacion, implementacion, gate visual</div>
+          <div class="st"><span class="chip" style="color:#16a34a;background:#16a34a1a;border-color:#16a34a66"><i style="background:#16a34a"></i>done</span></div>
           <div class="ho"></div>
         </div>
         <div class="row">
           <div class="name">B · Captura conversacional (describe -&gt; draft txn -&gt; confirm)</div>
-          <div class="st"><span class="chip" style="color:#94a3b8;background:#94a3b81a;border-color:#94a3b866"><i style="background:#94a3b8"></i>planned</span></div>
-          <div class="ho">Reusa la plataforma de A. Agrega tools de escritura tras confirm individual (ConfirmDialog canonico), draft-txn card, refreshAfterTransactionChange. </div>
+          <div class="st"><span class="chip" style="color:#2563eb;background:#2563eb1a;border-color:#2563eb66"><i style="background:#2563eb"></i>active</span></div>
+          <div class="ho">PR-1 (#337) mergeado: gasto e ingreso end-to-end con tarjeta de borrador editable, clave de idempotencia UUIDv5 y gate en device. El modelo NUNCA escribe: emite un borrador y el cliente escribe tras confirmar. PENDIENTE: pickers de edicion (stubs vacios), transferencias (FX), recurrentes (preview de 3 fechas). <code>337</code></div>
         </div>
         <div class="row">
           <div class="name">C · Curador (recategorizacion batch + sugerencia en-form)</div>
