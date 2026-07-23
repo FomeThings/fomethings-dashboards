@@ -40,4 +40,9 @@ umbrellas:
   - slug: aura-ai-assistant
     title: Aura IA - Asistente Conversacional
     project: AuraWallet
-    state: ../aurawallet/docs/plans/aura-ai-assistant/STATE.yaml
+    state: aura-ai-assistant/STATE.yaml
+    # ^ ARCHIVED (frozen) — the umbrella closed 2026-07-23 (ADRs 0051/0052/0053
+    # in the aurawallet repo) and its ephemeral docs/plans/ tracker was deleted
+    # per the plan lifecycle. This local copy is the permanent closure snapshot;
+    # do not repoint it back to a project-repo plan (a closed umbrella does not
+    # reopen).

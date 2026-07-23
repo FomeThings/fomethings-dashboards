@@ -10,7 +10,7 @@ h1{font-size:clamp(22px,4vw,30px);font-weight:700;letter-spacing:-.02em;margin:0
 .meta{display:flex;flex-wrap:wrap;gap:6px 16px;color:var(--mut);font-size:13.5px;margin-bottom:24px}.meta b{color:var(--fg)}
 .tnum{font-variant-numeric:tabular-nums}
 .track{height:9px;background:var(--surf2);border:1px solid var(--bd);border-radius:999px;overflow:hidden}
-.track>i{display:block;height:100%;width:93%;background:linear-gradient(90deg,var(--a),var(--a2))}
+.track>i{display:block;height:100%;width:100%;background:linear-gradient(90deg,var(--a),var(--a2))}
 .cap{display:flex;justify-content:space-between;margin:8px 0 26px;font-size:12.5px;color:var(--mut)}
 .cards{display:grid;grid-template-columns:1fr 1fr;gap:13px;margin-bottom:13px}@media(max-width:560px){.cards{grid-template-columns:1fr}}
 .card,.strip{background:var(--surf);border:1px solid var(--bd);border-radius:13px;padding:14px 16px;box-shadow:0 1px 2px rgba(15,23,42,.05),0 8px 22px rgba(15,23,42,.04)}
@@ -31,100 +31,35 @@ h1{font-size:clamp(22px,4vw,30px);font-weight:700;letter-spacing:-.02em;margin:0
 <a class="back" href="../">← Todos los dashboards</a>
 <p class="eyebrow">FomeThings · Umbrella Mission Control</p>
 <h1>Aura IA - Asistente Conversacional</h1>
-<div class="meta"><span>Fase actual: <b>Fases A y B CERRADAS. B destilada en ADR 0052 y su PLAN borrado; shippeo en tres PRs (#337 gasto/ingreso, #339 correccion del borrador, #340 transferencias + recurrentes). Queda solo la Fase C (curador).</b></span><span class="tnum">Actualizado 2026-07-22T12:30</span></div>
+<div class="meta"><span>Fase actual: <b>C — CERRADA</b></span><span class="tnum">Actualizado 2026-07-23T01:00</span></div>
 <div class="track"><i></i></div>
-<div class="cap"><span>3/4 fases · 14/15 pasos</span><span class="tnum">93%</span></div>
+<div class="cap"><span>4/4 fases · 4/4 pasos</span><span class="tnum">100%</span></div>
 <div class="cards">
-  <div class="card"><h3>Foco actual</h3><p>Nada en vuelo. La decision pendiente NO es de codigo: la iniciativa aparte docs/specs/transaction-capture.md quiere el borrador fuera de features/assistant/ en su F1, y esa promocion se encarecio con cada tipo de borrador que agrego la Fase B. Antes de arrancar la Fase C conviene decidir si esa promocion va primero.</p></div>
-  <div class="card"><h3>Próxima acción</h3><p>Decision de secuencia con Benjamin: Fase C (curador) directamente, o la promocion del borrador a capa compartida antes. Ninguna esta empezada.</p></div>
+  <div class="card"><h3>Foco actual</h3><p>Iniciativa cerrada 2026-07-23. Aura IA completa: un asistente conversacional in-app con tres capas. A (analista read-only, ADR 0051): chat con grounding (toda cifra viene de un tool-call), RLS caller-scoped como sandbox, Gemini tras LlmProvider agnostico. B (captura, ADR 0052): describir un movimiento devuelve un borrador editable; el modelo NUNCA escribe, el cliente escribe tras confirmar. C (curador, ADR 0053): sugerencia en vivo sin modelo en el formulario, y un pase en lote que recategoriza el historial (el modelo propone descripcion+categoria, cada cifra la mide el servidor), revisable en hoja apilada, reversible entero, con entrada desde el chat y desde Ajustes.</p></div>
+  <div class="card"><h3>Próxima acción</h3><p>Ninguna -- cerrada. Residuo permanente en ADRs 0051-0053 + spec §15/§16. Los gates en device cazaron los bugs de mayor valor (desenvuelto de validateMap en C1, replay de idempotencia en C3), sostenidos ahora por tests de datasource y cubit. Fast-follows NO comprometidos: token streaming, tarjetas ricas (trend), y la promocion del borrador a capa compartida vive en la iniciativa aparte &#x27;Automatic Transaction Capture&#x27; (BACKLOG, docs/specs/transaction-capture.md).</p></div>
 </div>
-<div class="strip"><h3>Bloqueos</h3><ul><li>Ninguno para Fase B.</li><li>ATENCION (2026-07-22): docs/specs/transaction-capture.md (iniciativa APARTE, backlog) reclama el borrador para una capa compartida en su F1. Benjamin confirmo que es backlog y que sigamos. Cada tipo de borrador agregado encarece esa promocion; ya van dos (transferencia y recurrente).</li><li>RESUELTO 2026-07-21: get_forecast_insights devolvia 405 por estar declarada STABLE mientras llamaba a get_balance_projection (VOLATILE, crea temp tables). PostgREST corre STABLE en transaccion de solo lectura. Migracion fix_get_forecast_insights_volatility; verificado por HTTP con 200.</li></ul></div>
+<div class="strip"><h3>Bloqueos</h3><span class="ok">✓ Ninguno</span></div>
 <div class="sec">Fases</div>
 <div class="phases">
         <div class="row">
           <div class="name">A · Analista (chat read-only) — plataforma</div>
-          <div class="st"><span class="chip" style="color:#16a34a;background:#16a34a1a;border-color:#16a34a66"><i style="background:#16a34a"></i>done</span><span class="count">12/12</span></div>
-          <div class="ho">Mergeada 2026-07-21 (ca95fe10 + e1bf975c). Backend Deno + feature Flutter completos (2485 tests Flutter + 24 Deno). Smoke en emulador cazo 3 bugs de protocolo Gemini, todos corregidos y verificados live. Plan destilado en ADR 0051 y borrado. <code>331</code></div>
-        </div>
-        <div class="row step">
-          <div class="name">T1 · Data model (tablas + RLS + quota RPC + refund)</div>
           <div class="st"><span class="chip" style="color:#16a34a;background:#16a34a1a;border-color:#16a34a66"><i style="background:#16a34a"></i>done</span></div>
-          <div class="ho"></div>
-        </div>
-        <div class="row step">
-          <div class="name">T2 · Edge fn scaffold (auth + Premium/quota gate)</div>
-          <div class="st"><span class="chip" style="color:#16a34a;background:#16a34a1a;border-color:#16a34a66"><i style="background:#16a34a"></i>done</span></div>
-          <div class="ho"></div>
-        </div>
-        <div class="row step">
-          <div class="name">T3 · LlmProvider + GeminiProvider</div>
-          <div class="st"><span class="chip" style="color:#16a34a;background:#16a34a1a;border-color:#16a34a66"><i style="background:#16a34a"></i>done</span></div>
-          <div class="ho"></div>
-        </div>
-        <div class="row step">
-          <div class="name">T4 · Read tools sobre RPCs (caller-scoped)</div>
-          <div class="st"><span class="chip" style="color:#16a34a;background:#16a34a1a;border-color:#16a34a66"><i style="background:#16a34a"></i>done</span></div>
-          <div class="ho"></div>
-        </div>
-        <div class="row step">
-          <div class="name">T5 · Orquestacion + persistencia + grounding</div>
-          <div class="st"><span class="chip" style="color:#16a34a;background:#16a34a1a;border-color:#16a34a66"><i style="background:#16a34a"></i>done</span></div>
-          <div class="ho"></div>
-        </div>
-        <div class="row step">
-          <div class="name">T6 · Domain layer + quota failure plumbing</div>
-          <div class="st"><span class="chip" style="color:#16a34a;background:#16a34a1a;border-color:#16a34a66"><i style="background:#16a34a"></i>done</span></div>
-          <div class="ho"></div>
-        </div>
-        <div class="row step">
-          <div class="name">T7 · Data layer (datasource + repository)</div>
-          <div class="st"><span class="chip" style="color:#16a34a;background:#16a34a1a;border-color:#16a34a66"><i style="background:#16a34a"></i>done</span></div>
-          <div class="ho"></div>
-        </div>
-        <div class="row step">
-          <div class="name">T8 · AssistantCubit + states</div>
-          <div class="st"><span class="chip" style="color:#16a34a;background:#16a34a1a;border-color:#16a34a66"><i style="background:#16a34a"></i>done</span></div>
-          <div class="ho"></div>
-        </div>
-        <div class="row step">
-          <div class="name">T9 · Chat sheet UI (bubbles, rich card, composer)</div>
-          <div class="st"><span class="chip" style="color:#16a34a;background:#16a34a1a;border-color:#16a34a66"><i style="background:#16a34a"></i>done</span></div>
-          <div class="ho"></div>
-        </div>
-        <div class="row step">
-          <div class="name">T10 · DI + dashboard dock button</div>
-          <div class="st"><span class="chip" style="color:#16a34a;background:#16a34a1a;border-color:#16a34a66"><i style="background:#16a34a"></i>done</span></div>
-          <div class="ho"></div>
-        </div>
-        <div class="row step">
-          <div class="name">T11 · Verificacion + PR + smoke en emulador (3 bugs fixed)</div>
-          <div class="st"><span class="chip" style="color:#16a34a;background:#16a34a1a;border-color:#16a34a66"><i style="background:#16a34a"></i>done</span></div>
-          <div class="ho"></div>
-        </div>
-        <div class="row step">
-          <div class="name">T12 · Cierre: spec-conformance -&gt; ADR 0051 -&gt; plan borrado</div>
-          <div class="st"><span class="chip" style="color:#16a34a;background:#16a34a1a;border-color:#16a34a66"><i style="background:#16a34a"></i>done</span></div>
-          <div class="ho"></div>
+          <div class="ho">Plataforma completa: Edge Function assistant-chat (Deno), LlmProvider + GeminiProvider, read tools sobre RPCs caller-scoped, metering server-side atomico anclado a NY, historial persistido, chat sheet + boton del dock. Smoke en emulador cazo 3 bugs de protocolo Gemini, corregidos. Distilado en ADR 0051. <code>331</code></div>
         </div>
         <div class="row">
-          <div class="name">A2 · Polish visual/UX del chat (PR-2)</div>
-          <div class="st"><span class="chip" style="color:#16a34a;background:#16a34a1a;border-color:#16a34a66"><i style="background:#16a34a"></i>done</span><span class="count">1/1</span></div>
-          <div class="ho">La Fase A shippeo funcional, no pulida. Mockups (telefono + tablet, claro + oscuro) -&gt; aprobacion de Benjamin -&gt; codigo -&gt; gate visual. Incluye el borrar-historial del spec §10. </div>
-        </div>
-        <div class="row step">
-          <div class="name">M1-M4 · Mockups, aprobacion, implementacion, gate visual</div>
+          <div class="name">A2 · Polish visual/UX del chat</div>
           <div class="st"><span class="chip" style="color:#16a34a;background:#16a34a1a;border-color:#16a34a66"><i style="background:#16a34a"></i>done</span></div>
-          <div class="ho"></div>
+          <div class="ho">Pulido tras el ship funcional de A: mockups (telefono+tablet, claro+oscuro) -&gt; aprobacion -&gt; codigo -&gt; gate visual. Incluye el borrar-historial del §10. </div>
         </div>
         <div class="row">
-          <div class="name">B · Captura conversacional (describe -&gt; draft txn -&gt; confirm)</div>
+          <div class="name">B · Captura conversacional (describe -&gt; draft -&gt; confirm)</div>
           <div class="st"><span class="chip" style="color:#16a34a;background:#16a34a1a;border-color:#16a34a66"><i style="background:#16a34a"></i>done</span></div>
-          <div class="ho">PR-1 (#337) mergeado: gasto e ingreso end-to-end con tarjeta de borrador editable, clave de idempotencia UUIDv5 y gate en device. El modelo NUNCA escribe: emite un borrador y el cliente escribe tras confirmar. Slice 1 MERGEADO (#339, b78615cf): pickers de edicion + descarte, mas dos bugs de doble-escritura/prompt cazados por el gate. Slices 2 y 3 en PR #340: transferencias con la tasa resuelta por la app (nunca por el modelo) y recurrentes con la previsualizacion de 3 fechas portada linea por linea de compute_recurrence_date. <code>340</code></div>
+          <div class="ho">Gasto, ingreso, transferencia (tasa resuelta por la app, nunca por el modelo) y recurrentes (previsualizacion de 3 fechas portada de compute_recurrence_date). Clave de idempotencia UUIDv5. El modelo emite un borrador; el cliente escribe tras el tap. PRs #337/#339/#340. <code>340</code></div>
         </div>
         <div class="row">
           <div class="name">C · Curador (recategorizacion batch + sugerencia en-form)</div>
-          <div class="st"><span class="chip" style="color:#94a3b8;background:#94a3b81a;border-color:#94a3b866"><i style="background:#94a3b8"></i>planned</span></div>
-          <div class="ho">Reusa la plataforma de A. Bulk-review screen + sugerencia en vivo dentro del form, category write RPCs, refreshAfterCategoryChange. </div>
+          <div class="st"><span class="chip" style="color:#16a34a;background:#16a34a1a;border-color:#16a34a66"><i style="background:#16a34a"></i>done</span></div>
+          <div class="ho">C1 sugerencia en vivo sin modelo (#341). C2 backend en prod: tablas de lote + apply/undo/read-back/cooldown, curate.ts, refund &#x27;Premium sin contador&#x27;. C3 hoja de revision apilada con default cross-group, la fila declara el pago recurrente, deshacer persistente. C2c: el modelo declina reestructurar la taxonomia y manda a Ajustes sin escanear. Entrada desde Ajustes con escaneo persist:false (sin poluir el chat). PRs #341/#344/#345 + 75e9522b. Gate en device paso todos los casos; cazo y arreglo un bug de idempotencia (clave por-mensaje -&gt; por-intento). <code>344</code></div>
         </div></div>
 <p class="foot">Generado desde STATE.yaml por render_umbrella.py — no editar a mano.</p>
 </div></body></html>
