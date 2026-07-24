@@ -10,7 +10,7 @@ h1{font-size:clamp(22px,4vw,30px);font-weight:700;letter-spacing:-.02em;margin:0
 .meta{display:flex;flex-wrap:wrap;gap:6px 16px;color:var(--mut);font-size:13.5px;margin-bottom:24px}.meta b{color:var(--fg)}
 .tnum{font-variant-numeric:tabular-nums}
 .track{height:9px;background:var(--surf2);border:1px solid var(--bd);border-radius:999px;overflow:hidden}
-.track>i{display:block;height:100%;width:83%;background:linear-gradient(90deg,var(--a),var(--a2))}
+.track>i{display:block;height:100%;width:87%;background:linear-gradient(90deg,var(--a),var(--a2))}
 .cap{display:flex;justify-content:space-between;margin:8px 0 26px;font-size:12.5px;color:var(--mut)}
 .cards{display:grid;grid-template-columns:1fr 1fr;gap:13px;margin-bottom:13px}@media(max-width:560px){.cards{grid-template-columns:1fr}}
 .card,.strip{background:var(--surf);border:1px solid var(--bd);border-radius:13px;padding:14px 16px;box-shadow:0 1px 2px rgba(15,23,42,.05),0 8px 22px rgba(15,23,42,.04)}
@@ -31,12 +31,12 @@ h1{font-size:clamp(22px,4vw,30px);font-weight:700;letter-spacing:-.02em;margin:0
 <a class="back" href="../">← Todos los dashboards</a>
 <p class="eyebrow">FomeThings · Umbrella Mission Control</p>
 <h1>Mekka — MVP</h1>
-<div class="meta"><span>Fase actual: <b>F4</b></span><span class="tnum">Actualizado 2026-07-22T18:40</span></div>
+<div class="meta"><span>Fase actual: <b>F4</b></span><span class="tnum">Actualizado 2026-07-23T00:30</span></div>
 <div class="track"><i></i></div>
-<div class="cap"><span>3/6 fases · 19/23 pasos</span><span class="tnum">83%</span></div>
+<div class="cap"><span>3/6 fases · 20/23 pasos</span><span class="tnum">87%</span></div>
 <div class="cards">
-  <div class="card"><h3>Foco actual</h3><p>F4.5 (Expediente) MERGEADO a main (PR #41, squash 0c8a06e) — 14 commits, gate verde (401 tests, cobertura 90%, format/imports/deps/analyze/tokens limpios). Destilado a ADR 0021. Lo que este sub-plan dejo como leccion: (1) la mentira del veredicto de F4.4 tenia una TERCERA cara — un escaneo rearmado desde el log que vuelve vacio se leia como auto sano; se caza igual que las otras dos, preguntando si el assert afirma lo honesto. (2) Tres defectos que SOLO un render encontro y ningun test hubiera pillado: package:pdf no instancia fuentes variables (titulos capilares → instancias estaticas via tool/build_pdf_fonts.py), la tabla del informe no paginaba dentro de un contenedor decorado (→ hijo directo del MultiPage), y el informe pedia su propia escala de tipo (ReportType, no MekkaType — pixeles-de-telefono vs A4 impresa). (3) El conformance vino DIVERGENT por UNA cosa: dos hallazgos de DS diferidos vivian solo en un mensaje de commit; reciclado a CLAUDE.md antes de borrar el plan.</p></div>
-  <div class="card"><h3>Próxima acción</h3><p>F4.6 viajes — consume packages/trips (metricas semanales + reglas de alerta ya construidas, y SimulatedTripMetricsSource para dev/harness). Es la pantalla espejo de Hoy: el stream de conduccion con detalle por viaje y tendencias. Luego F4.7 perfil (garage + cuenta anonimo→vincular + sync/export + guias de dongle). DEUDA REGISTRADA en CLAUDE.md: Severity.unknown en el DS · motion de entrada de Hoy y de Expediente (ADR 0018) · dos hallazgos del gate visual de F4.5 (peso del borde del secundario + contraste del riel en dark, ambos deuda de DS compartida, ADR 0021). PENDIENTES DE PRODUCTO: probar dongles reales antes de exponer la lista de compatibles (V15) y leer la Lottie Simple License de la fuente.</p></div>
+  <div class="card"><h3>Foco actual</h3><p>F4.6 (Viajes) MERGEADO a main (PR #42, squash ef2f398) — 13 commits, gate verde (471 tests, cobertura 90%, format/imports/deps/analyze/tokens limpios). Destilado a ADR 0022. Lo que este sub-plan dejo como leccion: (1) LA MEJOR CAZA LA HIZO BENJAMIN, no un gate: el mockup inventaba titulos de viaje «Casa → Trabajo» y el pregunto «como sabe que es trabajo o casa?». No puede — el payload no tiene ubicacion (R32). Un viaje se identifica por su HORA. Quedo como garantia doble: estructural (Trip sin campo de ubicacion) y como assert (el titulo de cada fila debe ser HH:MM). Leccion: mostrar el mockup temprano paga; un ojo humano caza inventos que ningun test define. (2) El disclaimer del dongle tambien nacio de una intuicion suya y aterriza V14/V15/V10 como consentimiento al primer uso — con copy forward-honest (nunca «estamos registrando», que es F5) y un test que prohibe la frase. (3) Otra vez un render encontro lo que ningun test: el badge del estado vacio se estiraba a todo el ancho (hijo directo de ListView = ancho tight). (4) El conformance vino DIVERGENT porque el RESIDUO SOBRE-AFIRMABA un assert que no existia — util recordar que el residuo tambien se audita.</p></div>
+  <div class="card"><h3>Próxima acción</h3><p>F4.7 perfil — el ULTIMO sub-plan de F4 y la ultima pantalla placeholder que queda. Garage (autos, agregar/editar/eliminar), cuenta (anonimo→vincular, R22), sync/respaldo, ajustes, privacidad, guias de dongle y ayuda. Con eso cierra F4 y el MVP queda a falta de F5 (capa nativa de viajes). DEUDA REGISTRADA en CLAUDE.md: Severity.unknown en el DS · motion de entrada de Hoy/Expediente/Viajes (ADR 0018) · dos hallazgos del gate visual de F4.5 (borde del secundario + contraste del riel en dark) · baseline de MetricTile a textScale 1.3 (F4.6, compartido con Hoy). PENDIENTES DE PRODUCTO: probar dongles reales antes de exponer la lista de compatibles (V15) y leer la Lottie Simple License de la fuente.</p></div>
 </div>
 <div class="strip"><h3>Bloqueos</h3><span class="ok">✓ Ninguno</span></div>
 <div class="sec">Fases</div>
@@ -123,8 +123,8 @@ h1{font-size:clamp(22px,4vw,30px);font-weight:700;letter-spacing:-.02em;margin:0
         </div>
         <div class="row">
           <div class="name">F4 · Pantallas de features</div>
-          <div class="st"><span class="chip" style="color:#2563eb;background:#2563eb1a;border-color:#2563eb66"><i style="background:#2563eb"></i>active</span><span class="count">5/7</span></div>
-          <div class="ho">Pantallas que componen el design system (F2) sobre la lógica (F1) y el shell (F3). F4.1 (identidad de vehículo) en main (#34/#35, ADR 0015). Sigue F4.3 (héroe de diagnóstico), luego onboarding · Hoy · expediente · viajes · perfil. <code>#34, #35, #36, #39, #40, #41</code></div>
+          <div class="st"><span class="chip" style="color:#2563eb;background:#2563eb1a;border-color:#2563eb66"><i style="background:#2563eb"></i>active</span><span class="count">6/7</span></div>
+          <div class="ho">Pantallas que componen el design system (F2) sobre la lógica (F1) y el shell (F3). F4.1 (identidad de vehículo) en main (#34/#35, ADR 0015). Sigue F4.3 (héroe de diagnóstico), luego onboarding · Hoy · expediente · viajes · perfil. <code>#34, #35, #36, #39, #40, #41, #42</code></div>
         </div>
         <div class="row step">
           <div class="name">4.1 identidad de vehículo (add-car + switcher + auto activo + kit inputs/overlays)</div>
@@ -153,7 +153,7 @@ h1{font-size:clamp(22px,4vw,30px);font-weight:700;letter-spacing:-.02em;margin:0
         </div>
         <div class="row step">
           <div class="name">4.6 viajes</div>
-          <div class="st"><span class="chip" style="color:#94a3b8;background:#94a3b81a;border-color:#94a3b866"><i style="background:#94a3b8"></i>planned</span></div>
+          <div class="st"><span class="chip" style="color:#16a34a;background:#16a34a1a;border-color:#16a34a66"><i style="background:#16a34a"></i>done</span></div>
           <div class="ho"></div>
         </div>
         <div class="row step">
